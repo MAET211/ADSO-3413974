@@ -9,7 +9,7 @@ CODE_ORGANIZATION: code-sena
 <h1 align="center">Miguel Angel Estrada Torrentes</h1>
 
 <p align="center">
-  <img src="[[https://avatars.githubusercontent.com/u/186105710?v=4" alt="Profile views](https://avatars.githubusercontent.com/u/211887032?s=96&v=4)](https://avatars.githubusercontent.com/u/211887032?s=96&v=4)">
+  <img src="https://avatars.githubusercontent.com/u/211887032?s=96&v=4">
 </p>
 
 ---
