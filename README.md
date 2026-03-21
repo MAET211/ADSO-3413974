@@ -15,7 +15,7 @@ CODE_ORGANIZATION: code-sena
 ---
 
 ## 📌 Perfil
-- **Nombre:** Juan Miguel Muñoz Castañeda
+- **Nombre:** Miguel Angel Estrada Torrentes 
 - **GitHub:** [@MAET211](https://github.com/MAET211)
 - **Email:** [miguelestradatorrente@gmail.com ](mailto:miguelestradatorrente@gmail.com )
 - **Organización institucional:** [code-sena](https://github.com/code-sena)
