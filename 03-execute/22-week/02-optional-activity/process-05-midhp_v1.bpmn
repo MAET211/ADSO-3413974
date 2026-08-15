@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_sena_macro" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.50.1" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.9.0">
+  <bpmn:collaboration id="Collaboration_1">
+    <bpmn:participant id="Participant_1" name="Macroproceso - Sistema de Gestión de Horarios SENA" processRef="Process_05midhp" />
+    <bpmn:participant id="Participant_2" name="Público&#10;(No autenticado)" processRef="Process_Publico" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_05midhp" isExecutable="true">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Director" name="Director de Centro&#10;(Visualización)">
+        <bpmn:flowNodeRef>Task_VisualizarReportes</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>EndEvent_Fin</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Aprendiz" name="Aprendiz&#10;(Consulta)">
+        <bpmn:flowNodeRef>Task_ConsultarHorario</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Join</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Instructor" name="Instructor&#10;(Seguimiento)">
+        <bpmn:flowNodeRef>Task_ConsultarAgenda</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_EvaluarRAP</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Coordinador" name="Coordinador Académico&#10;(Gestión core)">
+        <bpmn:flowNodeRef>Task_ProgramarFichas</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Task_AprobarPublicar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_Split</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Admin" name="Administrador de Soporte&#10;(Parametrización)">
+        <bpmn:flowNodeRef>Task_Parametrizar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>StartEvent_Admin</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:task id="Task_ProgramarFichas" name="Programar Fichas,&#10;Ambientes e Instructores">
+      <bpmn:incoming>Flow_2</bpmn:incoming>
+      <bpmn:outgoing>Flow_3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_AprobarPublicar" name="Aprobar y Publicar&#10;Horarios">
+      <bpmn:incoming>Flow_3</bpmn:incoming>
+      <bpmn:outgoing>Flow_4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Gateway_Split">
+      <bpmn:incoming>Flow_4</bpmn:incoming>
+      <bpmn:outgoing>Flow_5</bpmn:outgoing>
+      <bpmn:outgoing>Flow_6</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Task_ConsultarAgenda" name="Consultar Agenda y&#10;Registrar Asistencia">
+      <bpmn:incoming>Flow_5</bpmn:incoming>
+      <bpmn:outgoing>Flow_7</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_EvaluarRAP" name="Evaluar Resultados de&#10;Aprendizaje (RAP)">
+      <bpmn:incoming>Flow_7</bpmn:incoming>
+      <bpmn:outgoing>Flow_8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Task_ConsultarHorario" name="Consultar Horario&#10;de Clases">
+      <bpmn:incoming>Flow_6</bpmn:incoming>
+      <bpmn:outgoing>Flow_9</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:parallelGateway id="Gateway_Join">
+      <bpmn:incoming>Flow_8</bpmn:incoming>
+      <bpmn:incoming>Flow_9</bpmn:incoming>
+      <bpmn:outgoing>Flow_10</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:task id="Task_VisualizarReportes" name="Visualizar Reportes y&#10;Resultados del Centro">
+      <bpmn:incoming>Flow_10</bpmn:incoming>
+      <bpmn:outgoing>Flow_11</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_Fin" name="Fin del Ciclo&#10;Académico">
+      <bpmn:incoming>Flow_11</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:task id="Task_Parametrizar" name="Parametrizar Ambientes,&#10;Usuarios y Recursos">
+      <bpmn:incoming>Flow_1</bpmn:incoming>
+      <bpmn:outgoing>Flow_2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:startEvent id="StartEvent_Admin" name="Inicio del Trimestre&#10;Académico">
+      <bpmn:outgoing>Flow_1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="Task_Parametrizar" targetRef="Task_ProgramarFichas" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_ProgramarFichas" targetRef="Task_AprobarPublicar" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="Task_AprobarPublicar" targetRef="Gateway_Split" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="Gateway_Split" targetRef="Task_ConsultarAgenda" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="Gateway_Split" targetRef="Task_ConsultarHorario" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="Task_ConsultarAgenda" targetRef="Task_EvaluarRAP" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="Task_EvaluarRAP" targetRef="Gateway_Join" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="Task_ConsultarHorario" targetRef="Gateway_Join" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="Gateway_Join" targetRef="Task_VisualizarReportes" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="Task_VisualizarReportes" targetRef="EndEvent_Fin" />
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="StartEvent_Admin" targetRef="Task_Parametrizar" />
+  </bpmn:process>
+  <bpmn:process id="Process_Publico" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_Publico" name="Acceso al Portal&#10;(No autenticado)">
+      <bpmn:outgoing>Flow_Pub1</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="Task_ConsultaPublica" name="Consultar Información Pública&#10;(Oferta Académica, Sedes)">
+      <bpmn:incoming>Flow_Pub1</bpmn:incoming>
+      <bpmn:outgoing>Flow_Pub2</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent_Publico" name="Fin de Consulta Pública">
+      <bpmn:incoming>Flow_Pub2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_Pub1" sourceRef="StartEvent_Publico" targetRef="Task_ConsultaPublica" />
+    <bpmn:sequenceFlow id="Flow_Pub2" sourceRef="Task_ConsultaPublica" targetRef="EndEvent_Publico" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1">
+      <bpmndi:BPMNShape id="Participant_1_di" bpmnElement="Participant_1" isHorizontal="true">
+        <dc:Bounds x="160" y="40" width="1900" height="600" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Director_di" bpmnElement="Lane_Director" isHorizontal="true">
+        <dc:Bounds x="190" y="520" width="1870" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Aprendiz_di" bpmnElement="Lane_Aprendiz" isHorizontal="true">
+        <dc:Bounds x="190" y="400" width="1870" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Instructor_di" bpmnElement="Lane_Instructor" isHorizontal="true">
+        <dc:Bounds x="190" y="280" width="1870" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Coordinador_di" bpmnElement="Lane_Coordinador" isHorizontal="true">
+        <dc:Bounds x="190" y="160" width="1870" height="120" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Admin_di" bpmnElement="Lane_Admin" isHorizontal="true">
+        <dc:Bounds x="190" y="40" width="1870" height="120" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ProgramarFichas_di" bpmnElement="Task_ProgramarFichas">
+        <dc:Bounds x="550" y="180" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_AprobarPublicar_di" bpmnElement="Task_AprobarPublicar">
+        <dc:Bounds x="800" y="180" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Split_di" bpmnElement="Gateway_Split">
+        <dc:Bounds x="1050" y="200" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ConsultarAgenda_di" bpmnElement="Task_ConsultarAgenda">
+        <dc:Bounds x="1130" y="300" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_EvaluarRAP_di" bpmnElement="Task_EvaluarRAP">
+        <dc:Bounds x="1380" y="300" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ConsultarHorario_di" bpmnElement="Task_ConsultarHorario">
+        <dc:Bounds x="1130" y="420" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_Join_di" bpmnElement="Gateway_Join">
+        <dc:Bounds x="1630" y="440" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_VisualizarReportes_di" bpmnElement="Task_VisualizarReportes">
+        <dc:Bounds x="1720" y="540" width="220" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_Fin_di" bpmnElement="EndEvent_Fin">
+        <dc:Bounds x="1990" y="562" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1980" y="605" width="61" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_Parametrizar_di" bpmnElement="Task_Parametrizar">
+        <dc:Bounds x="360" y="60" width="200" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_Admin_di" bpmnElement="StartEvent_Admin">
+        <dc:Bounds x="262" y="82" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="255" y="125" width="55" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="298" y="100" />
+        <di:waypoint x="360" y="100" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="560" y="100" />
+        <di:waypoint x="680" y="100" />
+        <di:waypoint x="680" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="750" y="220" />
+        <di:waypoint x="800" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="1000" y="220" />
+        <di:waypoint x="1050" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="1070" y="220" />
+        <di:waypoint x="1070" y="340" />
+        <di:waypoint x="1130" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="1070" y="240" />
+        <di:waypoint x="1070" y="460" />
+        <di:waypoint x="1130" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="1330" y="340" />
+        <di:waypoint x="1380" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="1580" y="340" />
+        <di:waypoint x="1650" y="340" />
+        <di:waypoint x="1650" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="1330" y="460" />
+        <di:waypoint x="1630" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="1650" y="480" />
+        <di:waypoint x="1650" y="580" />
+        <di:waypoint x="1720" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1940" y="580" />
+        <di:waypoint x="1990" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Participant_2_di" bpmnElement="Participant_2" isHorizontal="true">
+        <dc:Bounds x="160" y="680" width="1900" height="120" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="StartEvent_Publico_di" bpmnElement="StartEvent_Publico">
+        <dc:Bounds x="220" y="722" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="199" y="765" width="82" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Task_ConsultaPublica_di" bpmnElement="Task_ConsultaPublica">
+        <dc:Bounds x="300" y="700" width="220" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_Publico_di" bpmnElement="EndEvent_Publico">
+        <dc:Bounds x="560" y="722" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="541" y="765" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_Pub1_di" bpmnElement="Flow_Pub1">
+        <di:waypoint x="256" y="740" />
+        <di:waypoint x="300" y="740" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_Pub2_di" bpmnElement="Flow_Pub2">
+        <di:waypoint x="520" y="740" />
+        <di:waypoint x="560" y="740" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
