@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net" modified="2026-11-25T08:59:30.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
+  <diagram id="modelo_dominio_sga" name="Modelo de Dominio SGA">
+    <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="950" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="hdr_dom" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — MODELO DE DOMINIO CONCEPTUAL&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C3) · Aprendiz: Miguel Ángel Estrada Torrentes (estrada)" style="text;html=1;strokeColor=#2B6CB0;fillColor=#EBF8FF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="20" width="920" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Classes -->
+        <!-- Paciente -->
+        <mxCell id="cls_paciente" value="&lt;b&gt;Paciente&lt;/b&gt;&lt;hr&gt;+ numeroIdentificacion&#xa;+ nombreCompleto&#xa;+ edad&#xa;+ antecedenteMedico&#xa;+ contactoFamiliar" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#3182CE;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- SolicitudEmergencia -->
+        <mxCell id="cls_solicitud" value="&lt;b&gt;SolicitudEmergencia&lt;/b&gt;&lt;hr&gt;+ codigoRadicado&#xa;+ fechaHoraLlamada&#xa;+ direccionIncidente&#xa;+ sintomatologiaInicial&#xa;+ nivelTriage&#xa;+ nombreReportante" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#3182CE;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="100" width="190" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ServicioAsistencial -->
+        <mxCell id="cls_servicio" value="&lt;b&gt;ServicioAsistencial&lt;/b&gt;&lt;hr&gt;+ estadoServicio&#xa;+ fechaHoraDespacho&#xa;+ fechaHoraArribo&#xa;+ fechaHoraCierre&#xa;+ resultadoAtencion&#xa;+ estadoFinalPaciente&#xa;+ centroHospitalarioDestino&#xa;+ motivoAsignacionManual" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#3182CE;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="90" width="220" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Ambulancia -->
+        <mxCell id="cls_ambulancia" value="&lt;b&gt;Ambulancia&lt;/b&gt;&lt;hr&gt;+ placa&#xa;+ numeroUnidad&#xa;+ estadoOperativo&#xa;+ anioModelo&#xa;+ habilitacionREPS&#xa;+ vigenciaSoatTecno" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#D69E2E;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="850" y="100" width="190" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- TAB -->
+        <mxCell id="cls_tab" value="&lt;b&gt;TAB (Básica)&lt;/b&gt;&lt;hr&gt;+ kitInmovilizacion&#xa;+ soporteOxigenoBasico" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#D69E2E;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="780" y="290" width="160" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- TAM -->
+        <mxCell id="cls_tam" value="&lt;b&gt;TAM (Medicalizada)&lt;/b&gt;&lt;hr&gt;+ monitorSignosVitales&#xa;+ desfibriladorBifasico&#xa;+ ventiladorMecanico" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#D69E2E;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="960" y="290" width="160" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- PersonalSalud -->
+        <mxCell id="cls_personal" value="&lt;b&gt;PersonalSalud&lt;/b&gt;&lt;hr&gt;+ documentoIdentidad&#xa;+ nombreCompleto&#xa;+ tarjetaProfesional&#xa;+ rolTripulacion&#xa;+ certificacionSoporteVital&#xa;+ horasTurnoAcumuladas" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#3182CE;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="320" width="220" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Factura -->
+        <mxCell id="cls_factura" value="&lt;b&gt;Factura&lt;/b&gt;&lt;hr&gt;+ numeroFactura&#xa;+ fechaEmision&#xa;+ valorTotalServicio&#xa;+ estadoPago&#xa;+ diasMoraCalculados&#xa;+ inmutable: boolean" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#38A169;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="550" y="510" width="220" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- NovedadOperativa -->
+        <mxCell id="cls_novedad" value="&lt;b&gt;NovedadOperativa&lt;/b&gt;&lt;hr&gt;+ tipoIncidente&#xa;+ prioridad&#xa;+ descripcionDetallada&#xa;+ estadoResolucion&#xa;+ fechaReporte" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#3182CE;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="320" width="190" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- PQRS -->
+        <mxCell id="cls_pqrs" value="&lt;b&gt;PQRS&lt;/b&gt;&lt;hr&gt;+ codigoRadicado&#xa;+ tipo&#xa;+ descripcionMotivo&#xa;+ fechaVencimientoLegal&#xa;+ estado" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#3182CE;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- RegistroAuditoria -->
+        <mxCell id="cls_auditoria" value="&lt;b&gt;RegistroAuditoria&lt;/b&gt;&lt;hr&gt;+ fechaHoraEvento&#xa;+ accionRealizada&#xa;+ moduloAfectado&#xa;+ direccionIPOrigen&#xa;+ retencionAnios: 5" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#38A169;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="510" width="190" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Edges -->
+        <!-- Paciente to Solicitud -->
+        <mxCell id="e_pac_sol" value="origina&#xa;1 ────── 1..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_paciente" target="cls_solicitud">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Solicitud to Servicio -->
+        <mxCell id="e_sol_ser" value="despacha&#xa;1 ────── 1" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_solicitud" target="cls_servicio">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Servicio to Ambulancia -->
+        <mxCell id="e_ser_amb" value="atiende con&#xa;0..* ────── 1" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_servicio" target="cls_ambulancia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Generalization Ambulancia -->
+        <mxCell id="e_gen_tab" style="endArrow=block;endSize=10;endFill=0;html=1;strokeColor=#D69E2E;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_tab" target="cls_ambulancia">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="860" y="260" />
+              <mxPoint x="945" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="e_gen_tam" style="endArrow=block;endSize=10;endFill=0;html=1;strokeColor=#D69E2E;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_tam" target="cls_ambulancia">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1040" y="260" />
+              <mxPoint x="945" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Servicio to Personal -->
+        <mxCell id="e_ser_per" value="tripulado por&#xa;1..* ────── 1..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_servicio" target="cls_personal">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Servicio to Factura -->
+        <mxCell id="e_ser_fac" value="liquida en&#xa;1 ────── 0..1" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_servicio" target="cls_factura">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="800" y="170" />
+              <mxPoint x="800" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Servicio to Novedad -->
+        <mxCell id="e_ser_nov" value="reporta&#xa;1 ────── 0..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_servicio" target="cls_novedad">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="210" />
+              <mxPoint x="520" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Paciente to PQRS -->
+        <mxCell id="e_pac_pqrs" value="radica&#xa;0..1 ────── 0..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_paciente" target="cls_pqrs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Personal to Auditoria -->
+        <mxCell id="e_per_aud" value="trazado en&#xa;1 ────── 0..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_personal" target="cls_auditoria">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="520" y="385" />
+              <mxPoint x="520" y="565" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
