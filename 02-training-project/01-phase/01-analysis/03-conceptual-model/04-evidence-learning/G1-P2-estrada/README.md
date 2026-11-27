@@ -12,9 +12,9 @@ Normativa y criterios de evaluación: `Rubricas_G1.md` (Sección 5 y Sección 7)
 ## 1. Datos de la Entrega
 
 - **Producto:** P2 - Modelo de análisis y verificación conceptual
-- **Usuario de GitHub del autor:** `estrada` (Miguel Ángel Estrada Torrentes)
+- **Usuario de GitHub del autor:** `MAET211` (Nombre de carpeta: `G1-P2-estrada`)
 - **Caso de estudio:** Sistema Gestor de Ambulancias (SGA) / Sistema de Gestión Integral de Movilidad Asistencial y Traslado
-- **Trabajo en equipo del año:** Sí · Equipo SGA (Autores base: Nicolas Aldana Doria, Juan Miguel Muñoz Castañeda, Miguel Ángel Estrada Torrentes, Juan José Horta Méndez)
+- **Trabajo en equipo del año:** Sí · Nombre del equipo: **Equipo SGA** (sin datos personales de terceros conforme a la Sección 1 de la plantilla)
 
 ---
 
@@ -30,11 +30,13 @@ Normativa y criterios de evaluación: `Rubricas_G1.md` (Sección 5 y Sección 7)
 
 ## 3. Qué Ajusté
 
-| # | Artefacto | Qué cambié y por qué | Criterio de `Rubricas_G1.md` que mejora |
-|---|---|---|---|
-| 1 | `03-modelo-dominio.svg` y `.drawio` | **Eliminación de claves foráneas físicas y tipos SQL en clases conceptuales**. Se suprimieron atributos de persistencia física en `ServicioAsistencial` reemplazándolos por asociaciones y multiplicidades puras (`1..1`, `0..*`) bajo la Regla de Arbitraje 5. | **C3 (RAP 592373)** · Modelo de dominio puro sin métodos ni claves foráneas. |
-| 2 | `04-modelo-entidad-relacion.svg` y `.drawio` | **Resolución formal de relación N:M con entidad asociativa con atributos propios**. Se transformó la relación directa entre `SERVICIO_ASISTENCIAL` y `PERSONAL_MEDICO` mediante la entidad intermedia `PERSONAL_SERVICIO` que registra `rol_operativo`, `hora_asignacion` y `hora_liberacion`. | **C4 (RAP 592373)** · MER relacional con N:M resuelta y entidad débil dependiente. |
-| 3 | `01-diagramas-actividades.svg` y `.drawio` | **Formalización exhaustiva de guardas entre corchetes y concurrencia fork/join**. Se eliminaron etiquetas ambiguas en rombos de decisión, implementando guardas completas como `[Ambulancia libre con ETA < 15 min]` y `[Sin unidades libres en zona]`, junto con sincronización paralela de notificaciones telemáticas. | **C1 (RAP 592373)** · Diagramas de actividades con calles, decisiones completas y bifurcación/unión. |
+| # | Artefacto | Qué cambié y por qué | Criterio de `Rubricas_G1.md` que mejora | Enlace al commit |
+|---|---|---|---|---|
+| 1 | `03-modelo-dominio.svg` y `.drawio` | **Eliminación de claves foráneas físicas y tipos SQL en clases conceptuales**. Se suprimieron atributos de persistencia física en `ServicioAsistencial` reemplazándolos por asociaciones y multiplicidades puras (`1..1`, `0..*`) bajo la Regla de Arbitraje 5. | **C3 (RAP 592373)** · Modelo de dominio puro sin métodos ni claves foráneas. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
+| 2 | `04-modelo-entidad-relacion.svg` y `.drawio` | **Resolución formal de relación N:M con entidad asociativa con atributos propios**. Se transformó la relación directa entre `SERVICIO_ASISTENCIAL` y `PERSONAL_MEDICO` mediante la entidad intermedia `PERSONAL_SERVICIO` que registra `rol_operativo`, `hora_asignacion` y `hora_liberacion`. | **C4 (RAP 592373)** · MER relacional con N:M resuelta y entidad débil dependiente. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
+| 3 | `01-diagramas-actividades.svg` y `.drawio` | **Formalización exhaustiva de guardas entre corchetes y concurrencia fork/join**. Se eliminaron etiquetas ambiguas en rombos de decisión, implementando guardas completas como `[Ambulancia libre con ETA < 15 min]` y `[Sin unidades libres en zona]`, junto con sincronización paralela de notificaciones telemáticas. | **C1 (RAP 592373)** · Diagramas de actividades con calles, decisiones completas y bifurcación/unión. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
+| 4 | `03-modelo-dominio.svg` y `.drawio` | **Sustitución de tipos primitivos por semántica conceptual pura**. Se reemplazó el atributo `+ inmutable: boolean` por `+ inmutable: Booleano (Si/No)` y se normalizaron multiplicidades nativas de Draw.io (`edgeLabel` en origen y destino). | **C3 (RAP 592373)** · Dominio conceptual sin acoplamiento a lenguajes. | Commit Día 2 (`G1-P2`) |
+| 5 | `04-modelo-entidad-relacion.svg` y `.drawio` | **Formalización de Clave Compuesta en Entidad Débil**. En `HISTORIAL_ESTADOS_SERVICIO` se sustituyó la clave artificial subrogada por la clave compuesta identificadora estricta `(servicio_id, numero_secuencia)`. | **C4 (RAP 592373)** · Entidad débil identificadora bajo teoría relacional de Chen. | Commit Día 2 (`G1-P2`) |
 
 ---
 
@@ -76,7 +78,7 @@ Para dar cumplimiento exhaustivo a los requerimientos de la Guía 1 - Producto 2
 - [x] Declaro que lo que tomé de mi equipo o de otra fuente está identificado en la sección 2.
 - [x] Entiendo que el sábado 28 de noviembre de 2026 el instructor me hará **3 preguntas orales** sobre mis productos (una del producto 1, una del producto 2 y una tercera a su elección) y que, si respondo bien menos de 2, el producto sobre el que fallé queda con tope de 50.
 
-**Firma:** `estrada` (Miguel Ángel Estrada Torrentes) · 25 de noviembre de 2026
+**Firma:** `MAET211` · Fecha: 26 de noviembre de 2026
 
 ---
 

@@ -37,7 +37,7 @@
   <!-- Header Banner -->
   <rect x="20" y="15" width="1160" height="55" fill="#FFFFFF" stroke="#CBD5E0" rx="8" />
   <text x="40" y="38" class="hdr-title">SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMAS DE ACTIVIDADES UML</text>
-  <text x="40" y="55" class="hdr-sub">Evidencia G1-P2 · Criterio C1 (RAP 592373) · Aprendiz: Miguel Ángel Estrada Torrentes (estrada) · Decisiones completas con guardas [ ]</text>
+  <text x="40" y="55" class="hdr-sub">Evidencia G1-P2 · Criterio C1 (RAP 592373) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada) · Decisiones completas con guardas [ ]</text>
 
   <!-- ========================================================================= -->
   <!-- DIAGRAMA 1: TRIAGE Y DESPACHO AUTOMÁTICO DE AMBULANCIAS (CU-03)          -->

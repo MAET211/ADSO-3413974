@@ -3,7 +3,7 @@
 ### Sistema de Gestión Integral de Movilidad Asistencial, Vigilancia y Traslado
 **Programa:** Análisis y Desarrollo de Software (ADSO) · Ficha 3413974  
 **Centro:** Centro de la Industria, la Empresa y los Servicios (CIES) — Regional Huila  
-**Aprendiz:** Miguel Ángel Estrada Torrentes (GitHub: `MAET211` · Carpeta: `G1-P2-estrada`)  
+**Aprendiz:** `MAET211` (Carpeta: `G1-P2-estrada`)  
 **Fase del Proyecto:** 01 - Análisis | **Competencia:** 220501093 | **RAP:** 592373 (Criterio C2)  
 
 ---

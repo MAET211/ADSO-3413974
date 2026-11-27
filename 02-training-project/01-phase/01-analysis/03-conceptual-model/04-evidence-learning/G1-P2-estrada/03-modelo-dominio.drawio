@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2026-11-25T08:59:30.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
+<mxfile host="app.diagrams.net" modified="2026-11-26T22:47:00.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
   <diagram id="modelo_dominio_sga" name="Modelo de Dominio SGA">
     <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="950" background="#ffffff" math="0" shadow="0">
       <root>
@@ -6,7 +6,7 @@
         <mxCell id="1" parent="0" />
 
         <!-- Title -->
-        <mxCell id="hdr_dom" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — MODELO DE DOMINIO CONCEPTUAL&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C3) · Aprendiz: Miguel Ángel Estrada Torrentes (estrada)" style="text;html=1;strokeColor=#2B6CB0;fillColor=#EBF8FF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="hdr_dom" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — MODELO DE DOMINIO CONCEPTUAL&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C3) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada)" style="text;html=1;strokeColor=#2B6CB0;fillColor=#EBF8FF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="120" y="20" width="920" height="40" as="geometry" />
         </mxCell>
 
@@ -47,7 +47,7 @@
         </mxCell>
 
         <!-- Factura -->
-        <mxCell id="cls_factura" value="&lt;b&gt;Factura&lt;/b&gt;&lt;hr&gt;+ numeroFactura&#xa;+ fechaEmision&#xa;+ valorTotalServicio&#xa;+ estadoPago&#xa;+ diasMoraCalculados&#xa;+ inmutable: boolean" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#38A169;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+        <mxCell id="cls_factura" value="&lt;b&gt;Factura&lt;/b&gt;&lt;hr&gt;+ numeroFactura&#xa;+ fechaEmision&#xa;+ valorTotalServicio&#xa;+ estadoPago&#xa;+ diasMoraCalculados&#xa;+ inmutable: Booleano (Si/No)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#38A169;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
           <mxGeometry x="550" y="510" width="220" height="130" as="geometry" />
         </mxCell>
 
@@ -66,20 +66,38 @@
           <mxGeometry x="290" y="510" width="190" height="110" as="geometry" />
         </mxCell>
 
-        <!-- Edges -->
+        <!-- Edges con Multiplicidades Nativas -->
         <!-- Paciente to Solicitud -->
-        <mxCell id="e_pac_sol" value="origina&#xa;1 ────── 1..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_paciente" target="cls_solicitud">
+        <mxCell id="e_pac_sol" value="origina" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#4A5568;fontStyle=2;" edge="1" parent="1" source="cls_paciente" target="cls_solicitud">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_pac_sol_src" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_pac_sol">
+          <mxGeometry x="-0.75" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_pac_sol_tgt" value="1..*" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_pac_sol">
+          <mxGeometry x="0.75" relative="1" as="geometry" />
         </mxCell>
 
         <!-- Solicitud to Servicio -->
-        <mxCell id="e_sol_ser" value="despacha&#xa;1 ────── 1" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_solicitud" target="cls_servicio">
+        <mxCell id="e_sol_ser" value="despacha" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#4A5568;fontStyle=2;" edge="1" parent="1" source="cls_solicitud" target="cls_servicio">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_sol_ser_src" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_sol_ser">
+          <mxGeometry x="-0.75" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_sol_ser_tgt" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_sol_ser">
+          <mxGeometry x="0.75" relative="1" as="geometry" />
         </mxCell>
 
         <!-- Servicio to Ambulancia -->
-        <mxCell id="e_ser_amb" value="atiende con&#xa;0..* ────── 1" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_servicio" target="cls_ambulancia">
+        <mxCell id="e_ser_amb" value="atiende con" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#4A5568;fontStyle=2;" edge="1" parent="1" source="cls_servicio" target="cls_ambulancia">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_ser_amb_src" value="0..*" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_ser_amb">
+          <mxGeometry x="-0.75" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_ser_amb_tgt" value="1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_ser_amb">
+          <mxGeometry x="0.75" relative="1" as="geometry" />
         </mxCell>
 
         <!-- Generalization Ambulancia -->
@@ -102,12 +120,18 @@
         </mxCell>
 
         <!-- Servicio to Personal -->
-        <mxCell id="e_ser_per" value="tripulado por&#xa;1..* ────── 1..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_servicio" target="cls_personal">
+        <mxCell id="e_ser_per" value="tripulado por" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#4A5568;fontStyle=2;" edge="1" parent="1" source="cls_servicio" target="cls_personal">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_ser_per_src" value="1..*" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_ser_per">
+          <mxGeometry x="-0.75" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_ser_per_tgt" value="1..*" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_ser_per">
+          <mxGeometry x="0.75" relative="1" as="geometry" />
         </mxCell>
 
         <!-- Servicio to Factura -->
-        <mxCell id="e_ser_fac" value="liquida en&#xa;1 ────── 0..1" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_servicio" target="cls_factura">
+        <mxCell id="e_ser_fac" value="liquida en" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#4A5568;fontStyle=2;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_servicio" target="cls_factura">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="800" y="170" />
@@ -115,9 +139,15 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="lbl_ser_fac_src" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_ser_fac">
+          <mxGeometry x="-0.85" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_ser_fac_tgt" value="0..1" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_ser_fac">
+          <mxGeometry x="0.85" relative="1" as="geometry" />
+        </mxCell>
 
         <!-- Servicio to Novedad -->
-        <mxCell id="e_ser_nov" value="reporta&#xa;1 ────── 0..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_servicio" target="cls_novedad">
+        <mxCell id="e_ser_nov" value="reporta" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#4A5568;fontStyle=2;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_servicio" target="cls_novedad">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="520" y="210" />
@@ -125,20 +155,38 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="lbl_ser_nov_src" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_ser_nov">
+          <mxGeometry x="-0.85" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_ser_nov_tgt" value="0..*" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_ser_nov">
+          <mxGeometry x="0.85" relative="1" as="geometry" />
+        </mxCell>
 
         <!-- Paciente to PQRS -->
-        <mxCell id="e_pac_pqrs" value="radica&#xa;0..1 ────── 0..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" edge="1" parent="1" source="cls_paciente" target="cls_pqrs">
+        <mxCell id="e_pac_pqrs" value="radica" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#4A5568;fontStyle=2;" edge="1" parent="1" source="cls_paciente" target="cls_pqrs">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_pac_pqrs_src" value="0..1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_pac_pqrs">
+          <mxGeometry x="-0.75" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_pac_pqrs_tgt" value="0..*" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_pac_pqrs">
+          <mxGeometry x="0.75" relative="1" as="geometry" />
         </mxCell>
 
         <!-- Personal to Auditoria -->
-        <mxCell id="e_per_aud" value="trazado en&#xa;1 ────── 0..*" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#2B6CB0;fontStyle=1;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_personal" target="cls_auditoria">
+        <mxCell id="e_per_aud" value="trazado en" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontSize=10;fontColor=#4A5568;fontStyle=2;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cls_personal" target="cls_auditoria">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="520" y="385" />
               <mxPoint x="520" y="565" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_per_aud_src" value="1" style="edgeLabel;resizable=0;html=1;align=left;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_per_aud">
+          <mxGeometry x="-0.85" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_per_aud_tgt" value="0..*" style="edgeLabel;resizable=0;html=1;align=right;verticalAlign=bottom;fontSize=10;fontColor=#2B6CB0;fontStyle=1;" connectable="0" vertex="1" parent="e_per_aud">
+          <mxGeometry x="0.85" relative="1" as="geometry" />
         </mxCell>
 
       </root>

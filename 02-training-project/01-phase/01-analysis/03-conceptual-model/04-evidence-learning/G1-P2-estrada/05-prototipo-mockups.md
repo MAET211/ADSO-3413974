@@ -1,7 +1,7 @@
 # Prototipo Inicial (Mockups) · Sistema Gestor de Ambulancias (SGA)
 **Evidencia:** Guía 1 · Producto 2 (G1-P2)  
 **Criterio:** RAP 592374 (Criterio C5) — Realiza prototipo inicial del software de acuerdo con los casos de uso identificados  
-**Aprendiz:** Miguel Ángel Estrada Torrentes (`estrada`)  
+**Aprendiz:** `MAET211` (Carpeta: `G1-P2-estrada`)  
 **Ficha:** 3413974 · ADSO · Centro de la Industria, la Empresa y los Servicios (CIES)  
 **Fecha:** Noviembre 2026  
 
@@ -138,7 +138,7 @@ Cada pantalla se encuentra debidamente rotulada con su caso de uso asociado, eli
 | 1. DATOS GENERALES DEL SERVICIO Y ENTREGA HOSPITALARIA                                            |
 |---------------------------------------------------------------------------------------------------|
 | Solicitud: INC-2026-0892 | Ambulancia: M-106 (TAM) | Medico: Dra. Laura Gomez (RM-98421 Huila)    |
-| Paciente: Carlos Alberto Ramirez C. | CC: 12.458.963 | EPS: Sanitas | Regimen: [ Contributivo |v] |
+| Paciente: [Paciente Simulado / Anonimizado] | CC: 00.000.000 | EPS: Sanitas | Regimen: [ Contributivo |v] |
 | IPS Receptora: [ Hospital Universitario Hernando Moncaleano Perdomo                           |v] |
 | Medico Receptor IPS: Dr. Fernando Ruiz (Urgencias Adultos) | Hora Entrega IPS: [ 11:15 ]          |
 |                                                                                                   |

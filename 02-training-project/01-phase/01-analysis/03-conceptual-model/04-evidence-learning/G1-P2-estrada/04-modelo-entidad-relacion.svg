@@ -189,8 +189,8 @@
     <rect x="0" y="0" width="310" height="26" class="ent-weak-header" rx="4" />
     <text x="155" y="18" class="entity-title">HISTORIAL_ESTADOS_SERVICIO (Débil)</text>
     <rect x="0" y="26" width="310" height="155" class="ent-body-weak" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_historial : BIGINT</text>
-    <text x="10" y="62" class="attr-fk">&lt;&lt;FK&gt;&gt; servicio_id : INT (Identificadora)</text>
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK, FK&gt;&gt; servicio_id : INT (Identificadora)</text>
+    <text x="10" y="62" class="attr-pk">&lt;&lt;PK&gt;&gt; numero_secuencia : INT (Discriminador)</text>
     <text x="10" y="80" class="attr-fk">&lt;&lt;FK&gt;&gt; usuario_responsable_id : INT</text>
     <text x="10" y="98" class="attr-regular">estado_anterior : VARCHAR(25)</text>
     <text x="10" y="116" class="attr-regular">estado_nuevo : VARCHAR(25)</text>
@@ -223,7 +223,7 @@
     <circle cx="25" cy="70" r="5" fill="#805AD5" />
     <text x="40" y="74" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#2D3748">Entidad Asociativa (Resuelve N:M con atributos propios)</text>
     <circle cx="25" cy="95" r="5" fill="#DD6B20" />
-    <text x="40" y="99" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#2D3748">Entidad Débil (Dependencia existencial y cascada)</text>
+    <text x="40" y="99" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#2D3748">Entidad Débil Estricta (PK compuesta: servicio_id + numero_secuencia)</text>
 
     <line x1="20" y1="125" x2="60" y2="125" stroke="#4A5568" stroke-width="2" marker-end="url(#crow-many)" />
     <text x="75" y="129" font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#4A5568">Pata de Gallo: Cardinalidad (0,N) o (1,N)</text>

@@ -2,7 +2,7 @@
 **Evidencia:** Guía 1 · Producto 2 (G1-P2)  
 **Criterio:** RAP 592374 (Criterio C6) — Elabora listas de chequeo para validación de la documentación de análisis y las aplica  
 **Formato Oficial:** Anexo B (`Rubricas_G1.md` y `Plantilla_README_Entrega_G1.md`)  
-**Aprendiz Evaluador:** Miguel Ángel Estrada Torrentes (`estrada`)  
+**Aprendiz Evaluador:** `MAET211` (Carpeta: `G1-P2-estrada`)  
 **Proyecto:** Sistema Gestor de Ambulancias (SGA) · Ficha 3413974  
 **Fecha de Aplicación:** 25 de noviembre de 2026  
 
@@ -34,7 +34,7 @@ Las desviaciones detectadas durante la primera ronda de auditoría fueron clasif
 | **12** | ¿El modelo de dominio incluye al menos una generalización o clase de asociación justificada en el negocio? | Modelo de Dominio | **Sí** | `03-modelo-dominio.svg` (Generalización `Ambulancia` $\rightarrow$ `TAB` y `TAM`) | Herencia validada conforme al REPS Resolución 3100 de 2019. |
 | **13** | ¿El MER declara su notación formal y contiene al menos 6 entidades con sus identificadores de clave primaria (`<<PK>>`) rotulados? | Modelo ER | **Sí** | `04-modelo-entidad-relacion.svg` y `.drawio` (10 entidades con PK y notación Crow's Foot) | Notación declarada: Pata de Gallo (Crow's Foot). |
 | **14** | ¿El MER resuelve toda relación de muchos a muchos (N:M) mediante una entidad asociativa que contenga atributos propios de negocio? | Modelo ER | **Sí** | `04-modelo-entidad-relacion.svg` (`PERSONAL_SERVICIO` con `rol_operativo`, `hora_asignacion`, `hora_liberacion`) | Cumple Regla de Arbitraje 5. |
-| **15** | ¿El MER modela al menos una entidad débil o relación recursiva identificando la dependencia existencial? | Modelo ER | **Sí** | `04-modelo-entidad-relacion.svg` (`HISTORIAL_ESTADOS_SERVICIO` débil respecto a `SERVICIO_ASISTENCIAL`) | Dependencia existencial y clave foránea identificadora verificada. |
+| **15** | ¿El MER modela al menos una entidad débil o relación recursiva identificando la dependencia existencial? | Modelo ER | **Sí** | `04-modelo-entidad-relacion.svg` y `.drawio` (`HISTORIAL_ESTADOS_SERVICIO` débil respecto a `SERVICIO_ASISTENCIAL`, con PK compuesta formal `<<PK, FK>> servicio_id` + `<<PK>> numero_secuencia`) | Dependencia existencial estricta y clave compuesta verificadas. |
 | **16** | ¿Todas las pantallas del prototipo inicial están formalmente rotuladas con el caso de uso que atienden, sin pantallas huérfanas? | Prototipo Mockups | **Sí** | `05-prototipo-mockups.md` (P-01 rotulada con CU-03, P-02 con CU-04, P-03 con CU-05) | 3 pantallas críticas rotuladas y vinculadas 1:1 a sus casos de uso. |
 
 ---

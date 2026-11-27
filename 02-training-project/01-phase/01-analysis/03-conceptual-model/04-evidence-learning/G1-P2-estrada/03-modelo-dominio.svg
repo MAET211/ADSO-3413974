@@ -35,7 +35,7 @@
   <!-- Title Banner -->
   <rect x="20" y="15" width="1160" height="60" fill="#FFFFFF" stroke="#CBD5E0" rx="8" />
   <text x="40" y="40" class="hdr-title">SISTEMA GESTOR DE AMBULANCIAS (SGA) — MODELO DE DOMINIO CONCEPTUAL</text>
-  <text x="40" y="58" class="hdr-sub">Evidencia G1-P2 · Criterio C3 (RAP 592373) · Aprendiz: Miguel Ángel Estrada Torrentes (estrada) · Clases puras sin métodos ni claves foráneas físicas</text>
+  <text x="40" y="58" class="hdr-sub">Evidencia G1-P2 · Criterio C3 (RAP 592373) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada) · Clases puras sin métodos ni claves foráneas físicas</text>
 
   <!-- ==================== CLASSES (ENTIDADES DE DOMINIO) ==================== -->
 
@@ -134,7 +134,7 @@
     <text x="12" y="80" class="class-attr">• valorTotalServicio</text>
     <text x="12" y="97" class="class-attr">• estadoPago (Pagada/Mora)</text>
     <text x="12" y="114" class="class-attr">• diasMoraCalculados</text>
-    <text x="12" y="131" class="class-attr">• inmutable (Verdadero)</text>
+    <text x="12" y="131" class="class-attr">• inmutable : Booleano (Si/No)</text>
   </g>
 
   <!-- 9. NovedadOperativa -->

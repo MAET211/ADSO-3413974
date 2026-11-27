@@ -2,7 +2,7 @@
 **Evidencia:** Guía 1 · Producto 2 (G1-P2)  
 **Criterio:** RAP 592373 (Criterio C8) — Matriz de trazabilidad con 90 % o más de los requisitos funcionales trazados  
 **Formato Oficial:** Anexo C (`Rubricas_G1.md` y `Plantilla_README_Entrega_G1.md`)  
-**Aprendiz Autor:** Miguel Ángel Estrada Torrentes (`estrada`)  
+**Aprendiz Autor:** `MAET211` (Carpeta: `G1-P2-estrada`)  
 **Ficha:** 3413974 · ADSO · Centro de la Industria, la Empresa y los Servicios (CIES)  
 **Tasa de Cobertura Alcanzada:** 100 % (65 de 65 Requisitos Funcionales trazados)  
 

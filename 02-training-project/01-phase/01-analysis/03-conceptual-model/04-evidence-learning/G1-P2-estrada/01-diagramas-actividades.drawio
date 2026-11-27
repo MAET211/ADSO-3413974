@@ -6,7 +6,7 @@
         <mxCell id="1" parent="0" />
 
         <!-- Title Banner -->
-        <mxCell id="hdr_act" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMAS DE ACTIVIDADES UML&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C1) · Aprendiz: Miguel Ángel Estrada Torrentes (estrada)" style="text;html=1;strokeColor=#2B6CB0;fillColor=#EBF8FF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="hdr_act" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMAS DE ACTIVIDADES UML&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C1) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada)" style="text;html=1;strokeColor=#2B6CB0;fillColor=#EBF8FF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="120" y="20" width="920" height="40" as="geometry" />
         </mxCell>
 

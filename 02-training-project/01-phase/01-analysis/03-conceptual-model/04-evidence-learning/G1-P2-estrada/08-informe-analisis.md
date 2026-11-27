@@ -2,7 +2,7 @@
 **Evidencia:** Guía 1 · Producto 2 (G1-P2)  
 **Criterio:** RAP 592373 (Criterio C8) — Documenta las actividades de análisis a través de un informe técnico estructurado  
 **Formato Oficial:** Anexo E (`Rubricas_G1.md` y `Plantilla_README_Entrega_G1.md`)  
-**Aprendiz Autor:** Miguel Ángel Estrada Torrentes (`estrada`)  
+**Aprendiz Autor:** `MAET211` (Carpeta: `G1-P2-estrada`)  
 **Ficha:** 3413974 · ADSO · Centro de la Industria, la Empresa y los Servicios (CIES - Regional Huila)  
 **Fecha:** 25 de noviembre de 2026  
 
@@ -78,14 +78,17 @@ La aplicación de la lista de chequeo sobre los artefactos arrojó los siguiente
 
 ---
 
-## 5. Resumen de Ajustes y Mejoras Implementadas
+## 5. Resumen de Ajustes y Mejoras Implementadas (Ciclos Día 1 y Día 2)
 
-Las 5 desviaciones detectadas durante la auditoría fueron subsanadas formalmente y registradas en el Anexo D:
+Las desviaciones detectadas durante la auditoría formativa fueron subsanadas formalmente y registradas en el Anexo D (`07-registro-de-ajustes.md`):
 1. **Ajuste en `<<extend>>`:** Corrección de la orientación de flecha en la extensión condicional de CU-04 hacia CU-03, explicitando el punto de extensión de contingencia.
 2. **Purificación del Modelo de Dominio:** Supresión de claves foráneas y variables SQL físicas en las clases conceptuales, reemplazándolas por asociaciones semánticas puras y multiplicidades.
 3. **Normalización Relacional de Tripulaciones:** Creación de la entidad asociativa `PERSONAL_SERVICIO` para resolver la relación N:M entre servicios y personal asistencial, habilitando el registro de roles y tiempos.
 4. **Exhaustividad en Diagramas de Actividades:** Normalización de guardas entre corchetes en todas las ramas de decisión, incorporando el flujo alterno de saturación de flota.
 5. **Corrección de Precondiciones:** Eliminación de comprobaciones en tiempo de ejecución del campo precondiciones en las plantillas de casos de uso, trasladándolas a flujos alternos y de excepción.
+6. **Eliminación de Tipos de Programación en Dominio:** Sustitución de palabras reservadas de programación (`boolean`) por semántica conceptual de negocio (`Booleano (Si/No)`).
+7. **Formalización de Entidad Débil con Clave Compuesta:** Sustitución de clave subrogada artificial por clave primaria compuesta identificadora `(servicio_id, numero_secuencia)` en el MER.
+8. **Estandarización de Multiplicidades en Draw.io:** Configuración nativa de etiquetas en extremos de origen y destino (`edgeLabel`), evitando desalineaciones visuales.
 
 ---
 
