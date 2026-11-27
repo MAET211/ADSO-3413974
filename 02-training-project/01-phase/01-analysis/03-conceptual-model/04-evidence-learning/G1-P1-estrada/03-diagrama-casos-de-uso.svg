@@ -44,7 +44,7 @@
   <!-- Header Banner -->
   <rect x="20" y="15" width="1160" height="65" fill="#FFFFFF" stroke="#E2E8F0" rx="8" />
   <text x="40" y="42" class="title">SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMA DE CASOS DE USO UML</text>
-  <text x="40" y="62" class="subtitle">Evidencia G1-P1 | Programa ADSO Ficha 3413974 | Aprendiz: Miguel Ángel Estrada Torrentes (estrada) | Res. 3100 de 2019 / REPS</text>
+  <text x="40" y="62" class="subtitle">Evidencia G1-P1 | Programa ADSO Ficha 3413974 | Aprendiz: MAET211 (Carpeta: G1-P1-estrada) | Res. 3100 de 2019 / REPS</text>
 
   <!-- ==================== SYSTEM BOUNDARY ==================== -->
   <rect x="230" y="95" width="740" height="785" class="system-box" />

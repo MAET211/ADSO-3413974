@@ -6,7 +6,7 @@
         <mxCell id="1" parent="0" />
         
         <!-- Header Banner -->
-        <mxCell id="hdr1" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMA DE CASOS DE USO UML&#xa;Evidencia G1-P1 · ADSO Ficha 3413974 · Aprendiz: Miguel Ángel Estrada Torrentes (estrada)" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+        <mxCell id="hdr1" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMA DE CASOS DE USO UML&#xa;Evidencia G1-P1 · ADSO Ficha 3413974 · Aprendiz: MAET211 (Carpeta: G1-P1-estrada)" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
           <mxGeometry x="140" y="20" width="880" height="40" as="geometry" />
         </mxCell>
 

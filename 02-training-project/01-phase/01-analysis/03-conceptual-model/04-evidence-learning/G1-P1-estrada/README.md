@@ -12,7 +12,7 @@ Criterios de evaluación aplicados: `Rubricas_G1.md` (C1, C2, C3, C4 y C5).
 * **Producto:** Producto 1 (G1-P1) — Plan de análisis y casos de uso.
 * **Usuario de GitHub del autor:** `MAET211` (Nombre corto de carpeta: `estrada`).
 * **Caso de estudio:** Sistema Gestor de Ambulancias (SGA) — Sistema de Gestión Integral de Movilidad Asistencial, Vigilancia y Traslado.
-* **Trabajo en equipo del año:** Sí. Equipo formativo SGA: *Nicolás Aldana Doria, Juan Miguel Muñoz Castañeda, Miguel Ángel Estrada Torrentes y Juan José Horta Méndez*.
+* **Trabajo en equipo del año:** Sí. Nombre del equipo: **Equipo SGA** (sin datos personales de terceros conforme a la Sección 1 de la plantilla).
 
 ---
 
@@ -31,9 +31,9 @@ Criterios de evaluación aplicados: `Rubricas_G1.md` (C1, C2, C3, C4 y C5).
 
 | # | Artefacto | Qué cambié y por qué | Enlace al commit |
 | :-: | :--- | :--- | :--- |
-| **1** | **Catálogo de Requisitos Funcionales y Reglas de Negocio** | Se depuraron y estructuraron unívocamente los 65 Requisitos Funcionales (RF-001 al RF-065) y 18 Reglas de Negocio (RN-001 al RN-018) bajo el marco legal de la **Resolución 3100 de 2019** y el **REPS**, eliminando ambigüedades e incorporando la discriminación obligatoria entre unidades TAB y TAM. *Mejora Criterio C3.* | *[Commit #1 · Estructuración Base G1-P1](https://github.com/MAET211/ADSO-3413974/commits/main/02-training-project/01-phase/01-analysis/03-conceptual-model/04-evidence-learning/G1-P1-estrada)* |
-| **2** | **Diagrama de Casos de Uso UML Formal** | Se rediseñó desde cero el modelo gráfico en Draw.io (`03-diagrama-casos-de-uso.drawio` y `.svg`), agrupando CRUDs según la regla 1 de arbitraje («Gestionar ambulancias»), fijando la frontera del sistema formal, y corrigiendo la dirección estricta de las dependencias `<<include>>` (base $\rightarrow$ incluido) y `<<extend>>` (extensión $\rightarrow$ base) con **cero cruces de conectores**. *Mejora Criterio C4.* | *[Commit #1 · Estructuración Base G1-P1](https://github.com/MAET211/ADSO-3413974/commits/main/02-training-project/01-phase/01-analysis/03-conceptual-model/04-evidence-learning/G1-P1-estrada)* |
-| **3** | **Selección Metodológica y Plan de Análisis** | Se elaboró de forma individual la caracterización de la solución evaluando los 4 aspectos estructurales y se compararon 4 metodologías (RUP, XP, RAD, Scrum), justificando la adopción de **Scrum** y estructurando un cronograma de 8 actividades de análisis priorizadas con responsables, fechas y entregables verificables. *Mejora Criterios C1 y C2.* | *[Commit #1 · Estructuración Base G1-P1](https://github.com/MAET211/ADSO-3413974/commits/main/02-training-project/01-phase/01-analysis/03-conceptual-model/04-evidence-learning/G1-P1-estrada)* |
+| **1** | **Catálogo de Requisitos Funcionales y Reglas de Negocio** | Se depuraron y estructuraron unívocamente los 65 Requisitos Funcionales (RF-001 al RF-065) y 18 Reglas de Negocio (RN-001 al RN-018) bajo el marco legal de la **Resolución 3100 de 2019** y el **REPS**, eliminando ambigüedades e incorporando la discriminación obligatoria entre unidades TAB y TAM. *Mejora Criterio C3.* | [`8a45c04`](https://github.com/MAET211/ADSO-3413974/commit/8a45c04) |
+| **2** | **Diagrama de Casos de Uso UML Formal** | Se rediseñó desde cero el modelo gráfico en Draw.io (`03-diagrama-casos-de-uso.drawio` y `.svg`), agrupando CRUDs según la regla 1 de arbitraje («Gestionar ambulancias»), fijando la frontera del sistema formal, y corrigiendo la dirección estricta de las dependencias `<<include>>` (base $\rightarrow$ incluido) y `<<extend>>` (extensión $\rightarrow$ base) con **cero cruces de conectores**. *Mejora Criterio C4.* | [`8a45c04`](https://github.com/MAET211/ADSO-3413974/commit/8a45c04) |
+| **3** | **Selección Metodológica y Plan de Análisis** | Se elaboró de forma individual la caracterización de la solución evaluando los 4 aspectos estructurales y se compararon 4 metodologías (RUP, XP, RAD, Scrum), justificando la adopción de **Scrum** y estructurando un cronograma de 8 actividades de análisis priorizadas con responsables, fechas y entregables verificables. *Mejora Criterios C1 y C2.* | [`8a45c04`](https://github.com/MAET211/ADSO-3413974/commit/8a45c04) |
 
 ---
 
@@ -64,7 +64,7 @@ Criterios de evaluación aplicados: `Rubricas_G1.md` (C1, C2, C3, C4 y C5).
 - [x] Declaro que lo que tomé de mi equipo o de otra fuente está identificado en la sección 2.
 - [x] Entiendo que el sábado 28 de noviembre de 2026 el instructor me hará **3 preguntas orales** sobre mis productos (una del producto 1, una del producto 2 y una tercera a su elección) y que, si respondo bien menos de 2, el producto sobre el que fallé queda con tope de 50.
 
-**Firma:** `MAET211` (Miguel Ángel Estrada Torrentes) · Fecha: 25 de noviembre de 2026.
+**Firma:** `MAET211` · Fecha: 26 de noviembre de 2026.
 
 ---
 
