@@ -1,0 +1,287 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1780 1370" width="1780" height="1370">
+  <defs>
+    <marker id="hollowTriangle" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="11" markerHeight="11" orient="auto">
+      <polygon points="1,1 12,7 1,13" fill="#ffffff" stroke="#1e40af" stroke-width="1.6"/>
+    </marker>
+  </defs>
+  <rect width="1780" height="1370" fill="#f8fafc"/>
+  <rect x="30" y="16" width="1720" height="48" rx="8" fill="#0f172a"/>
+  <text x="890" y="37" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff">SISTEMA GESTOR DE AMBULANCIAS (SGA) — B2 MODELO LÓGICO RELACIONAL POSTGRESQL (16 TABLAS 3FN)</text>
+  <text x="890" y="55" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#cbd5e1">Evidencia G2-P2 · RAP 593101 (Criterio 2) · Aprendiz: MAET211 (Carpeta: G2-P2-estrada)</text>
+  <rect x="40" y="100" width="280" height="120" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <rect x="40" y="100" width="280" height="25" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="180" y="117" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">roles</text>
+  <text x="48" y="140" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_rol : UUID</text>
+  <text x="48" y="153.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">nombre_rol : VARCHAR(50) UNIQUE</text>
+  <text x="48" y="167" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">descripcion : TEXT</text>
+  <text x="48" y="180.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">activo : BOOLEAN</text>
+  <rect x="400" y="95" width="345" height="225" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <rect x="400" y="95" width="345" height="25" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="572.5" y="112" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">usuarios</text>
+  <text x="408" y="135" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_usuario : UUID</text>
+  <text x="408" y="148.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_rol : UUID (RESTRICT)</text>
+  <text x="408" y="162" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_sede : UUID (RESTRICT)</text>
+  <text x="408" y="175.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">nombre_completo : VARCHAR(150)</text>
+  <text x="408" y="189" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">correo : VARCHAR(200) UNIQUE</text>
+  <text x="408" y="202.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">password_hash : VARCHAR(255)</text>
+  <text x="408" y="216" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">intentos_fallidos : INT CHECK(0..5)</text>
+  <text x="408" y="229.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">bloqueado_hasta / password_expira</text>
+  <rect x="830" y="100" width="315" height="150" fill="#ffffff" stroke="#0369a1" stroke-width="1.8"/>
+  <rect x="830" y="100" width="315" height="25" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.8"/>
+  <text x="987.5" y="117" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">sedes</text>
+  <text x="838" y="140" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_sede : UUID</text>
+  <text x="838" y="153.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">codigo_sede : VARCHAR(20) UNIQUE</text>
+  <text x="838" y="167" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">nombre_sede : VARCHAR(120)</text>
+  <text x="838" y="180.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">ciudad / direccion : VARCHAR</text>
+  <text x="838" y="194" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">activa : BOOLEAN</text>
+  <rect x="1240" y="95" width="450" height="215" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <rect x="1240" y="95" width="450" height="25" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="1465" y="112" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">ambulancias (STI TAB|TAM)</text>
+  <text x="1248" y="135" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_ambulancia : UUID</text>
+  <text x="1248" y="148.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_sede : UUID (RESTRICT)</text>
+  <text x="1248" y="162" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">numero_unidad / placa : VARCHAR UNIQUE</text>
+  <text x="1248" y="175.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">tipo : VARCHAR(5) CHECK(TAB|TAM)</text>
+  <text x="1248" y="189" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">marca / modelo / anio &gt;= 1990</text>
+  <text x="1248" y="202.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">num_habilitacion_reps : VARCHAR UNIQUE</text>
+  <text x="1248" y="216" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">estado_operativo : VARCHAR(25)</text>
+  <text x="1248" y="229.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">vigencia_soat_tecno : DATE</text>
+  <rect x="40" y="385" width="320" height="205" fill="#ffffff" stroke="#b45309" stroke-width="1.8"/>
+  <rect x="40" y="385" width="320" height="25" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
+  <text x="200" y="402" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">auditorias</text>
+  <text x="48" y="425" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_auditoria : UUID</text>
+  <text x="48" y="438.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_usuario : UUID (SET NULL)</text>
+  <text x="48" y="452" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">modulo / accion : VARCHAR</text>
+  <text x="48" y="465.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">entidad_afectada : VARCHAR(50)</text>
+  <text x="48" y="479" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">id_entidad : UUID</text>
+  <text x="48" y="492.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">valores_anteriores : JSONB</text>
+  <text x="48" y="506" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">valores_nuevos : JSONB</text>
+  <text x="48" y="519.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">ip_origen : INET | fecha_hora : TS</text>
+  <rect x="415" y="385" width="325" height="180" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="415" y="385" width="325" height="25" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="577.5" y="402" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">personal</text>
+  <text x="423" y="425" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_personal : UUID</text>
+  <text x="423" y="438.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK UNIQUE&gt;&gt; id_usuario : UUID</text>
+  <text x="423" y="452" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">tarjeta_profesional : VARCHAR UNIQUE</text>
+  <text x="423" y="465.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">tipo_personal : VARCHAR(30)</text>
+  <text x="423" y="479" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">estado_disponibilidad : VARCHAR</text>
+  <text x="423" y="492.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">vigencia_certificacion : DATE</text>
+  <text x="423" y="506" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">horas_turno_continuas : DECIMAL</text>
+  <rect x="810" y="400" width="340" height="175" fill="#ffffff" stroke="#3730a3" stroke-width="1.8"/>
+  <rect x="810" y="400" width="340" height="25" fill="#e0e7ff" stroke="#3730a3" stroke-width="1.8"/>
+  <text x="980" y="417" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">personal_servicio (N:M)</text>
+  <text x="818" y="440" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_personal_servicio : UUID</text>
+  <text x="818" y="453.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_servicio : UUID (CASCADE)</text>
+  <text x="818" y="467" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_personal : UUID (RESTRICT)</text>
+  <text x="818" y="480.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">rol_operativo : VARCHAR(40)</text>
+  <text x="818" y="494" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">hora_asignacion : TIMESTAMP</text>
+  <text x="818" y="507.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">hora_liberacion : TIMESTAMP</text>
+  <text x="818" y="521" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">activo_en_tripulacion : BOOLEAN</text>
+  <rect x="1320" y="400" width="370" height="205" fill="#ffffff" stroke="#c2410c" stroke-width="1.8"/>
+  <rect x="1320" y="400" width="370" height="25" fill="#ffedd5" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="1505" y="417" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">novedades</text>
+  <text x="1328" y="440" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_novedad : UUID</text>
+  <text x="1328" y="453.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_servicio : UUID (SET NULL)</text>
+  <text x="1328" y="467" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_ambulancia : UUID (SET NULL)</text>
+  <text x="1328" y="480.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_usuario_reporta : UUID</text>
+  <text x="1328" y="494" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">tipo_novedad / prioridad : VARCHAR</text>
+  <text x="1328" y="507.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">descripcion / resolucion : TEXT</text>
+  <text x="1328" y="521" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">estado : VARCHAR (CHECK cierre)</text>
+  <rect x="40" y="670" width="320" height="190" fill="#ffffff" stroke="#0369a1" stroke-width="1.8"/>
+  <rect x="40" y="670" width="320" height="25" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.8"/>
+  <text x="200" y="687" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">pqrs</text>
+  <text x="48" y="710" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_pqrs : UUID</text>
+  <text x="48" y="723.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_paciente : UUID (SET NULL)</text>
+  <text x="48" y="737" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_usuario_responsable : UUID</text>
+  <text x="48" y="750.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">codigo_radicado : VARCHAR UNIQUE</text>
+  <text x="48" y="764" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">tipo_pqrs / estado_tramite : VARCHAR</text>
+  <text x="48" y="777.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">fecha_vencimiento_legal : DATE</text>
+  <rect x="800" y="675" width="375" height="265" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+  <rect x="800" y="675" width="375" height="25" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.8"/>
+  <text x="987.5" y="692" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">servicios (Core 3FN)</text>
+  <text x="808" y="715" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_servicio : UUID</text>
+  <text x="808" y="728.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK UNIQUE&gt;&gt; id_solicitud : UUID</text>
+  <text x="808" y="742" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_ambulancia : UUID</text>
+  <text x="808" y="755.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_responsable_cierre : UUID</text>
+  <text x="808" y="769" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">asignacion_manual : BOOLEAN</text>
+  <text x="808" y="782.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">motivo_asignacion_manual : TEXT</text>
+  <text x="808" y="796" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">estado : VARCHAR(20) (7 estados)</text>
+  <text x="808" y="809.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">hora_asignacion / llegada / fin : TS</text>
+  <text x="808" y="823" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">resultado_atencion : TEXT (RN-005)</text>
+  <text x="808" y="836.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">estado_paciente_final : VARCHAR(20)</text>
+  <text x="808" y="850" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">destino_traslado : VARCHAR(200)</text>
+  <rect x="1330" y="725" width="350" height="185" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="1330" y="725" width="350" height="25" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="1505" y="742" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">facturas</text>
+  <text x="1338" y="765" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_factura : UUID</text>
+  <text x="1338" y="778.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK UNIQUE&gt;&gt; id_servicio : UUID</text>
+  <text x="1338" y="792" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">numero_factura : VARCHAR UNIQUE</text>
+  <text x="1338" y="805.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">fecha_emision : TIMESTAMP</text>
+  <text x="1338" y="819" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">valor_total : DECIMAL(12,2) &gt; 0</text>
+  <text x="1338" y="832.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">estado_pago / dias_mora : INT</text>
+  <text x="1338" y="846" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">es_inmutable : BOOLEAN (TRUE)</text>
+  <rect x="40" y="945" width="320" height="165" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="40" y="945" width="320" height="25" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="200" y="962" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">pacientes</text>
+  <text x="48" y="985" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_paciente : UUID</text>
+  <text x="48" y="998.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">tipo_documento / numero_documento</text>
+  <text x="48" y="1012" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">  UNIQUE(tipo_doc, num_doc)</text>
+  <text x="48" y="1025.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">nombre_completo : VARCHAR(150)</text>
+  <text x="48" y="1039" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">fecha_nacimiento : DATE</text>
+  <text x="48" y="1052.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">antecedentes_medicos : TEXT</text>
+  <rect x="40" y="1190" width="320" height="135" fill="#f0fdf4" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="40" y="1190" width="320" height="25" fill="#bbf7d0" stroke="#15803d" stroke-width="1.8"/>
+  <text x="200" y="1207" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">paciente_telefonos (1FN)</text>
+  <text x="48" y="1230" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_telefono : UUID</text>
+  <text x="48" y="1243.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_paciente : UUID (CASCADE)</text>
+  <text x="48" y="1257" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">tipo_contacto : VARCHAR(25)</text>
+  <text x="48" y="1270.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">numero_telefono : VARCHAR(25)</text>
+  <text x="48" y="1284" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">es_principal : BOOLEAN</text>
+  <rect x="425" y="960" width="330" height="205" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+  <rect x="425" y="960" width="330" height="25" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.8"/>
+  <text x="590" y="977" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">solicitudes_emergencia</text>
+  <text x="433" y="1000" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_solicitud : UUID</text>
+  <text x="433" y="1013.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_paciente : UUID (RESTRICT)</text>
+  <text x="433" y="1027" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">codigo_radicado : VARCHAR UNIQUE</text>
+  <text x="433" y="1040.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">nombre_solicitante : VARCHAR(120)</text>
+  <text x="433" y="1054" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">direccion_evento / coordenadas_gps</text>
+  <text x="433" y="1067.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">prioridad_triage : VARCHAR(15)</text>
+  <text x="433" y="1081" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">sintomatologia : TEXT</text>
+  <text x="433" y="1094.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">estado_solicitud : VARCHAR(25)</text>
+  <rect x="805" y="1045" width="365" height="170" fill="#ffffff" stroke="#a16207" stroke-width="1.8"/>
+  <rect x="805" y="1045" width="365" height="25" fill="#fef9c3" stroke="#a16207" stroke-width="1.8"/>
+  <text x="987.5" y="1062" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">historial_estados_servicio</text>
+  <text x="813" y="1085" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK,FK&gt;&gt; id_servicio : UUID (CASCADE)</text>
+  <text x="813" y="1098.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; numero_secuencia : INT &gt;= 1</text>
+  <text x="813" y="1112" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_usuario_responsable : UUID</text>
+  <text x="813" y="1125.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">estado_anterior / estado_nuevo</text>
+  <text x="813" y="1139" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">fecha_hora_cambio : TIMESTAMP</text>
+  <text x="813" y="1152.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">motivo_justificacion : TEXT</text>
+  <rect x="1330" y="1045" width="350" height="170" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="1330" y="1045" width="350" height="25" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="1505" y="1062" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" font-weight="bold" fill="#0f172a">notas_credito_debito</text>
+  <text x="1338" y="1085" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#991b1b">&lt;&lt;PK&gt;&gt; id_nota : UUID</text>
+  <text x="1338" y="1098.5" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_factura : UUID (RESTRICT)</text>
+  <text x="1338" y="1112" font-family="Consolas, monospace" font-size="9.8" font-weight="bold" fill="#1e40af">&lt;&lt;FK&gt;&gt; id_usuario_autoriza : UUID</text>
+  <text x="1338" y="1125.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">tipo_nota : VARCHAR(Credito|Debito)</text>
+  <text x="1338" y="1139" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">valor_ajuste : DECIMAL(12,2) &gt; 0</text>
+  <text x="1338" y="1152.5" font-family="Consolas, monospace" font-size="9.8" font-weight="normal" fill="#1e293b">motivo : TEXT | fecha_emision : TS</text>
+  <polyline points="320,165 400,165" fill="none" stroke="#1d4ed8" stroke-width="1.7"/>
+  <rect x="337" y="148" width="46" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="360" y="158" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N</text>
+  <rect x="321" y="149" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="337" y="158" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="367" y="149" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="383" y="158" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="830,170 745,170" fill="none" stroke="#0369a1" stroke-width="1.7"/>
+  <rect x="764.5" y="153" width="46" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="787.5" y="163" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N</text>
+  <rect x="797" y="154" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="813" y="163" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="746" y="154" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="762" y="163" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="1145,170 1240,170" fill="none" stroke="#0369a1" stroke-width="1.7"/>
+  <rect x="1169.5" y="153" width="46" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="1192.5" y="163" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N</text>
+  <rect x="1146" y="154" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1162" y="163" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1207" y="154" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1223" y="163" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="400,285 380,285 380,450 360,450" fill="none" stroke="#b45309" stroke-width="1.7"/>
+  <rect x="357" y="350.5" width="46" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="380" y="360.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N</text>
+  <rect x="367" y="269" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="383" y="278" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..1</text>
+  <rect x="361" y="434" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="377" y="443" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="575,320 575,385" fill="none" stroke="#15803d" stroke-width="1.7"/>
+  <rect x="512" y="335.5" width="126" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="575" y="345.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; 0..1 (FK UNIQUE)</text>
+  <rect x="574" y="326" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="590" y="335" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="574" y="361" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="590" y="370" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..1</text>
+  <polyline points="740,480 810,480" fill="none" stroke="#3730a3" stroke-width="1.7"/>
+  <rect x="752" y="463" width="46" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="775" y="473" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N</text>
+  <rect x="741" y="464" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="757" y="473" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="777" y="464" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="793" y="473" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="985,675 985,575" fill="none" stroke="#3730a3" stroke-width="1.7"/>
+  <rect x="947.5" y="608" width="75" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="985" y="618" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N (N:M)</text>
+  <rect x="984" y="651" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1000" y="660" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="984" y="581" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1000" y="590" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1..N</text>
+  <polyline points="1485,310 1485,400" fill="none" stroke="#c2410c" stroke-width="1.7"/>
+  <rect x="1456" y="338" width="58" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="1485" y="348" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">0..1 -&gt; N</text>
+  <rect x="1484" y="316" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1500" y="325" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..1</text>
+  <rect x="1484" y="376" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1500" y="385" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="1240,285 1205,285 1205,635 1150,635 1150,675" fill="none" stroke="#1d4ed8" stroke-width="1.7"/>
+  <rect x="1154.5" y="618" width="46" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="1177.5" y="628" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N</text>
+  <rect x="1207" y="269" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1223" y="278" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1149" y="651" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1165" y="660" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="1340,605 1340,705 1175,705" fill="none" stroke="#c2410c" stroke-width="1.7"/>
+  <rect x="1228.5" y="688" width="58" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="1257.5" y="698" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">0..1 -&gt; N</text>
+  <rect x="1339" y="611" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1355" y="620" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <rect x="1176" y="689" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1192" y="698" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..1</text>
+  <polyline points="1175,805 1330,805" fill="none" stroke="#15803d" stroke-width="1.7"/>
+  <rect x="1189.5" y="788" width="126" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="1252.5" y="798" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; 0..1 (FK UNIQUE)</text>
+  <rect x="1176" y="789" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1192" y="798" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1297" y="789" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1313" y="798" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..1</text>
+  <polyline points="1505,910 1505,1045" fill="none" stroke="#15803d" stroke-width="1.7"/>
+  <rect x="1482" y="960.5" width="46" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="1505" y="970.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N</text>
+  <rect x="1504" y="916" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1520" y="925" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1504" y="1021" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1520" y="1030" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="985,940 985,1045" fill="none" stroke="#a16207" stroke-width="1.7"/>
+  <rect x="922" y="975.5" width="126" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="985" y="985.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N (PK Compuesta)</text>
+  <rect x="984" y="946" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1000" y="955" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="984" y="1021" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1000" y="1030" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1..N</text>
+  <polyline points="200,945 200,860" fill="none" stroke="#0369a1" stroke-width="1.7"/>
+  <rect x="171" y="885.5" width="58" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="200" y="895.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">0..1 -&gt; N</text>
+  <rect x="199" y="921" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="215" y="930" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..1</text>
+  <rect x="199" y="866" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="215" y="875" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="200,1110 200,1190" fill="none" stroke="#15803d" stroke-width="1.7"/>
+  <rect x="162.5" y="1133" width="75" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="200" y="1143" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N (1FN)</text>
+  <rect x="199" y="1116" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="215" y="1125" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="199" y="1166" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="215" y="1175" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="360,1045 425,1045" fill="none" stroke="#b91c1c" stroke-width="1.7"/>
+  <rect x="369.5" y="1028" width="46" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="392.5" y="1038" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; N</text>
+  <rect x="361" y="1029" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="377" y="1038" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="392" y="1029" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="408" y="1038" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..N</text>
+  <polyline points="755,1010 775,1010 775,830 800,830" fill="none" stroke="#b91c1c" stroke-width="1.7"/>
+  <rect x="712" y="903" width="126" height="14" rx="3" fill="#ffffff" fill-opacity="0.93"/>
+  <text x="775" y="913" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.8" fill="#1e293b">1 -&gt; 0..1 (FK UNIQUE)</text>
+  <rect x="756" y="994" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="772" y="1003" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="767" y="814" width="32" height="12" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="783" y="823" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="9.5" font-weight="bold" fill="#0f172a">0..1</text>
+</svg>

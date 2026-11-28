@@ -1,0 +1,70 @@
+﻿=============================================================================
+EVIDENCIA REAL DE EJECUCION SQL · MOTOR psql (PostgreSQL) 18.6
+Script ejecutado: 05-script-creacion-sga.sql (ON_ERROR_STOP=1 -> Exit Code: 0)
+=============================================================================
+
+El paginador no se usar�.
+=== 1. CREACION DE ESQUEMA SGA (16 TABLAS EN 3FN + INDICES) ===
+CREATE EXTENSION
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE INDEX
+CREATE INDEX
+CREATE INDEX
+=== 2. LISTADO DE TABLAS CREADAS EN POSTGRESQL 18 ===
+                    Listado de tablas
+ Esquema |           Nombre           | Tipo  |    Due    
+---------+----------------------------+-------+-----------
+ public  | ambulancias                | tabla | sga_admin
+ public  | auditorias                 | tabla | sga_admin
+ public  | facturas                   | tabla | sga_admin
+ public  | historial_estados_servicio | tabla | sga_admin
+ public  | notas_credito_debito       | tabla | sga_admin
+ public  | novedades                  | tabla | sga_admin
+ public  | paciente_telefonos         | tabla | sga_admin
+ public  | pacientes                  | tabla | sga_admin
+ public  | personal                   | tabla | sga_admin
+ public  | personal_servicio          | tabla | sga_admin
+ public  | pqrs                       | tabla | sga_admin
+ public  | roles                      | tabla | sga_admin
+ public  | sedes                      | tabla | sga_admin
+ public  | servicios                  | tabla | sga_admin
+ public  | solicitudes_emergencia     | tabla | sga_admin
+ public  | usuarios                   | tabla | sga_admin
+(16 filas)
+
+=== 3. VERIFICACION DE CONTEO E INTEGRIDAD DE REGLAS EN CATALOGO ===
+ total_tablas_public 
+---------------------
+                  16
+(1 fila)
+
+ constraint_type | cantidad 
+-----------------+----------
+ CHECK           |      136
+ FOREIGN KEY     |       22
+ PRIMARY KEY     |       16
+ UNIQUE          |       15
+(4 filas)
+
+=== 4. PRUEBA DE INSERCION ANONIMIZADA Y TRANSACCION DE CIERRE + FACTURA ===
+INSERT 0 1
+ numero_factura | valor_total | es_inmutable |   estado   | estado_paciente_final 
+----------------+-------------+--------------+------------+-----------------------
+ FAC-2026-0001  |   320000.00 | t            | Finalizado | Estable
+(1 fila)
+
