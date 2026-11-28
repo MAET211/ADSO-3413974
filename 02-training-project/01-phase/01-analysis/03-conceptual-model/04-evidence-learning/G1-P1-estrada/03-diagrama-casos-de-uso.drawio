@@ -1,269 +1,255 @@
-<mxfile host="app.diagrams.net" modified="2026-11-25T07:05:00.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
+<mxfile host="app.diagrams.net" modified="2026-11-27T00:10:00.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
   <diagram id="diagrama_casos_uso_sga" name="Diagrama Casos de Uso SGA">
-    <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1422" dy="960" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1320" pageHeight="945" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        
+
         <!-- Header Banner -->
-        <mxCell id="hdr1" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMA DE CASOS DE USO UML&#xa;Evidencia G1-P1 · ADSO Ficha 3413974 · Aprendiz: MAET211 (Carpeta: G1-P1-estrada)" style="text;html=1;strokeColor=#b85450;fillColor=#f8cecc;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="140" y="20" width="880" height="40" as="geometry" />
+        <mxCell id="hdr1" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMA DE CASOS DE USO UML&#xa;Evidencia G1-P1 · ADSO Ficha 3413974 · Aprendiz: MAET211 (Carpeta: G1-P1-estrada)" style="text;html=1;strokeColor=#E2E8F0;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="20" y="15" width="1280" height="60" as="geometry" />
         </mxCell>
 
         <!-- System Boundary -->
-        <mxCell id="boundary" value="Frontera del Sistema: Sistema Gestor de Ambulancias (SGA)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;strokeWidth=2;dashed=1;strokeColor=#4A5568;fillColor=#F8FAFC;fontSize=14;" vertex="1" parent="1">
-          <mxGeometry x="220" y="80" width="720" height="710" as="geometry" />
+        <mxCell id="boundary" value="Frontera del Sistema: Sistema Gestor de Ambulancias (SGA)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=center;strokeWidth=2;strokeColor=#2D3748;fillColor=#F8FAFC;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="250" y="90" width="820" height="835" as="geometry" />
         </mxCell>
 
         <!-- Subsystem: Seguridad y Acceso -->
-        <mxCell id="sub_sec" value="Módulo: Seguridad, Autenticación y Auditoría (RBAC)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;strokeColor=#CBD5E0;fillColor=#EDF2F7;fontSize=11;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="240" y="115" width="680" height="135" as="geometry" />
+        <mxCell id="sub_sec" value="Módulo: Autenticación, Auditoría y Control de Acceso (RBAC)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;strokeColor=#CBD5E0;fillColor=#FFFFFF;dashed=1;fontSize=11;spacingLeft=10;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="270" y="130" width="780" height="195" as="geometry" />
         </mxCell>
 
         <!-- Subsystem: Núcleo Operativo de Despacho -->
-        <mxCell id="sub_ops" value="Módulo: Núcleo Operativo de Emergencias y Despacho TAB / TAM" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;strokeColor=#CBD5E0;fillColor=#EDF2F7;fontSize=11;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="240" y="270" width="680" height="290" as="geometry" />
+        <mxCell id="sub_ops" value="Módulo: Gestión Operativa, Triage y Despacho de Unidades TAB / TAM" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;strokeColor=#CBD5E0;fillColor=#FFFFFF;dashed=1;fontSize=11;spacingLeft=10;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="270" y="340" width="780" height="305" as="geometry" />
         </mxCell>
 
-        <!-- Subsystem: Soporte, REPS y Facturación -->
-        <mxCell id="sub_sup" value="Módulo: Habilitación REPS, Facturación y Control PQRS" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;strokeColor=#CBD5E0;fillColor=#EDF2F7;fontSize=11;spacingLeft=10;" vertex="1" parent="1">
-          <mxGeometry x="240" y="580" width="680" height="190" as="geometry" />
+        <!-- Subsystem: Administrativo, Financiero y REPS -->
+        <mxCell id="sub_sup" value="Módulo: Inventario Habilitado REPS, Facturación y Calidad (PQRS)" style="shape=rect;html=1;verticalAlign=top;fontStyle=1;whiteSpace=wrap;align=left;strokeColor=#CBD5E0;fillColor=#FFFFFF;dashed=1;fontSize=11;spacingLeft=10;fontColor=#718096;" vertex="1" parent="1">
+          <mxGeometry x="270" y="660" width="780" height="205" as="geometry" />
         </mxCell>
 
-        <!-- ACTORS (Left Side) -->
-        <!-- Actor 1: Administrador -->
-        <mxCell id="act_admin" value="Administrador&#xa;(Gestión y Control)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#2B6CB0;fillColor=#EBF8FF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="140" width="40" height="80" as="geometry" />
+        <!-- ACTORS (Left Side - Planar Topological Order) -->
+        <mxCell id="act_coord" value="Coordinador&#xa;(Despacho y Triage)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#2B6CB0;fillColor=#EBF8FF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="355" width="40" height="80" as="geometry" />
         </mxCell>
 
-        <!-- Actor 2: Coordinador Operativo -->
-        <mxCell id="act_coord" value="Coordinador&#xa;(Triage y Despacho)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#2B6CB0;fillColor=#EBF8FF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="340" width="40" height="80" as="geometry" />
-        </mxCell>
-
-        <!-- Actor 3: Paramédico -->
         <mxCell id="act_paramed" value="Paramédico&#xa;(Líder Tripulación)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#2B6CB0;fillColor=#EBF8FF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="500" width="40" height="80" as="geometry" />
+          <mxGeometry x="100" y="530" width="40" height="80" as="geometry" />
         </mxCell>
 
-        <!-- Actor 4: Ciudadano -->
+        <mxCell id="act_admin" value="Administrador&#xa;(Gestión y Control)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#2B6CB0;fillColor=#EBF8FF;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="100" y="670" width="40" height="80" as="geometry" />
+        </mxCell>
+
         <mxCell id="act_ciudadano" value="Ciudadano&#xa;(Usuario PQRS)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#2B6CB0;fillColor=#EBF8FF;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="80" y="660" width="40" height="80" as="geometry" />
+          <mxGeometry x="100" y="790" width="40" height="80" as="geometry" />
         </mxCell>
 
-        <!-- ACTORS (Right Side - System Actor) -->
-        <!-- Actor 5: Demonio Sistema SGA -->
+        <!-- ACTOR (Right Side - System Demon) -->
         <mxCell id="act_sistema" value="Sistema SGA&#xa;(Demonio / Cron)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;strokeColor=#C53030;fillColor=#FFF5F5;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="1030" y="380" width="40" height="80" as="geometry" />
+          <mxGeometry x="1180" y="395" width="40" height="80" as="geometry" />
         </mxCell>
 
         <!-- USE CASES -->
-        <!-- CU-01 -->
         <mxCell id="cu01" value="CU-01: Autenticar Usuario&#xa;y Emitir Token JWT" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#3182CE;fillColor=#EBF8FF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="270" y="150" width="170" height="60" as="geometry" />
+          <mxGeometry x="305" y="152" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-01.1 -->
         <mxCell id="cu01_1" value="CU-01.1: Bloquear Cuenta&#xa;por Intentos Fallidos" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#D69E2E;fillColor=#FEFCBF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="500" y="150" width="170" height="60" as="geometry" />
+          <mxGeometry x="615" y="152" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-06 -->
         <mxCell id="cu06" value="CU-06: Auditar Evento&#xa;Transaccional Inmutable" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#3182CE;fillColor=#EBF8FF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="720" y="150" width="170" height="60" as="geometry" />
+          <mxGeometry x="850" y="252" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-02 -->
         <mxCell id="cu02" value="CU-02: Radicar Solicitud&#xa;de Emergencia (Triage)" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#E53E3E;fillColor=#FFF5F5;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="260" y="310" width="170" height="60" as="geometry" />
+          <mxGeometry x="305" y="368" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-03 -->
-        <mxCell id="cu03" value="CU-03: Asignar Ambulancia&#xa;Automática (TAB / TAM)" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#E53E3E;fillColor=#FFF5F5;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="490" y="310" width="180" height="60" as="geometry" />
+        <mxCell id="cu03" value="CU-03 [CRÍTICO]: Asignar&#xa;Ambulancia Automática (TAB/TAM)" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#E53E3E;fillColor=#FFF5F5;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="615" y="368" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-04 -->
-        <mxCell id="cu04" value="CU-04: Asignar Ambulancia&#xa;con Justificación Manual" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#D69E2E;fillColor=#FEFCBF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="720" y="310" width="170" height="60" as="geometry" />
-        </mxCell>
-
-        <!-- CU-07 -->
         <mxCell id="cu07" value="CU-07: Monitorear Flota&#xa;y Estados en Tiempo Real" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#3182CE;fillColor=#EBF8FF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="260" y="420" width="170" height="60" as="geometry" />
+          <mxGeometry x="305" y="475" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-05 -->
-        <mxCell id="cu05" value="CU-05: Realizar Cierre&#xa;Formal del Servicio" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#E53E3E;fillColor=#FFF5F5;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="500" y="470" width="180" height="65" as="geometry" />
+        <mxCell id="cu04" value="CU-04 [CRÍTICO]: Asignar&#xa;con Justificación Manual" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#D69E2E;fillColor=#FEFCBF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="615" y="475" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-08 -->
-        <mxCell id="cu08" value="CU-08: Gestionar Inventario&#xa;de Ambulancias" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#D69E2E;fillColor=#FEFCBF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="260" y="610" width="170" height="60" as="geometry" />
+        <mxCell id="cu05" value="CU-05 [CRÍTICO]: Realizar&#xa;Cierre Formal de Servicio" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#E53E3E;fillColor=#FFF5F5;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="615" y="570" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-09 -->
+        <mxCell id="cu08" value="CU-08: Gestionar Flota&#xa;de Ambulancias" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#D69E2E;fillColor=#FEFCBF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="305" y="682" width="185" height="58" as="geometry" />
+        </mxCell>
+
         <mxCell id="cu09" value="CU-09: Validar Habilitación&#xa;REPS y Vencimientos" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#3182CE;fillColor=#EBF8FF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="490" y="610" width="170" height="60" as="geometry" />
+          <mxGeometry x="585" y="682" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-11 -->
         <mxCell id="cu11" value="CU-11: Generar Factura&#xa;Inmutable de Servicio" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#38A169;fillColor=#F0FFF4;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="720" y="610" width="170" height="60" as="geometry" />
+          <mxGeometry x="850" y="682" width="185" height="58" as="geometry" />
         </mxCell>
 
-        <!-- CU-10 -->
         <mxCell id="cu10" value="CU-10: Radicar y Consultar&#xa;Solicitudes PQRS" style="ellipse;whiteSpace=wrap;html=1;strokeColor=#3182CE;fillColor=#EBF8FF;fontStyle=1;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="380" y="695" width="180" height="60" as="geometry" />
+          <mxGeometry x="420" y="795" width="190" height="58" as="geometry" />
         </mxCell>
 
-        <!-- ASSOCIATIONS (ACTORS TO USE CASES) -->
-        <!-- Admin to CU01 -->
-        <mxCell id="e_adm_cu01" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="act_admin" target="cu01">
+        <!-- ZERO-CROSSING ORTHOGONAL ASSOCIATIONS -->
+        <!-- Coordinador -> CU-01 -->
+        <mxCell id="e_coord_cu01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.15;entryX=0;entryY=0.5;" edge="1" parent="1" source="act_coord" target="cu01">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="215" y="367" />
+              <mxPoint x="215" y="181" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Coordinador -> CU-02 -->
+        <mxCell id="e_coord_cu02" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="act_coord" target="cu02">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Admin to CU08 -->
-        <mxCell id="e_adm_cu08" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="act_admin" target="cu08">
+        <!-- Coordinador -> CU-04 (corridor y=450) -->
+        <mxCell id="e_coord_cu04" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.8;entryX=0;entryY=0.5;" edge="1" parent="1" source="act_coord" target="cu04">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="190" y="180" />
-              <mxPoint x="190" y="640" />
+              <mxPoint x="235" y="419" />
+              <mxPoint x="235" y="450" />
+              <mxPoint x="565" y="450" />
+              <mxPoint x="565" y="504" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- Coord to CU01 -->
-        <mxCell id="e_coord_cu01" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="act_coord" target="cu01">
+        <!-- Coordinador -> CU-07 (corridor x=215) -->
+        <mxCell id="e_coord_cu07" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="act_coord" target="cu07">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="200" y="380" />
-              <mxPoint x="200" y="195" />
+              <mxPoint x="215" y="435" />
+              <mxPoint x="215" y="504" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- Coord to CU02 -->
-        <mxCell id="e_coord_cu02" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="act_coord" target="cu02">
+        <!-- Paramédico -> CU-01 (corridor x=68 -> y=118) -->
+        <mxCell id="e_param_cu01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=0;exitY=0.35;entryX=0.3;entryY=0;" edge="1" parent="1" source="act_paramed" target="cu01">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="68" y="558" />
+              <mxPoint x="68" y="118" />
+              <mxPoint x="360" y="118" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Paramédico -> CU-05 -->
+        <mxCell id="e_param_cu05" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.85;entryX=0;entryY=0.5;" edge="1" parent="1" source="act_paramed" target="cu05">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="215" y="599" />
+              <mxPoint x="215" y="599" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Admin -> CU-01 (outer corridor x=35 -> y=100) -->
+        <mxCell id="e_adm_cu01" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=0;exitY=0.35;entryX=0.65;entryY=0;" edge="1" parent="1" source="act_admin" target="cu01">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="35" y="698" />
+              <mxPoint x="35" y="100" />
+              <mxPoint x="425" y="100" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Admin -> CU-08 -->
+        <mxCell id="e_adm_cu08" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="act_admin" target="cu08">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Coord to CU07 -->
-        <mxCell id="e_coord_cu07" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="act_coord" target="cu07">
+        <!-- Ciudadano -> CU-10 -->
+        <mxCell id="e_ciu_cu10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.4;entryX=0;entryY=0.5;" edge="1" parent="1" source="act_ciudadano" target="cu10">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- Coord to CU04 (Manual) -->
-        <mxCell id="e_coord_cu04" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="act_coord" target="cu04">
+        <!-- Demonio Sistema SGA (Right Side Orthogonal Corridors) -->
+        <mxCell id="e_sist_cu01_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#C53030;strokeWidth=1.5;exitX=0;exitY=0.2;entryX=1;entryY=0.5;" edge="1" parent="1" source="act_sistema" target="cu01_1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="210" y="370" />
-              <mxPoint x="210" y="285" />
-              <mxPoint x="805" y="285" />
+              <mxPoint x="1140" y="411" />
+              <mxPoint x="1140" y="181" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- Paramed to CU01 -->
-        <mxCell id="e_param_cu01" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="act_paramed" target="cu01">
+        <mxCell id="e_sist_cu03" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#C53030;strokeWidth=1.5;exitX=0;exitY=0.4;entryX=0.5;entryY=0;" edge="1" parent="1" source="act_sistema" target="cu03">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="180" y="540" />
-              <mxPoint x="180" y="210" />
+              <mxPoint x="1120" y="427" />
+              <mxPoint x="1120" y="231" />
+              <mxPoint x="707" y="231" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- Paramed to CU05 -->
-        <mxCell id="e_param_cu05" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="act_paramed" target="cu05">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- Ciudadano to CU10 -->
-        <mxCell id="e_ciu_cu10" style="endArrow=none;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="act_ciudadano" target="cu10">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-
-        <!-- Demonio Sistema SGA Associations -->
-        <!-- Sist to CU01.1 -->
-        <mxCell id="e_sist_cu01_1" style="endArrow=none;html=1;strokeColor=#C53030;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="act_sistema" target="cu01_1">
+        <mxCell id="e_sist_cu06" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#C53030;strokeWidth=1.5;exitX=0;exitY=0.6;entryX=1;entryY=0.5;" edge="1" parent="1" source="act_sistema" target="cu06">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="960" y="420" />
-              <mxPoint x="960" y="180" />
+              <mxPoint x="1100" y="443" />
+              <mxPoint x="1100" y="281" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- Sist to CU03 (Auto Dispatch) -->
-        <mxCell id="e_sist_cu03" style="endArrow=none;html=1;strokeColor=#C53030;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="act_sistema" target="cu03">
+        <mxCell id="e_sist_cu09" style="edgeStyle=orthogonalEdgeStyle;rounded=0;endArrow=none;html=1;strokeColor=#C53030;strokeWidth=1.5;exitX=0;exitY=0.8;entryX=0.5;entryY=1;" edge="1" parent="1" source="act_sistema" target="cu09">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="980" y="420" />
-              <mxPoint x="980" y="340" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-
-        <!-- Sist to CU09 (REPS Alert) -->
-        <mxCell id="e_sist_cu09" style="endArrow=none;html=1;strokeColor=#C53030;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="act_sistema" target="cu09">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="970" y="440" />
-              <mxPoint x="970" y="640" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-
-        <!-- Sist to CU06 (Audit Log) -->
-        <mxCell id="e_sist_cu06" style="endArrow=none;html=1;strokeColor=#C53030;strokeWidth=1.5;edgeStyle=orthogonalEdgeStyle;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="act_sistema" target="cu06">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="950" y="400" />
-              <mxPoint x="950" y="180" />
+              <mxPoint x="1140" y="459" />
+              <mxPoint x="1140" y="768" />
+              <mxPoint x="677" y="768" />
             </Array>
           </mxGeometry>
         </mxCell>
 
         <!-- UML DEPENDENCIES: INCLUDE & EXTEND -->
-        <!-- CU01 extends CU01.1 -->
-        <mxCell id="dep_cu01_ext" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;strokeColor=#E53E3E;strokeWidth=1.5;fontColor=#C53030;fontStyle=1;fontSize=10;" edge="1" parent="1" source="cu01_1" target="cu01">
+        <mxCell id="dep_cu01_ext" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;verticalAlign=bottom;labelBackgroundColor=#FFFFFF;endArrow=open;endFill=0;dashed=1;strokeColor=#E53E3E;strokeWidth=1.6;fontColor=#C53030;fontStyle=1;fontSize=10;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="cu01_1" target="cu01">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- CU02 includes CU03 -->
-        <mxCell id="dep_cu02_inc" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;strokeColor=#3182CE;strokeWidth=1.5;fontColor=#2B6CB0;fontStyle=1;fontSize=10;" edge="1" parent="1" source="cu02" target="cu03">
+        <mxCell id="dep_cu02_inc" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;verticalAlign=bottom;labelBackgroundColor=#FFFFFF;endArrow=open;endFill=0;dashed=1;strokeColor=#3182CE;strokeWidth=1.6;fontColor=#2C5282;fontStyle=1;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="cu02" target="cu03">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- CU04 extends CU03 -->
-        <mxCell id="dep_cu04_ext" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;strokeColor=#E53E3E;strokeWidth=1.5;fontColor=#C53030;fontStyle=1;fontSize=10;" edge="1" parent="1" source="cu04" target="cu03">
+        <mxCell id="dep_cu04_ext" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=#FFFFFF;endArrow=open;endFill=0;dashed=1;strokeColor=#E53E3E;strokeWidth=1.6;fontColor=#C53030;fontStyle=1;fontSize=10;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="cu04" target="cu03">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- CU08 includes CU09 -->
-        <mxCell id="dep_cu08_inc" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;strokeColor=#3182CE;strokeWidth=1.5;fontColor=#2B6CB0;fontStyle=1;fontSize=10;" edge="1" parent="1" source="cu08" target="cu09">
+        <mxCell id="dep_cu08_inc" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;verticalAlign=bottom;labelBackgroundColor=#FFFFFF;endArrow=open;endFill=0;dashed=1;strokeColor=#3182CE;strokeWidth=1.6;fontColor=#2C5282;fontStyle=1;fontSize=10;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="cu08" target="cu09">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
 
-        <!-- CU05 includes CU11 -->
-        <mxCell id="dep_cu05_inc_11" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;strokeColor=#3182CE;strokeWidth=1.5;fontColor=#2B6CB0;fontStyle=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="cu05" target="cu11">
+        <mxCell id="dep_cu05_inc_06" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=#FFFFFF;endArrow=open;endFill=0;dashed=1;strokeColor=#3182CE;strokeWidth=1.6;fontColor=#2C5282;fontStyle=1;fontSize=10;exitX=1;exitY=0.3;entryX=0;entryY=0.5;" edge="1" parent="1" source="cu05" target="cu06">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="700" y="502" />
-              <mxPoint x="700" y="640" />
+              <mxPoint x="825" y="588" />
+              <mxPoint x="825" y="281" />
             </Array>
           </mxGeometry>
         </mxCell>
 
-        <!-- CU05 includes CU06 -->
-        <mxCell id="dep_cu05_inc_06" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;strokeColor=#3182CE;strokeWidth=1.5;fontColor=#2B6CB0;fontStyle=1;fontSize=10;edgeStyle=orthogonalEdgeStyle;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="cu05" target="cu06">
+        <mxCell id="dep_cu05_inc_11" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;labelBackgroundColor=#FFFFFF;endArrow=open;endFill=0;dashed=1;strokeColor=#3182CE;strokeWidth=1.6;fontColor=#2C5282;fontStyle=1;fontSize=10;exitX=1;exitY=0.7;entryX=0.5;entryY=0;" edge="1" parent="1" source="cu05" target="cu11">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="680" y="502" />
-              <mxPoint x="680" y="240" />
-              <mxPoint x="805" y="240" />
+              <mxPoint x="942" y="611" />
             </Array>
           </mxGeometry>
         </mxCell>
