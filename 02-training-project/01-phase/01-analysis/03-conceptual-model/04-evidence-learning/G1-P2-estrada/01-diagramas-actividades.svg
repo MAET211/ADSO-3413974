@@ -1,244 +1,235 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1250" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 1340" width="100%" height="100%">
   <defs>
     <style>
       .hdr-title { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 19px; font-weight: bold; fill: #1A365D; }
       .hdr-sub { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; fill: #4A5568; }
-      .diag-title { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #2B6CB0; text-transform: uppercase; letter-spacing: 0.5px; }
-      .lane-title { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; font-weight: bold; fill: #2D3748; text-anchor: middle; }
+      .diag-title { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; font-weight: bold; fill: #2D3748; }
+      .lane-box { fill: #FFFFFF; stroke: #A0AEC0; stroke-width: 1.5; }
+      .lane-header { fill: #EDF2F7; stroke: #A0AEC0; stroke-width: 1.5; }
+      .lane-title { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: bold; fill: #2D3748; text-anchor: middle; }
+      
+      .activity-box { fill: #EBF8FF; stroke: #3182CE; stroke-width: 1.6; rx: 10; }
+      .activity-sys { fill: #FEFCBF; stroke: #D69E2E; stroke-width: 1.6; rx: 10; }
+      .activity-fin { fill: #F0FFF4; stroke: #38A169; stroke-width: 1.6; rx: 10; }
+      .activity-alt { fill: #FFF5F5; stroke: #E53E3E; stroke-width: 1.6; rx: 10; }
       .act-text { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; fill: #1A202C; text-anchor: middle; }
-      .guard-text { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10px; font-weight: bold; fill: #C53030; }
-      .guard-ok { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10px; font-weight: bold; fill: #22543D; }
-
-      /* Swimlanes and Boxes */
-      .lane-box { fill: #FFFFFF; stroke: #CBD5E0; stroke-width: 1.5; }
-      .lane-header { fill: #EDF2F7; stroke: #CBD5E0; stroke-width: 1.5; }
-      .activity-box { fill: #EBF8FF; stroke: #3182CE; stroke-width: 1.5; rx: 8; ry: 8; }
-      .activity-sys { fill: #FEFCBF; stroke: #D69E2E; stroke-width: 1.5; rx: 8; ry: 8; }
-      .activity-fin { fill: #F0FFF4; stroke: #38A169; stroke-width: 1.5; rx: 8; ry: 8; }
-      .decision-node { fill: #FFF5F5; stroke: #E53E3E; stroke-width: 1.5; }
-      .fork-bar { fill: #2D3748; stroke: #2D3748; stroke-width: 1; }
-
-      /* Connectors */
-      .flow-line { stroke: #4A5568; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
-      .flow-alt { stroke: #E53E3E; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; marker-end: url(#arrow-red); }
+      
+      .decision-node { fill: #FFF5F5; stroke: #E53E3E; stroke-width: 1.8; }
+      .merge-node { fill: #EDF2F7; stroke: #718096; stroke-width: 1.6; }
+      .guard-text { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: bold; fill: #C53030; }
+      .guard-ok { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: bold; fill: #2F855A; }
+      .guard-pill { fill: #FFFFFF; opacity: 0.96; rx: 3; }
+      
+      .flow-line { stroke: #4A5568; stroke-width: 1.6; fill: none; marker-end: url(#arrow); }
+      .flow-alt { stroke: #E53E3E; stroke-width: 1.6; stroke-dasharray: 5,4; fill: none; marker-end: url(#arrow-red); }
+      .fork-bar { fill: #1A202C; rx: 2; }
     </style>
 
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M 0 1 L 10 5 L 0 9 z" fill="#4A5568" />
     </marker>
-    <marker id="arrow-red" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M 0 1 L 10 5 L 0 9 z" fill="#E53E3E" />
     </marker>
   </defs>
 
   <!-- Background -->
-  <rect x="0" y="0" width="1200" height="1250" fill="#F8FAFC" />
+  <rect x="0" y="0" width="1300" height="1340" fill="#F8FAFC" />
 
   <!-- Header Banner -->
-  <rect x="20" y="15" width="1160" height="55" fill="#FFFFFF" stroke="#CBD5E0" rx="8" />
-  <text x="40" y="38" class="hdr-title">SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMAS DE ACTIVIDADES UML</text>
-  <text x="40" y="55" class="hdr-sub">Evidencia G1-P2 · Criterio C1 (RAP 592373) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada) · Decisiones completas con guardas [ ]</text>
+  <rect x="25" y="15" width="1250" height="58" fill="#FFFFFF" stroke="#CBD5E0" rx="8" />
+  <text x="45" y="39" class="hdr-title">SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMAS DE ACTIVIDADES UML</text>
+  <text x="45" y="57" class="hdr-sub">Evidencia G1-P2 · Criterio C1 (RAP 592373) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada) · Calles por actor, guardas [ ] y concurrencia Fork/Join</text>
 
   <!-- ========================================================================= -->
-  <!-- DIAGRAMA 1: TRIAGE Y DESPACHO AUTOMÁTICO DE AMBULANCIAS (CU-03)          -->
+  <!-- DIAGRAMA 1: TRIAGE Y DESPACHO AUTOMÁTICO DE AMBULANCIAS (CU-03)           -->
   <!-- ========================================================================= -->
   
-  <text x="40" y="95" class="diag-title">1. Diagrama de Actividades: Triage y Despacho Automático de Ambulancia (CU-03 / CU-02)</text>
+  <text x="40" y="96" class="diag-title">1. Diagrama de Actividades: Triage y Despacho Automático de Ambulancia (CU-03 / CU-02)</text>
 
   <!-- Swimlanes Diagram 1 -->
-  <!-- Lane 1: Coordinador Operativo -->
-  <rect x="40" y="110" width="360" height="500" class="lane-box" />
-  <rect x="40" y="110" width="360" height="30" class="lane-header" />
-  <text x="220" y="130" class="lane-title">Coordinador Operativo (Despacho)</text>
+  <rect x="40" y="110" width="370" height="520" class="lane-box" />
+  <rect x="40" y="110" width="370" height="30" class="lane-header" />
+  <text x="225" y="130" class="lane-title">Coordinador Operativo (Despacho)</text>
 
-  <!-- Lane 2: Motor de Despacho SGA (Sistema) -->
-  <rect x="400" y="110" width="440" height="500" class="lane-box" />
-  <rect x="400" y="110" width="440" height="30" class="lane-header" />
-  <text x="620" y="130" class="lane-title">Motor de Despacho SGA (Sistema Automático)</text>
+  <rect x="410" y="110" width="510" height="520" class="lane-box" />
+  <rect x="410" y="110" width="510" height="30" class="lane-header" />
+  <text x="665" y="130" class="lane-title">Motor de Despacho SGA (Sistema Automático)</text>
 
-  <!-- Lane 3: Tripulación Asistencial (Paramédicos) -->
-  <rect x="840" y="110" width="320" height="500" class="lane-box" />
-  <rect x="840" y="110" width="320" height="30" class="lane-header" />
-  <text x="1000" y="130" class="lane-title">Tripulación Asistencial (TAB / TAM)</text>
+  <rect x="920" y="110" width="340" height="520" class="lane-box" />
+  <rect x="920" y="110" width="340" height="30" class="lane-header" />
+  <text x="1090" y="130" class="lane-title">Tripulación Asistencial (TAB / TAM)</text>
 
   <!-- Nodes Diagram 1 -->
-  <!-- Initial Node -->
-  <circle cx="100" cy="165" r="10" fill="#2D3748" />
+  <circle cx="85" cy="175" r="10" fill="#2D3748" />
 
-  <!-- Act 1.1 -->
-  <rect x="140" y="145" width="220" height="40" class="activity-box" />
-  <text x="250" y="168" class="act-text">Recibir llamada y radicar solicitud</text>
+  <rect x="130" y="155" width="250" height="40" class="activity-box" />
+  <text x="255" y="179" class="act-text">Recibir llamada y radicar solicitud</text>
 
-  <!-- Act 1.2 -->
-  <rect x="140" y="215" width="220" height="40" class="activity-box" />
-  <text x="250" y="238" class="act-text">Asignar prioridad clínica (Triage)</text>
+  <rect x="130" y="225" width="250" height="40" class="activity-box" />
+  <text x="255" y="249" class="act-text">Asignar prioridad clínica (Triage)</text>
 
-  <!-- Act 1.3 (In System) -->
-  <rect x="450" y="215" width="240" height="40" class="activity-sys" />
-  <text x="570" y="238" class="act-text">Filtrar flota por idoneidad (RN-002)</text>
+  <rect x="530" y="225" width="260" height="40" class="activity-sys" />
+  <text x="660" y="249" class="act-text">Evaluar complejidad y filtrar flota (RN-002)</text>
 
-  <!-- Decision 1: Complejidad TAB vs TAM -->
-  <polygon points="570,285 620,310 570,335 520,310" class="decision-node" />
-  
-  <!-- Act 1.4A: Filtrar TAM -->
-  <rect x="430" y="360" width="130" height="35" class="activity-sys" />
-  <text x="495" y="382" class="act-text">Filtrar unidades TAM</text>
+  <!-- Decision 1: Complejidad TAB vs TAM (centered at 660, 320) -->
+  <polygon points="660,295 710,320 660,345 610,320" class="decision-node" />
 
-  <!-- Act 1.4B: Filtrar TAB -->
-  <rect x="610" y="360" width="130" height="35" class="activity-sys" />
-  <text x="675" y="382" class="act-text">Filtrar unidades TAB</text>
+  <rect x="450" y="368" width="170" height="38" class="activity-sys" />
+  <text x="535" y="391" class="act-text">Filtrar unidades TAM</text>
 
-  <!-- Merge 1 -->
-  <polygon points="570,415 600,430 570,445 540,430" class="decision-node" />
+  <rect x="710" y="368" width="170" height="38" class="activity-sys" />
+  <text x="795" y="391" class="act-text">Filtrar unidades TAB</text>
 
-  <!-- Decision 2: Disponibilidad y Habilitación REPS -->
-  <polygon points="570,465 620,490 570,515 520,490" class="decision-node" />
+  <!-- Merge 1 (centered at 660, 435) -->
+  <polygon points="660,420 690,435 660,450 630,435" class="merge-node" />
+
+  <!-- Decision 2: Disponibilidad y REPS (centered at 660, 495) -->
+  <polygon points="660,470 710,495 660,520 610,495" class="decision-node" />
+
+  <!-- Excepción: Sin unidades o REPS vencido -->
+  <rect x="130" y="475" width="250" height="40" class="activity-alt" />
+  <text x="255" y="499" class="act-text">Activar protocolo manual / CRUE</text>
+
+  <circle cx="80" cy="495" r="10" fill="#E53E3E" />
+  <circle cx="80" cy="495" r="14" fill="none" stroke="#E53E3E" stroke-width="1.5" />
 
   <!-- Act 1.5: Asignar y Despachar -->
-  <rect x="640" y="530" width="180" height="40" class="activity-sys" />
-  <text x="730" y="555" class="act-text">Asignar unidad y emitir orden</text>
+  <rect x="640" y="565" width="250" height="40" class="activity-sys" />
+  <text x="765" y="589" class="act-text">Asignar unidad y emitir orden despacho</text>
 
-  <!-- Act 1.6: Notificar Tripulación -->
-  <rect x="880" y="530" width="240" height="40" class="activity-fin" />
-  <text x="1000" y="555" class="act-text">Confirmar salida y pasar a 'En Ruta'</text>
+  <!-- Act 1.6: Tripulación -->
+  <rect x="945" y="565" width="245" height="40" class="activity-fin" />
+  <text x="1067" y="589" class="act-text">Confirmar salida y pasar a 'En Ruta'</text>
 
-  <!-- Final Node Normal -->
-  <circle cx="1140" cy="550" r="10" fill="#2D3748" />
-  <circle cx="1140" cy="550" r="14" fill="none" stroke="#2D3748" stroke-width="1.5" />
-
-  <!-- Excepción: Sin unidades libres -->
-  <rect x="140" y="470" width="220" height="40" class="activity-box" />
-  <text x="250" y="493" class="act-text">Activar protocolo manual / externo</text>
-
-  <!-- Final Node Alterno -->
-  <circle cx="90" cy="490" r="10" fill="#E53E3E" />
-  <circle cx="90" cy="490" r="14" fill="none" stroke="#E53E3E" stroke-width="1.5" />
+  <circle cx="1225" cy="585" r="10" fill="#2D3748" />
+  <circle cx="1225" cy="585" r="14" fill="none" stroke="#2D3748" stroke-width="1.5" />
 
   <!-- Connectors Diagram 1 -->
-  <line x1="110" y1="165" x2="140" y2="165" class="flow-line" />
-  <line x1="250" y1="185" x2="250" y2="215" class="flow-line" />
-  <line x1="360" y1="235" x2="450" y2="235" class="flow-line" />
-  <line x1="570" y1="255" x2="570" y2="285" class="flow-line" />
+  <line x1="95" y1="175" x2="130" y2="175" class="flow-line" />
+  <line x1="255" y1="195" x2="255" y2="225" class="flow-line" />
+  <line x1="380" y1="245" x2="530" y2="245" class="flow-line" />
+  <line x1="660" y1="265" x2="660" y2="295" class="flow-line" />
 
-  <!-- Branches Decision 1 with Guards -->
-  <path d="M 520 310 L 495 310 L 495 360" class="flow-line" />
-  <text x="400" y="305" class="guard-text">[Prioridad Rojo / Naranja]</text>
+  <!-- Decision 1 Branches (clean space before labels) -->
+  <path d="M 610 320 L 535 320 L 535 368" class="flow-line" />
+  <rect x="432" y="297" width="160" height="16" class="guard-pill" />
+  <text x="512" y="309" class="guard-text" text-anchor="middle">[Prioridad Rojo / Naranja]</text>
 
-  <path d="M 620 310 L 675 310 L 675 360" class="flow-line" />
-  <text x="635" y="305" class="guard-ok">[Prioridad Verde / Amarillo]</text>
+  <path d="M 710 320 L 795 320 L 795 368" class="flow-line" />
+  <rect x="720" y="297" width="175" height="16" class="guard-pill" />
+  <text x="807" y="309" class="guard-ok" text-anchor="middle">[Prioridad Verde / Amarillo]</text>
 
-  <line x1="495" y1="395" x2="550" y2="425" class="flow-line" />
-  <line x1="675" y1="395" x2="590" y2="425" class="flow-line" />
-  <line x1="570" y1="445" x2="570" y2="465" class="flow-line" />
+  <path d="M 535 406 L 535 435 L 630 435" class="flow-line" />
+  <path d="M 795 406 L 795 435 L 690 435" class="flow-line" />
+  <line x1="660" y1="450" x2="660" y2="470" class="flow-line" />
 
-  <!-- Branches Decision 2 with Guards -->
-  <line x1="570" y1="515" x2="640" y2="540" class="flow-line" />
-  <text x="580" y="525" class="guard-ok">[Disponible y REPS al día]</text>
+  <!-- Decision 2 Branches (strictly orthogonal!) -->
+  <path d="M 660 520 L 660 565" class="flow-line" />
+  <rect x="668" y="532" width="168" height="16" class="guard-pill" />
+  <text x="672" y="544" class="guard-ok">[Disponible y REPS al día]</text>
 
-  <line x1="520" y1="490" x2="360" y2="490" class="flow-alt" />
-  <text x="375" y="482" class="guard-text">[Sin unidades o REPS vencido]</text>
+  <line x1="610" y1="495" x2="380" y2="495" class="flow-alt" />
+  <rect x="415" y="472" width="180" height="16" class="guard-pill" />
+  <text x="505" y="484" class="guard-text" text-anchor="middle">[Sin unidades o REPS vencido]</text>
 
-  <line x1="820" y1="550" x2="880" y2="550" class="flow-line" />
-  <line x1="1120" y1="550" x2="1126" y2="550" class="flow-line" />
-  <line x1="140" y1="490" x2="104" y2="490" class="flow-line" />
+  <line x1="130" y1="495" x2="94" y2="495" class="flow-line" />
+  <line x1="890" y1="585" x2="945" y2="585" class="flow-line" />
+  <line x1="1190" y1="585" x2="1211" y2="585" class="flow-line" />
 
 
   <!-- ========================================================================= -->
   <!-- DIAGRAMA 2: CIERRE FORMAL DE SERVICIO Y LIQUIDACIÓN INMUTABLE (CU-05)     -->
   <!-- ========================================================================= -->
   
-  <text x="40" y="650" class="diag-title">2. Diagrama de Actividades: Cierre Formal de Servicio y Liquidación (CU-05 / CU-11 / CU-06)</text>
+  <text x="40" y="672" class="diag-title">2. Diagrama de Actividades: Cierre Formal de Servicio y Concurrencia Operativa (CU-05 / CU-11 / CU-06)</text>
 
   <!-- Swimlanes Diagram 2 -->
-  <!-- Lane 1: Paramédico en Campo -->
-  <rect x="40" y="665" width="360" height="540" class="lane-box" />
-  <rect x="40" y="665" width="360" height="30" class="lane-header" />
-  <text x="220" y="685" class="lane-title">Paramédico en Campo (Tripulación)</text>
+  <rect x="40" y="688" width="370" height="620" class="lane-box" />
+  <rect x="40" y="688" width="370" height="30" class="lane-header" />
+  <text x="225" y="708" class="lane-title">Paramédico en Campo (Tripulación)</text>
 
-  <!-- Lane 2: Sistema SGA (Validación y Core) -->
-  <rect x="400" y="665" width="440" height="540" class="lane-box" />
-  <rect x="400" y="665" width="440" height="30" class="lane-header" />
-  <text x="620" y="685" class="lane-title">Sistema Central SGA (Reglas de Negocio)</text>
+  <rect x="410" y="688" width="460" height="620" class="lane-box" />
+  <rect x="410" y="688" width="460" height="30" class="lane-header" />
+  <text x="640" y="708" class="lane-title">Sistema Central SGA (Reglas de Negocio)</text>
 
-  <!-- Lane 3: Facturación y Auditoría -->
-  <rect x="840" y="665" width="320" height="540" class="lane-box" />
-  <rect x="840" y="665" width="320" height="30" class="lane-header" />
-  <text x="1000" y="685" class="lane-title">Módulo Financiero y Auditoría Inmutable</text>
+  <rect x="870" y="688" width="390" height="620" class="lane-box" />
+  <rect x="870" y="688" width="390" height="30" class="lane-header" />
+  <text x="1065" y="708" class="lane-title">Flota, Facturación Inmutable y Auditoría</text>
 
   <!-- Nodes Diagram 2 -->
-  <!-- Initial Node -->
-  <circle cx="100" cy="725" r="10" fill="#2D3748" />
+  <circle cx="85" cy="755" r="10" fill="#2D3748" />
 
-  <!-- Act 2.1 -->
-  <rect x="140" y="705" width="220" height="40" class="activity-box" />
-  <text x="250" y="728" class="act-text">Finalizar traslado médico en hospital</text>
+  <rect x="130" y="735" width="250" height="40" class="activity-box" />
+  <text x="255" y="759" class="act-text">Finalizar traslado médico en IPS destino</text>
 
-  <!-- Act 2.2 -->
-  <rect x="140" y="775" width="220" height="40" class="activity-box" />
-  <text x="250" y="798" class="act-text">Diligenciar datos clínicos y destino (RN-005)</text>
+  <rect x="130" y="805" width="250" height="40" class="activity-box" />
+  <text x="255" y="829" class="act-text">Diligenciar datos clínicos y cierre (RN-005)</text>
 
-  <!-- Act 2.3 (In System) -->
-  <rect x="470" y="775" width="220" height="40" class="activity-sys" />
-  <text x="580" y="798" class="act-text">Validar completitud de campos clínicos</text>
+  <rect x="480" y="805" width="260" height="40" class="activity-sys" />
+  <text x="610" y="829" class="act-text">Validar completitud y consistencia REPS</text>
 
-  <!-- Decision 3: Validación RN-005 -->
-  <polygon points="580,845 630,870 580,895 530,870" class="decision-node" />
+  <!-- Decision 3: Validación RN-005 (centered at 610, 905) -->
+  <polygon points="610,880 660,905 610,930 560,905" class="decision-node" />
 
   <!-- Act 2.4: Transicionar a Finalizado -->
-  <rect x="470" y="930" width="220" height="40" class="activity-sys" />
-  <text x="580" y="953" class="act-text">Transicionar estado a 'Finalizado'</text>
+  <rect x="480" y="985" width="260" height="40" class="activity-sys" />
+  <text x="610" y="1009" class="act-text">Transicionar estado servicio a 'Finalizado'</text>
 
-  <!-- Act 2.5: Liberar Ambulancia -->
-  <rect x="140" y="930" width="220" height="40" class="activity-fin" />
-  <text x="250" y="953" class="act-text">Retornar ambulancia a 'Disponible'</text>
+  <!-- Fork Bar (strictly vertical bar x=825, spanning 3 parallel tracks!) -->
+  <rect x="825" y="945" width="12" height="125" class="fork-bar" />
 
-  <!-- Fork (Concurrencia obligatoria) -->
-  <rect x="740" y="920" width="12" height="60" class="fork-bar" />
+  <!-- 3 Parallel Activities in Lane 3 (ALL connected through Fork and Join!) -->
+  <rect x="900" y="915" width="250" height="38" class="activity-fin" />
+  <text x="1025" y="938" class="act-text">Liberar ambulancia a 'Disponible'</text>
 
-  <!-- Act 2.6A (Concurrent: Facturación) -->
-  <rect x="880" y="890" width="240" height="40" class="activity-fin" />
-  <text x="1000" y="913" class="act-text">Generar factura inmutable (CU-11)</text>
+  <rect x="900" y="985" width="250" height="38" class="activity-fin" />
+  <text x="1025" y="1008" class="act-text">Generar factura inmutable (CU-11)</text>
 
-  <!-- Act 2.6B (Concurrent: Auditoría) -->
-  <rect x="880" y="960" width="240" height="40" class="activity-fin" />
-  <text x="1000" y="983" class="act-text">Registrar evento en auditoría (CU-06)</text>
+  <rect x="900" y="1055" width="250" height="38" class="activity-fin" />
+  <text x="1025" y="1078" class="act-text">Registrar evento en auditoría (CU-06)</text>
 
-  <!-- Join (Unión) -->
-  <rect x="1140" y="920" width="12" height="60" class="fork-bar" />
+  <!-- Join Bar (strictly inside Lane 3 at x=1200) -->
+  <rect x="1200" y="945" width="12" height="125" class="fork-bar" />
 
-  <!-- Final Node Diagram 2 -->
-  <circle cx="1000" cy="1110" r="10" fill="#2D3748" />
-  <circle cx="1000" cy="1110" r="14" fill="none" stroke="#2D3748" stroke-width="1.5" />
+  <!-- Archivar y Fin -->
+  <rect x="900" y="1165" width="260" height="40" class="activity-box" />
+  <text x="1030" y="1189" class="act-text">Archivar expediente asistencial cerrado</text>
 
-  <!-- Act 2.7: Notificar Cierre -->
-  <rect x="880" y="1040" width="240" height="40" class="activity-box" />
-  <text x="1000" y="1063" class="act-text">Archivar expediente asistencial cerrado</text>
+  <circle cx="1030" cy="1260" r="10" fill="#2D3748" />
+  <circle cx="1030" cy="1260" r="14" fill="none" stroke="#2D3748" stroke-width="1.5" />
 
   <!-- Connectors Diagram 2 -->
-  <line x1="110" y1="725" x2="140" y2="725" class="flow-line" />
-  <line x1="250" y1="745" x2="250" y2="775" class="flow-line" />
-  <line x1="360" y1="795" x2="470" y2="795" class="flow-line" />
-  <line x1="580" y1="815" x2="580" y2="845" class="flow-line" />
+  <line x1="95" y1="755" x2="130" y2="755" class="flow-line" />
+  <line x1="255" y1="775" x2="255" y2="805" class="flow-line" />
+  <line x1="380" y1="825" x2="480" y2="825" class="flow-line" />
+  <line x1="610" y1="845" x2="610" y2="880" class="flow-line" />
 
-  <!-- Branches Decision 3 with Guards -->
-  <line x1="580" y1="895" x2="580" y2="930" class="flow-line" />
-  <text x="590" y="912" class="guard-ok">[Todos los campos obligatorios diligenciados]</text>
+  <!-- Branches Decision 3 -->
+  <line x1="610" y1="930" x2="610" y2="985" class="flow-line" />
+  <rect x="618" y="945" width="200" height="16" class="guard-pill" />
+  <text x="622" y="957" class="guard-ok">[Campos obligatorios diligenciados]</text>
 
-  <!-- Rejection Loop with Guard -->
-  <path d="M 530 870 L 390 870 L 390 805 L 360 805" class="flow-alt" />
-  <text x="395" y="860" class="guard-text">[Datos clínicos incompletos (Bloqueo RN-005)]</text>
+  <!-- Rejection Loop cleanly into bottom of Act 2.2 (zero label overlap!) -->
+  <path d="M 560 905 L 255 905 L 255 845" class="flow-alt" />
+  <rect x="295" y="882" width="240" height="16" class="guard-pill" />
+  <text x="415" y="894" class="guard-text" text-anchor="middle">[Datos incompletos (Bloqueo RN-005)]</text>
 
-  <line x1="470" y1="950" x2="360" y2="950" class="flow-line" />
-  <line x1="690" y1="950" x2="740" y2="950" class="flow-line" />
+  <!-- Act 2.4 -> Fork -->
+  <line x1="740" y1="1005" x2="825" y2="1005" class="flow-line" />
 
-  <!-- Concurrency Flows -->
-  <path d="M 752 935 L 880 910" class="flow-line" />
-  <path d="M 752 965 L 880 980" class="flow-line" />
+  <!-- Fork -> 3 Concurrent Acts -->
+  <path d="M 837 965 L 865 965 L 865 934 L 900 934" class="flow-line" />
+  <line x1="837" y1="1004" x2="900" y2="1004" class="flow-line" />
+  <path d="M 837 1045 L 865 1045 L 865 1074 L 900 1074" class="flow-line" />
 
-  <path d="M 1120 910 L 1140 935" class="flow-line" />
-  <path d="M 1120 980 L 1140 965" class="flow-line" />
+  <!-- 3 Concurrent Acts -> Join -->
+  <path d="M 1150 934 L 1178 934 L 1178 965 L 1200 965" class="flow-line" />
+  <line x1="1150" y1="1004" x2="1200" y2="1004" class="flow-line" />
+  <path d="M 1150 1074 L 1178 1074 L 1178 1045 L 1200 1045" class="flow-line" />
 
-  <path d="M 1146 950 L 1170 950 L 1170 1060 L 1120 1060" class="flow-line" />
-  <line x1="1000" y1="1080" x2="1000" y2="1096" class="flow-line" />
+  <!-- Join -> Archivar -> Final (strictly inside Lane 3!) -->
+  <path d="M 1212 1005 L 1235 1005 L 1235 1185 L 1160 1185" class="flow-line" />
+  <line x1="1030" y1="1205" x2="1030" y2="1246" class="flow-line" />
 
 </svg>

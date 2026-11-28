@@ -1,37 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1340 1020" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1040" width="100%" height="100%">
   <defs>
     <style>
       .hdr-title { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 19px; font-weight: bold; fill: #1A365D; }
       .hdr-sub { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12px; fill: #4A5568; }
-      .entity-title { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #FFFFFF; text-anchor: middle; }
-      .attr-pk { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #B7791F; }
-      .attr-fk { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: bold; fill: #2B6CB0; }
-      .attr-regular { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 11px; fill: #2D3748; }
-      .attr-type { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10px; fill: #718096; }
-      .card-text { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: bold; fill: #2D3748; }
+      .entity-title { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 12.5px; font-weight: bold; fill: #FFFFFF; text-anchor: middle; }
+      .attr-pk { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: bold; fill: #B7791F; }
+      .attr-fk { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10.5px; font-weight: bold; fill: #2B6CB0; }
+      .attr-regular { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10.5px; fill: #2D3748; }
+      .card-text { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10px; font-weight: bold; fill: #2D3748; }
       .rel-label { font-family: 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 10px; font-style: italic; fill: #4A5568; }
+      .pill { fill: #FFFFFF; opacity: 0.96; rx: 2; }
 
-      /* Styles for entity boxes */
       .ent-core-header { fill: #2B6CB0; stroke: #2B6CB0; stroke-width: 1.5; }
+      .ent-sup-header { fill: #2F855A; stroke: #2F855A; stroke-width: 1.5; }
       .ent-assoc-header { fill: #805AD5; stroke: #805AD5; stroke-width: 1.5; }
       .ent-weak-header { fill: #DD6B20; stroke: #DD6B20; stroke-width: 1.5; }
       .ent-body { fill: #FFFFFF; stroke: #CBD5E0; stroke-width: 1.5; }
       .ent-body-weak { fill: #FFFAF0; stroke: #DD6B20; stroke-width: 1.5; stroke-dasharray: 4,3; }
 
-      /* Connectors */
       .rel-line { stroke: #4A5568; stroke-width: 1.6; fill: none; }
       .rel-line-assoc { stroke: #805AD5; stroke-width: 1.6; fill: none; }
       .rel-line-weak { stroke: #DD6B20; stroke-width: 1.6; fill: none; }
     </style>
 
-    <!-- Markers for Crow's Foot -->
-    <marker id="crow-many" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="12" markerHeight="12" orient="auto">
+    <marker id="crow-many" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="11" markerHeight="11" orient="auto">
       <path d="M 0 1 L 14 8 L 0 15 M 14 8 L 16 8" fill="none" stroke="#4A5568" stroke-width="1.8" />
     </marker>
-    <marker id="crow-many-assoc" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="12" markerHeight="12" orient="auto">
+    <marker id="crow-many-assoc" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="11" markerHeight="11" orient="auto">
       <path d="M 0 1 L 14 8 L 0 15 M 14 8 L 16 8" fill="none" stroke="#805AD5" stroke-width="1.8" />
     </marker>
-    <marker id="crow-many-weak" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="12" markerHeight="12" orient="auto">
+    <marker id="crow-many-weak" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="11" markerHeight="11" orient="auto">
       <path d="M 0 1 L 14 8 L 0 15 M 14 8 L 16 8" fill="none" stroke="#DD6B20" stroke-width="1.8" />
     </marker>
     <marker id="one-one" viewBox="0 0 16 16" refX="15" refY="8" markerWidth="10" markerHeight="10" orient="auto">
@@ -42,256 +40,326 @@
       <circle cx="6" cy="8" r="4.5" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.8" />
       <line x1="14" y1="1" x2="14" y2="15" stroke="#4A5568" stroke-width="2" />
     </marker>
+    <marker id="zero-many" viewBox="0 0 22 16" refX="21" refY="8" markerWidth="13" markerHeight="11" orient="auto">
+      <circle cx="5" cy="8" r="4" fill="#FFFFFF" stroke="#4A5568" stroke-width="1.6" />
+      <path d="M 10 2 L 20 8 L 10 14 M 20 8 L 22 8" fill="none" stroke="#4A5568" stroke-width="1.6" />
+    </marker>
   </defs>
 
   <!-- Background -->
-  <rect x="0" y="0" width="1340" height="1020" fill="#F8FAFC" />
+  <rect x="0" y="0" width="1440" height="1040" fill="#F8FAFC" />
 
   <!-- Header Banner -->
-  <rect x="25" y="15" width="1290" height="64" fill="#FFFFFF" stroke="#CBD5E0" rx="8" />
-  <text x="45" y="40" class="hdr-title">SISTEMA GESTOR DE AMBULANCIAS (SGA) — MODELO ENTIDAD-RELACIÓN (MER RELACIONAL)</text>
-  <text x="45" y="60" class="hdr-sub">Evidencia G1-P2 · Criterio C4 (RAP 592373) · Notación Pata de Gallo (Crow's Foot) · 10 Entidades, N:M resuelta con atributos propios, Entidad Débil</text>
+  <rect x="25" y="15" width="1390" height="60" fill="#FFFFFF" stroke="#CBD5E0" rx="8" />
+  <text x="45" y="39" class="hdr-title">SISTEMA GESTOR DE AMBULANCIAS (SGA) — MODELO ENTIDAD-RELACIÓN (MER RELACIONAL)</text>
+  <text x="45" y="57" class="hdr-sub">Evidencia G1-P2 · Criterio C4 (RAP 592373) · Notación Pata de Gallo (Crow's Foot) · 13 Entidades SRS, N:M Asociativa y Débil con PK Compuesta · Aprendiz: MAET211</text>
 
   <!-- ==================== FILA 1 ==================== -->
 
-  <!-- ENTIDAD 1: ROL -->
-  <g transform="translate(30, 100)">
-    <rect x="0" y="0" width="220" height="26" class="ent-core-header" rx="4" />
-    <text x="110" y="18" class="entity-title">ROL</text>
-    <rect x="0" y="26" width="220" height="95" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_rol : INT</text>
-    <text x="10" y="62" class="attr-regular">nombre_rol : VARCHAR(40)</text>
-    <text x="10" y="80" class="attr-regular">descripcion : VARCHAR(150)</text>
-    <text x="10" y="98" class="attr-regular">nivel_acceso : INT</text>
-    <text x="10" y="116" class="attr-regular">estado_activo : BOOLEAN</text>
+  <!-- 1. AUDITORIA -->
+  <g transform="translate(35, 95)">
+    <rect x="0" y="0" width="230" height="26" class="ent-sup-header" rx="4" />
+    <text x="115" y="18" class="entity-title">AUDITORIA</text>
+    <rect x="0" y="26" width="230" height="154" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_auditoria : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; usuario_id : UUID (Nulo sist.)</text>
+    <text x="10" y="78" class="attr-regular">modulo : VARCHAR(50)</text>
+    <text x="10" y="95" class="attr-regular">accion : VARCHAR(50)</text>
+    <text x="10" y="112" class="attr-regular">entidad_afectada : VARCHAR(50)</text>
+    <text x="10" y="129" class="attr-regular">valores_anteriores : JSONB</text>
+    <text x="10" y="146" class="attr-regular">valores_nuevos : JSONB</text>
+    <text x="10" y="163" class="attr-regular">ip_origen : INET</text>
+    <text x="10" y="176" class="attr-regular">fecha_hora : TIMESTAMP</text>
   </g>
 
-  <!-- ENTIDAD 2: USUARIO -->
-  <g transform="translate(320, 100)">
+  <!-- 2. USUARIO -->
+  <g transform="translate(335, 95)">
+    <rect x="0" y="0" width="240" height="26" class="ent-core-header" rx="4" />
+    <text x="120" y="18" class="entity-title">USUARIO</text>
+    <rect x="0" y="26" width="240" height="144" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_usuario : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; rol_id : UUID</text>
+    <text x="10" y="78" class="attr-regular">nombre_completo : VARCHAR(150)</text>
+    <text x="10" y="95" class="attr-regular">correo : VARCHAR(200) UNIQUE</text>
+    <text x="10" y="112" class="attr-regular">password_hash : VARCHAR(255)</text>
+    <text x="10" y="129" class="attr-regular">activo : BOOLEAN</text>
+    <text x="10" y="146" class="attr-regular">intentos_fallidos : INT</text>
+    <text x="10" y="163" class="attr-regular">bloqueado_hasta : TIMESTAMP</text>
+  </g>
+
+  <!-- 3. PERSONAL -->
+  <g transform="translate(675, 95)">
     <rect x="0" y="0" width="260" height="26" class="ent-core-header" rx="4" />
-    <text x="130" y="18" class="entity-title">USUARIO</text>
-    <rect x="0" y="26" width="260" height="145" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_usuario : INT</text>
-    <text x="10" y="62" class="attr-fk">&lt;&lt;FK&gt;&gt; rol_id : INT</text>
-    <text x="10" y="80" class="attr-regular">nombre_completo : VARCHAR(120)</text>
-    <text x="10" y="98" class="attr-regular">numero_documento : VARCHAR(20)</text>
-    <text x="10" y="116" class="attr-regular">email_institucional : VARCHAR(100)</text>
-    <text x="10" y="134" class="attr-regular">password_hash : VARCHAR(255)</text>
-    <text x="10" y="152" class="attr-regular">telefono_contacto : VARCHAR(20)</text>
-    <text x="10" y="166" class="attr-regular">estado_cuenta : VARCHAR(20)</text>
+    <text x="130" y="18" class="entity-title">PERSONAL</text>
+    <rect x="0" y="26" width="260" height="134" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_personal : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; usuario_id : UUID</text>
+    <text x="10" y="78" class="attr-regular">tarjeta_profesional : VARCHAR(40)</text>
+    <text x="10" y="95" class="attr-regular">tipo_personal : VARCHAR(40)</text>
+    <text x="10" y="112" class="attr-regular">estado_disponibilidad : VARCHAR(25)</text>
+    <text x="10" y="129" class="attr-regular">vigencia_certificacion : DATE</text>
+    <text x="10" y="146" class="attr-regular">horas_turno_continuas : DECIMAL(4,1)</text>
   </g>
 
-  <!-- ENTIDAD 3: PERSONAL_MEDICO -->
-  <g transform="translate(650, 100)">
-    <rect x="0" y="0" width="260" height="26" class="ent-core-header" rx="4" />
-    <text x="130" y="18" class="entity-title">PERSONAL_MEDICO</text>
-    <rect x="0" y="26" width="260" height="135" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_personal : INT</text>
-    <text x="10" y="62" class="attr-fk">&lt;&lt;FK&gt;&gt; usuario_id : INT</text>
-    <text x="10" y="80" class="attr-regular">registro_profesional : VARCHAR(30)</text>
-    <text x="10" y="98" class="attr-regular">tipo_personal : VARCHAR(30)</text>
-    <text x="10" y="116" class="attr-regular">especialidad : VARCHAR(60)</text>
-    <text x="10" y="134" class="attr-regular">estado_disponibilidad : VARCHAR(20)</text>
-    <text x="10" y="152" class="attr-regular">fecha_vencimiento_rethus : DATE</text>
-  </g>
-
-  <!-- ENTIDAD 4: PACIENTE -->
-  <g transform="translate(980, 100)">
+  <!-- 4. PACIENTE -->
+  <g transform="translate(1055, 95)">
     <rect x="0" y="0" width="270" height="26" class="ent-core-header" rx="4" />
     <text x="135" y="18" class="entity-title">PACIENTE</text>
-    <rect x="0" y="26" width="270" height="145" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_paciente : INT</text>
-    <text x="10" y="62" class="attr-regular">tipo_identificacion : VARCHAR(5)</text>
-    <text x="10" y="80" class="attr-regular">numero_identificacion : VARCHAR(20)</text>
-    <text x="10" y="98" class="attr-regular">nombre_completo : VARCHAR(120)</text>
-    <text x="10" y="116" class="attr-regular">fecha_nacimiento : DATE</text>
-    <text x="10" y="134" class="attr-regular">genero : VARCHAR(10)</text>
-    <text x="10" y="152" class="attr-regular">tipo_afiliacion_eps : VARCHAR(30)</text>
-    <text x="10" y="166" class="attr-regular">eps_nombre : VARCHAR(80)</text>
+    <rect x="0" y="26" width="270" height="144" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_paciente : UUID</text>
+    <text x="10" y="61" class="attr-regular">tipo_documento : VARCHAR(10)</text>
+    <text x="10" y="78" class="attr-regular">numero_documento : VARCHAR(25)</text>
+    <text x="10" y="95" class="attr-regular">nombre_completo : VARCHAR(150)</text>
+    <text x="10" y="112" class="attr-regular">fecha_nacimiento : DATE</text>
+    <text x="10" y="129" class="attr-regular">contacto_familiar : VARCHAR(120)</text>
+    <text x="10" y="146" class="attr-regular">antecedentes_medicos : TEXT</text>
+    <text x="10" y="163" class="attr-regular">telefono_contacto : VARCHAR(25)</text>
   </g>
 
   <!-- ==================== FILA 2 ==================== -->
 
-  <!-- ENTIDAD 5: AMBULANCIA -->
-  <g transform="translate(30, 380)">
-    <rect x="0" y="0" width="240" height="26" class="ent-core-header" rx="4" />
-    <text x="120" y="18" class="entity-title">AMBULANCIA</text>
-    <rect x="0" y="26" width="240" height="175" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_ambulancia : INT</text>
-    <text x="10" y="62" class="attr-regular">placa_vehiculo : VARCHAR(10)</text>
-    <text x="10" y="80" class="attr-regular">numero_movil_interno : VARCHAR(15)</text>
-    <text x="10" y="98" class="attr-regular">tipo_unidad : VARCHAR(10)</text>
-    <text x="10" y="116" class="attr-regular">marca_modelo : VARCHAR(50)</text>
-    <text x="10" y="134" class="attr-regular">anio_fabricacion : INT</text>
-    <text x="10" y="152" class="attr-regular">estado_operativo : VARCHAR(25)</text>
-    <text x="10" y="170" class="attr-regular">latitud_actual : DECIMAL(10,7)</text>
-    <text x="10" y="188" class="attr-regular">longitud_actual : DECIMAL(10,7)</text>
+  <!-- 5. ROL -->
+  <g transform="translate(35, 335)">
+    <rect x="0" y="0" width="230" height="26" class="ent-core-header" rx="4" />
+    <text x="115" y="18" class="entity-title">ROL</text>
+    <rect x="0" y="26" width="230" height="89" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_rol : UUID</text>
+    <text x="10" y="61" class="attr-regular">nombre_rol : VARCHAR(50) UNIQUE</text>
+    <text x="10" y="78" class="attr-regular">descripcion : TEXT</text>
+    <text x="10" y="95" class="attr-regular">activo : BOOLEAN</text>
+    <text x="10" y="110" class="attr-regular">created_at : TIMESTAMP</text>
   </g>
 
-  <!-- ENTIDAD 6: SERVICIO_ASISTENCIAL -->
-  <g transform="translate(350, 360)">
+  <!-- 6. HISTORIAL_ESTADOS_SERVICIO (DÉBIL CON PK COMPUESTA) -->
+  <g transform="translate(335, 335)">
+    <rect x="0" y="0" width="260" height="26" class="ent-weak-header" rx="4" />
+    <text x="130" y="18" class="entity-title">HISTORIAL_ESTADOS_SERVICIO (Débil)</text>
+    <rect x="0" y="26" width="260" height="144" class="ent-body-weak" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK, FK&gt;&gt; servicio_id : UUID (Identificadora)</text>
+    <text x="10" y="61" class="attr-pk">&lt;&lt;PK&gt;&gt; numero_secuencia : INT (Discriminador)</text>
+    <text x="10" y="78" class="attr-fk">&lt;&lt;FK&gt;&gt; usuario_responsable_id : UUID</text>
+    <text x="10" y="95" class="attr-regular">estado_anterior : VARCHAR(25)</text>
+    <text x="10" y="112" class="attr-regular">estado_nuevo : VARCHAR(25)</text>
+    <text x="10" y="129" class="attr-regular">fecha_hora_cambio : TIMESTAMP</text>
+    <text x="10" y="146" class="attr-regular">motivo_justificacion : TEXT</text>
+    <text x="10" y="163" class="attr-regular">origen_cambio : VARCHAR(30)</text>
+  </g>
+
+  <!-- 7. PERSONAL_SERVICIO (ASOCIATIVA N:M) -->
+  <g transform="translate(665, 320)">
+    <rect x="0" y="0" width="290" height="26" class="ent-assoc-header" rx="4" />
+    <text x="145" y="18" class="entity-title">PERSONAL_SERVICIO (Asociativa N:M)</text>
+    <rect x="0" y="26" width="290" height="144" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_personal_servicio : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; servicio_id : UUID</text>
+    <text x="10" y="78" class="attr-fk">&lt;&lt;FK&gt;&gt; personal_id : UUID</text>
+    <text x="10" y="95" class="attr-regular" font-weight="bold">rol_operativo : VARCHAR(40)</text>
+    <text x="10" y="112" class="attr-regular" font-weight="bold">hora_asignacion : TIMESTAMP</text>
+    <text x="10" y="129" class="attr-regular" font-weight="bold">hora_liberacion : TIMESTAMP</text>
+    <text x="10" y="146" class="attr-regular">activo_en_tripulacion : BOOLEAN</text>
+    <text x="10" y="163" class="attr-regular">observaciones_turno : TEXT</text>
+  </g>
+
+  <!-- 8. PQRS -->
+  <g transform="translate(1055, 325)">
+    <rect x="0" y="0" width="270" height="26" class="ent-sup-header" rx="4" />
+    <text x="135" y="18" class="entity-title">PQRS</text>
+    <rect x="0" y="26" width="270" height="134" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_pqrs : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; paciente_id : UUID (Opcional)</text>
+    <text x="10" y="78" class="attr-regular">codigo_radicado : VARCHAR(30) UNIQUE</text>
+    <text x="10" y="95" class="attr-regular">tipo_pqrs : ENUM (P/Q/R/S/D)</text>
+    <text x="10" y="112" class="attr-regular">descripcion_motivo : TEXT</text>
+    <text x="10" y="129" class="attr-regular">fecha_vencimiento_legal : DATE</text>
+    <text x="10" y="146" class="attr-regular">estado_tramite : VARCHAR(25)</text>
+  </g>
+
+  <!-- ==================== FILA 3 ==================== -->
+
+  <!-- 9. AMBULANCIA -->
+  <g transform="translate(35, 565)">
+    <rect x="0" y="0" width="230" height="26" class="ent-core-header" rx="4" />
+    <text x="115" y="18" class="entity-title">AMBULANCIA</text>
+    <rect x="0" y="26" width="230" height="169" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_ambulancia : UUID</text>
+    <text x="10" y="61" class="attr-regular">numero_unidad : VARCHAR(20) UNIQUE</text>
+    <text x="10" y="78" class="attr-regular">placa : VARCHAR(10) UNIQUE</text>
+    <text x="10" y="95" class="attr-regular">tipo : ENUM (TAB | TAM)</text>
+    <text x="10" y="112" class="attr-regular">marca_modelo : VARCHAR(100)</text>
+    <text x="10" y="129" class="attr-regular">anio : INT CHECK (anio >= 1990)</text>
+    <text x="10" y="146" class="attr-regular">num_habilitacion_reps : VARCHAR(50)</text>
+    <text x="10" y="163" class="attr-regular">estado_operativo : ENUM</text>
+    <text x="10" y="180" class="attr-regular">vigencia_soat_tecno : DATE</text>
+  </g>
+
+  <!-- 10. SERVICIO (CORE CENTRAL SRS 6.2.4) -->
+  <g transform="translate(665, 565)">
     <rect x="0" y="0" width="290" height="26" class="ent-core-header" rx="4" />
-    <text x="145" y="18" class="entity-title">SERVICIO_ASISTENCIAL</text>
-    <rect x="0" y="26" width="290" height="215" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_servicio : INT</text>
-    <text x="10" y="62" class="attr-fk">&lt;&lt;FK&gt;&gt; solicitud_id : INT</text>
-    <text x="10" y="80" class="attr-fk">&lt;&lt;FK&gt;&gt; ambulancia_id : INT</text>
-    <text x="10" y="98" class="attr-regular">codigo_servicio : VARCHAR(25)</text>
-    <text x="10" y="116" class="attr-regular">fecha_hora_despacho : DATETIME</text>
-    <text x="10" y="134" class="attr-regular">fecha_hora_llegada_escena : DATETIME</text>
-    <text x="10" y="152" class="attr-regular">fecha_hora_traslado : DATETIME</text>
-    <text x="10" y="170" class="attr-regular">fecha_hora_llegada_ips : DATETIME</text>
-    <text x="10" y="188" class="attr-regular">ips_receptora_nombre : VARCHAR(100)</text>
-    <text x="10" y="206" class="attr-regular">estado_servicio : VARCHAR(25)</text>
-    <text x="10" y="224" class="attr-regular">tiempo_respuesta_minutos : DECIMAL(6,2)</text>
+    <text x="145" y="18" class="entity-title">SERVICIO (Core Asistencial)</text>
+    <rect x="0" y="26" width="290" height="229" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_servicio : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; solicitud_id : UUID UNIQUE</text>
+    <text x="10" y="78" class="attr-fk">&lt;&lt;FK&gt;&gt; ambulancia_id : UUID</text>
+    <text x="10" y="95" class="attr-fk">&lt;&lt;FK&gt;&gt; responsable_cierre_id : UUID</text>
+    <text x="10" y="112" class="attr-regular">estado : ENUM (Solicitado..Finalizado)</text>
+    <text x="10" y="129" class="attr-regular">asignacion_manual : BOOLEAN</text>
+    <text x="10" y="146" class="attr-regular">motivo_asignacion_manual : TEXT</text>
+    <text x="10" y="163" class="attr-regular">hora_asignacion / llegada / fin : TS</text>
+    <text x="10" y="180" class="attr-regular">resultado_atencion : TEXT (RN-005)</text>
+    <text x="10" y="197" class="attr-regular">estado_paciente_final : ENUM</text>
+    <text x="10" y="214" class="attr-regular">destino_traslado : VARCHAR(200)</text>
+    <text x="10" y="231" class="attr-regular">created_at : TIMESTAMP</text>
   </g>
 
-  <!-- ENTIDAD 7: SOLICITUD_EMERGENCIA -->
-  <g transform="translate(720, 360)">
+  <!-- 11. SOLICITUD_EMERGENCIA -->
+  <g transform="translate(1055, 565)">
     <rect x="0" y="0" width="270" height="26" class="ent-core-header" rx="4" />
     <text x="135" y="18" class="entity-title">SOLICITUD_EMERGENCIA</text>
-    <rect x="0" y="26" width="270" height="205" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_solicitud : INT</text>
-    <text x="10" y="62" class="attr-fk">&lt;&lt;FK&gt;&gt; paciente_id : INT</text>
-    <text x="10" y="80" class="attr-regular">codigo_radicado : VARCHAR(25)</text>
-    <text x="10" y="98" class="attr-regular">nombre_solicitante : VARCHAR(100)</text>
-    <text x="10" y="116" class="attr-regular">telefono_solicitante : VARCHAR(20)</text>
-    <text x="10" y="134" class="attr-regular">direccion_incidente : VARCHAR(150)</text>
-    <text x="10" y="152" class="attr-regular">latitud_incidente : DECIMAL(10,7)</text>
-    <text x="10" y="170" class="attr-regular">longitud_incidente : DECIMAL(10,7)</text>
-    <text x="10" y="188" class="attr-regular">nivel_triage_inicial : VARCHAR(10)</text>
-    <text x="10" y="206" class="attr-regular">estado_solicitud : VARCHAR(25)</text>
-    <text x="10" y="224" class="attr-regular">fecha_recepcion : DATETIME</text>
+    <rect x="0" y="26" width="270" height="179" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_solicitud : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; paciente_id : UUID</text>
+    <text x="10" y="78" class="attr-regular">codigo_radicado : VARCHAR(30)</text>
+    <text x="10" y="95" class="attr-regular">nombre_solicitante : VARCHAR(120)</text>
+    <text x="10" y="112" class="attr-regular">direccion_evento : VARCHAR(180)</text>
+    <text x="10" y="129" class="attr-regular">coordenadas_gps : VARCHAR(60)</text>
+    <text x="10" y="146" class="attr-regular">prioridad_triage : ENUM (Rojo..Verde)</text>
+    <text x="10" y="163" class="attr-regular">sintomatologia : TEXT</text>
+    <text x="10" y="180" class="attr-regular">fecha_hora_solicitud : TIMESTAMP</text>
+    <text x="10" y="197" class="attr-regular">estado_solicitud : VARCHAR(25)</text>
   </g>
 
-  <!-- ENTIDAD 8: VALORACION_CLINICA -->
-  <g transform="translate(1045, 360)">
-    <rect x="0" y="0" width="250" height="26" class="ent-core-header" rx="4" />
-    <text x="125" y="18" class="entity-title">VALORACION_CLINICA</text>
-    <rect x="0" y="26" width="250" height="215" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_valoracion : INT</text>
-    <text x="10" y="62" class="attr-fk">&lt;&lt;FK&gt;&gt; servicio_id : INT</text>
-    <text x="10" y="80" class="attr-fk">&lt;&lt;FK&gt;&gt; medico_certifica_id : INT</text>
-    <text x="10" y="98" class="attr-regular">presion_arterial : VARCHAR(15)</text>
-    <text x="10" y="116" class="attr-regular">frecuencia_cardiaca : INT</text>
-    <text x="10" y="134" class="attr-regular">frecuencia_respiratoria : INT</text>
-    <text x="10" y="152" class="attr-regular">saturacion_oxigeno : DECIMAL(4,1)</text>
-    <text x="10" y="170" class="attr-regular">escala_glasgow : INT</text>
-    <text x="10" y="188" class="attr-regular">diagnostico_cie10 : VARCHAR(10)</text>
-    <text x="10" y="206" class="attr-regular">procedimientos_realizados : TEXT</text>
-    <text x="10" y="224" class="attr-regular">fecha_hora_registro : DATETIME</text>
+  <!-- ==================== FILA 4 (FINANCIERO, SOPORTE Y LEYENDA) ==================== -->
+
+  <!-- 12. FACTURA -->
+  <g transform="translate(335, 680)">
+    <rect x="0" y="0" width="250" height="26" class="ent-sup-header" rx="4" />
+    <text x="125" y="18" class="entity-title">FACTURA</text>
+    <rect x="0" y="26" width="250" height="149" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_factura : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; servicio_id : UUID UNIQUE</text>
+    <text x="10" y="78" class="attr-regular">numero_factura : VARCHAR(30) UNIQUE</text>
+    <text x="10" y="95" class="attr-regular">fecha_emision : TIMESTAMP</text>
+    <text x="10" y="112" class="attr-regular">valor_total : DECIMAL(12,2)</text>
+    <text x="10" y="129" class="attr-regular">estado_pago : ENUM (Pendiente/Pagada)</text>
+    <text x="10" y="146" class="attr-regular">dias_mora : INT</text>
+    <text x="10" y="163" class="attr-regular">es_inmutable : BOOLEAN (RN-014)</text>
   </g>
 
-  <!-- ==================== FILA 3 (ASOCIATIVA Y DÉBIL) ==================== -->
-
-  <!-- ENTIDAD 9: HISTORIAL_ESTADOS_SERVICIO (DÉBIL DE SERVICIO_ASISTENCIAL) -->
-  <g transform="translate(60, 710)">
-    <rect x="0" y="0" width="310" height="26" class="ent-weak-header" rx="4" />
-    <text x="155" y="18" class="entity-title">HISTORIAL_ESTADOS_SERVICIO (Débil)</text>
-    <rect x="0" y="26" width="310" height="155" class="ent-body-weak" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK, FK&gt;&gt; servicio_id : INT (Identificadora)</text>
-    <text x="10" y="62" class="attr-pk">&lt;&lt;PK&gt;&gt; numero_secuencia : INT (Discriminador)</text>
-    <text x="10" y="80" class="attr-fk">&lt;&lt;FK&gt;&gt; usuario_responsable_id : INT</text>
-    <text x="10" y="98" class="attr-regular">estado_anterior : VARCHAR(25)</text>
-    <text x="10" y="116" class="attr-regular">estado_nuevo : VARCHAR(25)</text>
-    <text x="10" y="134" class="attr-regular">fecha_hora_cambio : DATETIME</text>
-    <text x="10" y="152" class="attr-regular">motivo_justificacion : VARCHAR(255)</text>
-    <text x="10" y="170" class="attr-regular">origen_cambio : VARCHAR(30)</text>
+  <!-- 13. NOVEDAD -->
+  <g transform="translate(35, 835)">
+    <rect x="0" y="0" width="230" height="26" class="ent-sup-header" rx="4" />
+    <text x="115" y="18" class="entity-title">NOVEDAD</text>
+    <rect x="0" y="26" width="230" height="134" class="ent-body" />
+    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_novedad : UUID</text>
+    <text x="10" y="61" class="attr-fk">&lt;&lt;FK&gt;&gt; servicio_id : UUID (Opcional)</text>
+    <text x="10" y="78" class="attr-fk">&lt;&lt;FK&gt;&gt; ambulancia_id : UUID (Opcional)</text>
+    <text x="10" y="95" class="attr-regular">tipo_novedad : VARCHAR(40)</text>
+    <text x="10" y="112" class="attr-regular">prioridad : ENUM (Baja..Crítica)</text>
+    <text x="10" y="129" class="attr-regular">descripcion : TEXT</text>
+    <text x="10" y="146" class="attr-regular">estado : ENUM (Pendiente..Cerrado)</text>
   </g>
 
-  <!-- ENTIDAD 10: PERSONAL_SERVICIO (ASOCIATIVA N:M CON ATRIBUTOS PROPIOS) -->
-  <g transform="translate(520, 710)">
-    <rect x="0" y="0" width="310" height="26" class="ent-assoc-header" rx="4" />
-    <text x="155" y="18" class="entity-title">PERSONAL_SERVICIO (Asociativa N:M)</text>
-    <rect x="0" y="26" width="310" height="155" class="ent-body" />
-    <text x="10" y="44" class="attr-pk">&lt;&lt;PK&gt;&gt; id_personal_servicio : INT</text>
-    <text x="10" y="62" class="attr-fk">&lt;&lt;FK&gt;&gt; servicio_id : INT</text>
-    <text x="10" y="80" class="attr-fk">&lt;&lt;FK&gt;&gt; personal_id : INT</text>
-    <text x="10" y="98" class="attr-regular" font-weight="bold">rol_operativo : VARCHAR(30)</text>
-    <text x="10" y="116" class="attr-regular" font-weight="bold">hora_asignacion : DATETIME</text>
-    <text x="10" y="134" class="attr-regular" font-weight="bold">hora_liberacion : DATETIME</text>
-    <text x="10" y="152" class="attr-regular">observaciones_desempenio : VARCHAR(200)</text>
-    <text x="10" y="170" class="attr-regular">activo_en_tripulacion : BOOLEAN</text>
-  </g>
-
-  <!-- NOTAS Y LEYENDA TÉCNICA -->
-  <g transform="translate(880, 710)">
-    <rect x="0" y="0" width="415" height="180" fill="#FFFFFF" stroke="#CBD5E0" rx="6" />
-    <text x="15" y="24" font-family="'Segoe UI', sans-serif" font-size="12px" font-weight="bold" fill="#1A365D">CONVENCIONES Y REGLAS DE ARBITRAJE (SEC. 7)</text>
+  <!-- LEYENDA TÉCNICA -->
+  <g transform="translate(990, 835)">
+    <rect x="0" y="0" width="420" height="165" fill="#FFFFFF" stroke="#CBD5E0" rx="6" />
+    <text x="15" y="24" font-family="'Segoe UI', sans-serif" font-size="11.5px" font-weight="bold" fill="#1A365D">CONVENCIONES CROW'S FOOT Y ARBITRAJE (SEC. 7)</text>
     <circle cx="25" cy="45" r="5" fill="#2B6CB0" />
-    <text x="40" y="49" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#2D3748">Entidad Regular / Fuerte (PK subrayada / rotulada)</text>
+    <text x="40" y="49" font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#2D3748">Entidad Core / Regular del SRS</text>
+    <circle cx="235" cy="45" r="5" fill="#2F855A" />
+    <text x="250" y="49" font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#2D3748">Entidad Financiera / Soporte</text>
     <circle cx="25" cy="70" r="5" fill="#805AD5" />
-    <text x="40" y="74" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#2D3748">Entidad Asociativa (Resuelve N:M con atributos propios)</text>
+    <text x="40" y="74" font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#2D3748">Entidad Asociativa N:M con atributos propios (PERSONAL_SERVICIO)</text>
     <circle cx="25" cy="95" r="5" fill="#DD6B20" />
-    <text x="40" y="99" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#2D3748">Entidad Débil Estricta (PK compuesta: servicio_id + numero_secuencia)</text>
+    <text x="40" y="99" font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#2D3748">Entidad Débil Estricta (PK compuesta: servicio_id + numero_secuencia)</text>
 
-    <line x1="20" y1="125" x2="60" y2="125" stroke="#4A5568" stroke-width="2" marker-end="url(#crow-many)" />
-    <text x="75" y="129" font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#4A5568">Pata de Gallo: Cardinalidad (0,N) o (1,N)</text>
-
-    <line x1="20" y1="155" x2="60" y2="155" stroke="#4A5568" stroke-width="2" marker-end="url(#one-one)" />
-    <text x="75" y="159" font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#4A5568">Línea Doble: Cardinalidad Exactamente 1 (1,1)</text>
+    <line x1="20" y1="125" x2="65" y2="125" stroke="#4A5568" stroke-width="2" marker-start="url(#one-one)" marker-end="url(#zero-many)" />
+    <text x="80" y="129" font-family="'Segoe UI', sans-serif" font-size="10.5px" fill="#4A5568">Cardinalidades (1,1) a (0,N) o (1,N) en corredores sin cruces</text>
+    <text x="20" y="150" font-family="'Segoe UI', sans-serif" font-size="10px" fill="#718096">Alineación 100 % con las 13 clases del Dominio y el SRS SGA (Sección 6.0)</text>
   </g>
 
-  <!-- ==================== RELACIONES Y CONECTORES ==================== -->
+  <!-- ==================== CONECTORES PLANARES SIN CRUCES ==================== -->
 
-  <!-- 1. ROL (1,1) a USUARIO (0,N) -->
-  <path d="M 250 150 L 320 150" class="rel-line" marker-start="url(#one-one)" marker-end="url(#crow-many)" />
-  <text x="255" y="142" class="card-text">1,1</text>
-  <text x="290" y="142" class="card-text">0,N</text>
-  <text x="260" y="165" class="rel-label">clasifica</text>
+  <!-- 1. USUARIO (1,1) -> AUDITORIA (0,N) -->
+  <path d="M 335 160 L 265 160" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-many)" />
+  <text x="315" y="152" class="card-text">1,1</text>
+  <text x="272" y="152" class="card-text">0,N</text>
+  <text x="282" y="175" class="rel-label">registra</text>
 
-  <!-- 2. USUARIO (1,1) a PERSONAL_MEDICO (0,1) -->
-  <path d="M 580 150 L 650 150" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-one)" />
-  <text x="585" y="142" class="card-text">1,1</text>
-  <text x="625" y="142" class="card-text">0,1</text>
-  <text x="590" y="165" class="rel-label">perfila</text>
+  <!-- 2. ROL (1,1) -> USUARIO (0,N) [corredor x=300] -->
+  <path d="M 265 385 L 300 385 L 300 225 L 335 225" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-many)" />
+  <text x="270" y="378" class="card-text">1,1</text>
+  <text x="314" y="218" class="card-text">0,N</text>
+  <rect x="280" y="295" width="44" height="14" class="pill" />
+  <text x="282" y="306" class="rel-label">clasifica</text>
 
-  <!-- 3. PACIENTE (1,1) a SOLICITUD_EMERGENCIA (0,N) -->
-  <path d="M 1080 271 L 1080 320 L 850 320 L 850 360" class="rel-line" marker-start="url(#one-one)" marker-end="url(#crow-many)" />
-  <text x="1090" y="285" class="card-text">1,1</text>
-  <text x="858" y="352" class="card-text">0,N</text>
-  <text x="940" y="315" class="rel-label">origina llamada</text>
+  <!-- 3. USUARIO (1,1) -> PERSONAL (0,1) -->
+  <path d="M 575 175 L 675 175" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-one)" />
+  <text x="582" y="167" class="card-text">1,1</text>
+  <text x="650" y="167" class="card-text">0,1</text>
+  <text x="610" y="190" class="rel-label">perfila</text>
 
-  <!-- 4. SOLICITUD_EMERGENCIA (1,1) a SERVICIO_ASISTENCIAL (0,1) -->
-  <path d="M 720 460 L 640 460" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-one)" />
-  <text x="695" y="452" class="card-text">1,1</text>
-  <text x="645" y="452" class="card-text">0,1</text>
-  <text x="650" y="475" class="rel-label">genera despacho</text>
+  <!-- 4. PERSONAL (1,1) -> PERSONAL_SERVICIO (0,N) [Asociativa vertical] -->
+  <path d="M 810 255 L 810 320" class="rel-line-assoc" marker-start="url(#one-one)" marker-end="url(#crow-many-assoc)" />
+  <text x="818" y="272" class="card-text">1,1</text>
+  <text x="818" y="310" class="card-text">0,N</text>
+  <text x="818" y="292" class="rel-label" fill="#805AD5">asigna tripulante</text>
 
-  <!-- 5. AMBULANCIA (1,1) a SERVICIO_ASISTENCIAL (0,N) -->
-  <path d="M 270 460 L 350 460" class="rel-line" marker-start="url(#one-one)" marker-end="url(#crow-many)" />
-  <text x="275" y="452" class="card-text">1,1</text>
-  <text x="325" y="452" class="card-text">0,N</text>
-  <text x="280" y="475" class="rel-label">asigna unidad</text>
+  <!-- 5. SERVICIO (1,1) -> PERSONAL_SERVICIO (1,N) [Asociativa vertical] -->
+  <path d="M 810 565 L 810 490" class="rel-line-assoc" marker-start="url(#one-one)" marker-end="url(#crow-many-assoc)" />
+  <text x="818" y="555" class="card-text">1,1</text>
+  <text x="818" y="505" class="card-text">1,N</text>
+  <text x="818" y="532" class="rel-label" fill="#805AD5">conforma tripulación</text>
 
-  <!-- 6. SERVICIO_ASISTENCIAL (1,1) a VALORACION_CLINICA (0,1) -->
-  <path d="M 640 540 L 880 540 L 880 500 L 1045 500" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-one)" />
-  <text x="648" y="532" class="card-text">1,1</text>
-  <text x="1015" y="492" class="card-text">0,1</text>
-  <text x="890" y="525" class="rel-label">consigna evolución</text>
+  <!-- 6. SERVICIO (1,1) -> HISTORIAL_ESTADOS_SERVICIO (1,N) [Débil corredor x=630] -->
+  <path d="M 665 600 L 630 600 L 630 475 L 595 475" class="rel-line-weak" marker-start="url(#one-one)" marker-end="url(#crow-many-weak)" />
+  <text x="642" y="592" class="card-text">1,1</text>
+  <text x="602" y="468" class="card-text">1,N</text>
+  <rect x="605" y="528" width="54" height="14" class="pill" />
+  <text x="608" y="539" class="rel-label" fill="#DD6B20">audita (débil)</text>
 
-  <!-- 7. PERSONAL_MEDICO (1,1) a VALORACION_CLINICA (0,N) -->
-  <path d="M 880 261 L 880 290 L 1170 290 L 1170 360" class="rel-line" marker-start="url(#one-one)" marker-end="url(#crow-many)" />
-  <text x="888" y="275" class="card-text">1,1</text>
-  <text x="1178" y="350" class="card-text">0,N</text>
-  <text x="1000" y="285" class="rel-label">certifica diagnóstico</text>
+  <!-- 7. AMBULANCIA (1,1) -> SERVICIO (0,N) [corredor limpio y=642 entre Hist y Fact] -->
+  <path d="M 265 642 L 665 642" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-many)" />
+  <text x="272" y="635" class="card-text">1,1</text>
+  <text x="642" y="635" class="card-text">0,N</text>
+  <rect x="430" y="646" width="76" height="14" class="pill" />
+  <text x="434" y="657" class="rel-label">asigna unidad</text>
 
-  <!-- 8. SERVICIO_ASISTENCIAL (1,1) a HISTORIAL_ESTADOS_SERVICIO (1,N) - DÉBIL -->
-  <path d="M 400 601 L 400 660 L 210 660 L 210 710" class="rel-line-weak" marker-start="url(#one-one)" marker-end="url(#crow-many-weak)" />
-  <text x="408" y="618" class="card-text">1,1</text>
-  <text x="218" y="700" class="card-text">1,N</text>
-  <text x="280" y="652" class="rel-label" fill="#DD6B20">audita transiciones (débil)</text>
+  <!-- 8. SERVICIO (1,1) -> FACTURA (0,1) -->
+  <path d="M 665 760 L 585 760" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-one)" />
+  <text x="642" y="752" class="card-text">1,1</text>
+  <text x="592" y="752" class="card-text">0,1</text>
+  <text x="608" y="775" class="rel-label">liquida</text>
 
-  <!-- 9. RELACIÓN N:M RESUELTA: SERVICIO_ASISTENCIAL (1,1) a PERSONAL_SERVICIO (1,N) -->
-  <path d="M 520 601 L 520 670 L 600 670 L 600 710" class="rel-line-assoc" marker-start="url(#one-one)" marker-end="url(#crow-many-assoc)" />
-  <text x="528" y="618" class="card-text">1,1</text>
-  <text x="608" y="700" class="card-text">1,N</text>
-  <text x="530" y="662" class="rel-label" fill="#805AD5">conforma tripulación</text>
+  <!-- 9. SOLICITUD_EMERGENCIA (1,1) -> SERVICIO (0,1) -->
+  <path d="M 1055 675 L 955 675" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-one)" />
+  <text x="1032" y="667" class="card-text">1,1</text>
+  <text x="962" y="667" class="card-text">0,1</text>
+  <text x="975" y="690" class="rel-label">genera despacho</text>
 
-  <!-- 10. RELACIÓN N:M RESUELTA: PERSONAL_MEDICO (1,1) a PERSONAL_SERVICIO (0,N) -->
-  <path d="M 780 261 L 780 710" class="rel-line-assoc" marker-start="url(#one-one)" marker-end="url(#crow-many-assoc)" />
-  <text x="788" y="275" class="card-text">1,1</text>
-  <text x="788" y="700" class="card-text">0,N</text>
-  <text x="788" y="620" class="rel-label" fill="#805AD5">es tripulante asignado</text>
+  <!-- 10. PACIENTE (0,1) -> PQRS (0,N) -->
+  <path d="M 1190 265 L 1190 325" class="rel-line" marker-start="url(#zero-one)" marker-end="url(#zero-many)" />
+  <text x="1198" y="282" class="card-text">0,1</text>
+  <text x="1198" y="315" class="card-text">0,N</text>
+  <text x="1142" y="298" class="rel-label">radica</text>
+
+  <!-- 11. PACIENTE (1,1) -> SOLICITUD_EMERGENCIA (0,N) [Corredor externo derecho x=1380] -->
+  <path d="M 1325 180 L 1380 180 L 1380 665 L 1325 665" class="rel-line" marker-start="url(#one-one)" marker-end="url(#zero-many)" />
+  <text x="1332" y="172" class="card-text">1,1</text>
+  <text x="1332" y="657" class="card-text">0,N</text>
+  <rect x="1342" y="405" width="76" height="14" class="pill" />
+  <text x="1345" y="416" class="rel-label">origina llamada</text>
+
+  <!-- 12. AMBULANCIA (0,1) -> NOVEDAD (0,N) -->
+  <path d="M 150 760 L 150 835" class="rel-line" marker-start="url(#zero-one)" marker-end="url(#zero-many)" />
+  <text x="158" y="778" class="card-text">0,1</text>
+  <text x="158" y="825" class="card-text">0,N</text>
+  <text x="90" y="802" class="rel-label">reporta falla</text>
+
+  <!-- 13. SERVICIO (0,1) -> NOVEDAD (0,N) [Debajo de FACTURA y=915] -->
+  <path d="M 810 820 L 810 915 L 265 915" class="rel-line" marker-start="url(#zero-one)" marker-end="url(#zero-many)" />
+  <text x="818" y="838" class="card-text">0,1</text>
+  <text x="272" y="907" class="card-text">0,N</text>
+  <rect x="495" y="907" width="84" height="14" class="pill" />
+  <text x="498" y="918" class="rel-label">registra novedad</text>
 
 </svg>

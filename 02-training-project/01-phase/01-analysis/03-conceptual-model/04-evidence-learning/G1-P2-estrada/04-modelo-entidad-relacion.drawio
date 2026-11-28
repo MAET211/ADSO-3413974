@@ -1,127 +1,168 @@
-<mxfile host="app.diagrams.net" modified="2026-11-26T22:48:00.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
+<mxfile host="app.diagrams.net" modified="2026-11-27T00:14:30.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
   <diagram id="mer_relacional_sga" name="Modelo Entidad Relacion SGA">
-    <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1340" pageHeight="1020" background="#ffffff" math="0" shadow="0">
+    <mxGraphModel dx="1440" dy="1040" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="1040" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
         <!-- Titulo y Metadatos -->
-        <mxCell id="hdr_mer" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — MODELO ENTIDAD-RELACIÓN (MER)&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C4) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada) · Notación Pata de Gallo (Crow's Foot)" style="text;html=1;strokeColor=#2B6CB0;fillColor=#EBF8FF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="120" y="20" width="1100" height="45" as="geometry" />
+        <mxCell id="hdr_mer" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — MODELO ENTIDAD-RELACIÓN (MER RELACIONAL)&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C4) · Notación Pata de Gallo (Crow's Foot) · 13 Entidades SRS, N:M Asociativa y Débil Compuesta · Aprendiz: MAET211" style="text;html=1;strokeColor=#CBD5E0;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="25" y="15" width="1390" height="60" as="geometry" />
         </mxCell>
 
         <!-- ==================== FILA 1 ==================== -->
-
-        <!-- Entidad 1: ROL -->
-        <mxCell id="ent_rol" value="&lt;b&gt;ROL&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_rol : INT&lt;/b&gt;&#xa;nombre_rol : VARCHAR(40)&#xa;descripcion : VARCHAR(150)&#xa;nivel_acceso : INT&#xa;estado_activo : BOOLEAN" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="30" y="100" width="220" height="120" as="geometry" />
+        <mxCell id="ent_auditoria" value="&lt;b&gt;AUDITORIA&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_auditoria : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; usuario_id : UUID&lt;/b&gt;&#xa;modulo : VARCHAR(50)&#xa;accion : VARCHAR(50)&#xa;entidad_afectada : VARCHAR(50)&#xa;valores_anteriores : JSONB&#xa;valores_nuevos : JSONB&#xa;ip_origen : INET&#xa;fecha_hora : TIMESTAMP" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2F855A;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="35" y="95" width="230" height="180" as="geometry" />
         </mxCell>
 
-        <!-- Entidad 2: USUARIO -->
-        <mxCell id="ent_usuario" value="&lt;b&gt;USUARIO&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_usuario : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; rol_id : INT&lt;/b&gt;&#xa;nombre_completo : VARCHAR(120)&#xa;numero_documento : VARCHAR(20)&#xa;email_institucional : VARCHAR(100)&#xa;password_hash : VARCHAR(255)&#xa;telefono_contacto : VARCHAR(20)&#xa;estado_cuenta : VARCHAR(20)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="320" y="100" width="260" height="170" as="geometry" />
+        <mxCell id="ent_usuario" value="&lt;b&gt;USUARIO&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_usuario : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; rol_id : UUID&lt;/b&gt;&#xa;nombre_completo : VARCHAR(150)&#xa;correo : VARCHAR(200) UNIQUE&#xa;password_hash : VARCHAR(255)&#xa;activo : BOOLEAN&#xa;intentos_fallidos : INT&#xa;bloqueado_hasta : TIMESTAMP" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="95" width="240" height="170" as="geometry" />
         </mxCell>
 
-        <!-- Entidad 3: PERSONAL_MEDICO -->
-        <mxCell id="ent_personal" value="&lt;b&gt;PERSONAL_MEDICO&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_personal : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; usuario_id : INT&lt;/b&gt;&#xa;registro_profesional : VARCHAR(30)&#xa;tipo_personal : VARCHAR(30)&#xa;especialidad : VARCHAR(60)&#xa;estado_disponibilidad : VARCHAR(20)&#xa;fecha_vencimiento_rethus : DATE" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="650" y="100" width="260" height="160" as="geometry" />
+        <mxCell id="ent_personal" value="&lt;b&gt;PERSONAL&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_personal : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; usuario_id : UUID&lt;/b&gt;&#xa;tarjeta_profesional : VARCHAR(40)&#xa;tipo_personal : VARCHAR(40)&#xa;estado_disponibilidad : VARCHAR(25)&#xa;vigencia_certificacion : DATE&#xa;horas_turno_continuas : DECIMAL(4,1)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="675" y="95" width="260" height="160" as="geometry" />
         </mxCell>
 
-        <!-- Entidad 4: PACIENTE -->
-        <mxCell id="ent_paciente" value="&lt;b&gt;PACIENTE&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_paciente : INT&lt;/b&gt;&#xa;tipo_identificacion : VARCHAR(5)&#xa;numero_identificacion : VARCHAR(20)&#xa;nombre_completo : VARCHAR(120)&#xa;fecha_nacimiento : DATE&#xa;genero : VARCHAR(10)&#xa;tipo_afiliacion_eps : VARCHAR(30)&#xa;eps_nombre : VARCHAR(80)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="980" y="100" width="270" height="170" as="geometry" />
+        <mxCell id="ent_paciente" value="&lt;b&gt;PACIENTE&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_paciente : UUID&lt;/b&gt;&#xa;tipo_documento : VARCHAR(10)&#xa;numero_documento : VARCHAR(25)&#xa;nombre_completo : VARCHAR(150)&#xa;fecha_nacimiento : DATE&#xa;contacto_familiar : VARCHAR(120)&#xa;antecedentes_medicos : TEXT&#xa;telefono_contacto : VARCHAR(25)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="95" width="270" height="170" as="geometry" />
         </mxCell>
 
         <!-- ==================== FILA 2 ==================== -->
-
-        <!-- Entidad 5: AMBULANCIA -->
-        <mxCell id="ent_ambulancia" value="&lt;b&gt;AMBULANCIA&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_ambulancia : INT&lt;/b&gt;&#xa;placa_vehiculo : VARCHAR(10)&#xa;numero_movil_interno : VARCHAR(15)&#xa;tipo_unidad : VARCHAR(10)&#xa;marca_modelo : VARCHAR(50)&#xa;anio_fabricacion : INT&#xa;estado_operativo : VARCHAR(25)&#xa;latitud_actual : DECIMAL(10,7)&#xa;longitud_actual : DECIMAL(10,7)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="30" y="380" width="240" height="190" as="geometry" />
+        <mxCell id="ent_rol" value="&lt;b&gt;ROL&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_rol : UUID&lt;/b&gt;&#xa;nombre_rol : VARCHAR(50) UNIQUE&#xa;descripcion : TEXT&#xa;activo : BOOLEAN&#xa;created_at : TIMESTAMP" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="35" y="335" width="230" height="115" as="geometry" />
         </mxCell>
 
-        <!-- Entidad 6: SERVICIO_ASISTENCIAL -->
-        <mxCell id="ent_servicio" value="&lt;b&gt;SERVICIO_ASISTENCIAL&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_servicio : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; solicitud_id : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; ambulancia_id : INT&lt;/b&gt;&#xa;codigo_servicio : VARCHAR(25)&#xa;fecha_hora_despacho : DATETIME&#xa;fecha_hora_llegada_escena : DATETIME&#xa;fecha_hora_traslado : DATETIME&#xa;fecha_hora_llegada_ips : DATETIME&#xa;ips_receptora_nombre : VARCHAR(100)&#xa;estado_servicio : VARCHAR(25)&#xa;tiempo_respuesta_minutos : DECIMAL(6,2)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="350" y="360" width="290" height="230" as="geometry" />
+        <mxCell id="ent_historial" value="&lt;b&gt;HISTORIAL_ESTADOS_SERVICIO (Débil)&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK, FK&amp;gt;&amp;gt; servicio_id : UUID (Identificadora)&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; numero_secuencia : INT (Discriminador)&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; usuario_responsable_id : UUID&lt;/b&gt;&#xa;estado_anterior : VARCHAR(25)&#xa;estado_nuevo : VARCHAR(25)&#xa;fecha_hora_cambio : TIMESTAMP&#xa;motivo_justificacion : TEXT&#xa;origen_cambio : VARCHAR(30)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFAF0;strokeColor=#DD6B20;strokeWidth=1.5;dashed=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="335" width="260" height="170" as="geometry" />
         </mxCell>
 
-        <!-- Entidad 7: SOLICITUD_EMERGENCIA -->
-        <mxCell id="ent_solicitud" value="&lt;b&gt;SOLICITUD_EMERGENCIA&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_solicitud : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; paciente_id : INT&lt;/b&gt;&#xa;codigo_radicado : VARCHAR(25)&#xa;nombre_solicitante : VARCHAR(100)&#xa;telefono_solicitante : VARCHAR(20)&#xa;direccion_incidente : VARCHAR(150)&#xa;latitud_incidente : DECIMAL(10,7)&#xa;longitud_incidente : DECIMAL(10,7)&#xa;nivel_triage_inicial : VARCHAR(10)&#xa;estado_solicitud : VARCHAR(25)&#xa;fecha_recepcion : DATETIME" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="720" y="360" width="270" height="220" as="geometry" />
+        <mxCell id="ent_personal_servicio" value="&lt;b&gt;PERSONAL_SERVICIO (Asociativa N:M)&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_personal_servicio : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; servicio_id : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; personal_id : UUID&lt;/b&gt;&#xa;&lt;b&gt;rol_operativo : VARCHAR(40)&lt;/b&gt;&#xa;&lt;b&gt;hora_asignacion : TIMESTAMP&lt;/b&gt;&#xa;&lt;b&gt;hora_liberacion : TIMESTAMP&lt;/b&gt;&#xa;activo_en_tripulacion : BOOLEAN&#xa;observaciones_turno : TEXT" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#805AD5;strokeWidth=1.5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="665" y="320" width="290" height="170" as="geometry" />
         </mxCell>
 
-        <!-- Entidad 8: VALORACION_CLINICA -->
-        <mxCell id="ent_valoracion" value="&lt;b&gt;VALORACION_CLINICA&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_valoracion : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; servicio_id : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; medico_certifica_id : INT&lt;/b&gt;&#xa;presion_arterial : VARCHAR(15)&#xa;frecuencia_cardiaca : INT&#xa;frecuencia_respiratoria : INT&#xa;saturacion_oxigeno : DECIMAL(4,1)&#xa;escala_glasgow : INT&#xa;diagnostico_cie10 : VARCHAR(10)&#xa;procedimientos_realizados : TEXT&#xa;fecha_hora_registro : DATETIME" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="1045" y="360" width="250" height="230" as="geometry" />
+        <mxCell id="ent_pqrs" value="&lt;b&gt;PQRS&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_pqrs : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; paciente_id : UUID (Opcional)&lt;/b&gt;&#xa;codigo_radicado : VARCHAR(30) UNIQUE&#xa;tipo_pqrs : ENUM (P/Q/R/S/D)&#xa;descripcion_motivo : TEXT&#xa;fecha_vencimiento_legal : DATE&#xa;estado_tramite : VARCHAR(25)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2F855A;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="325" width="270" height="160" as="geometry" />
         </mxCell>
 
-        <!-- ==================== FILA 3 (ASOCIATIVA Y DÉBIL FORMAL) ==================== -->
-
-        <!-- Entidad 9: HISTORIAL_ESTADOS_SERVICIO (DÉBIL CON CLAVE COMPUESTA ESTRICTA) -->
-        <mxCell id="ent_historial" value="&lt;b&gt;HISTORIAL_ESTADOS_SERVICIO (Débil)&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK, FK&amp;gt;&amp;gt; servicio_id : INT (Identificadora)&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; numero_secuencia : INT (Discriminador)&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; usuario_responsable_id : INT&lt;/b&gt;&#xa;estado_anterior : VARCHAR(25)&#xa;estado_nuevo : VARCHAR(25)&#xa;fecha_hora_cambio : DATETIME&#xa;motivo_justificacion : VARCHAR(255)&#xa;origen_cambio : VARCHAR(30)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFAF0;strokeColor=#DD6B20;strokeWidth=1.5;dashed=1;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="60" y="710" width="310" height="170" as="geometry" />
+        <!-- ==================== FILA 3 ==================== -->
+        <mxCell id="ent_ambulancia" value="&lt;b&gt;AMBULANCIA&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_ambulancia : UUID&lt;/b&gt;&#xa;numero_unidad : VARCHAR(20) UNIQUE&#xa;placa : VARCHAR(10) UNIQUE&#xa;tipo : ENUM (TAB | TAM)&#xa;marca_modelo : VARCHAR(100)&#xa;anio : INT CHECK (anio >= 1990)&#xa;num_habilitacion_reps : VARCHAR(50)&#xa;estado_operativo : ENUM&#xa;vigencia_soat_tecno : DATE" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="35" y="565" width="230" height="195" as="geometry" />
         </mxCell>
 
-        <!-- Entidad 10: PERSONAL_SERVICIO (ASOCIATIVA N:M CON ATRIBUTOS PROPIOS) -->
-        <mxCell id="ent_personal_servicio" value="&lt;b&gt;PERSONAL_SERVICIO (Asociativa N:M)&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_personal_servicio : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; servicio_id : INT&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; personal_id : INT&lt;/b&gt;&#xa;&lt;b&gt;rol_operativo : VARCHAR(30)&lt;/b&gt;&#xa;&lt;b&gt;hora_asignacion : DATETIME&lt;/b&gt;&#xa;&lt;b&gt;hora_liberacion : DATETIME&lt;/b&gt;&#xa;observaciones_desempenio : VARCHAR(200)&#xa;activo_en_tripulacion : BOOLEAN" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#805AD5;strokeWidth=1.5;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
-          <mxGeometry x="520" y="710" width="310" height="170" as="geometry" />
+        <mxCell id="ent_servicio" value="&lt;b&gt;SERVICIO (Core Asistencial)&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_servicio : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; solicitud_id : UUID UNIQUE&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; ambulancia_id : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; responsable_cierre_id : UUID&lt;/b&gt;&#xa;estado : ENUM (Solicitado..Finalizado)&#xa;asignacion_manual : BOOLEAN&#xa;motivo_asignacion_manual : TEXT&#xa;hora_asignacion / llegada / fin : TS&#xa;resultado_atencion : TEXT (RN-005)&#xa;estado_paciente_final : ENUM&#xa;destino_traslado : VARCHAR(200)&#xa;created_at : TIMESTAMP" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="665" y="565" width="290" height="255" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ent_solicitud" value="&lt;b&gt;SOLICITUD_EMERGENCIA&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_solicitud : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; paciente_id : UUID&lt;/b&gt;&#xa;codigo_radicado : VARCHAR(30)&#xa;nombre_solicitante : VARCHAR(120)&#xa;direccion_evento : VARCHAR(180)&#xa;coordenadas_gps : VARCHAR(60)&#xa;prioridad_triage : ENUM (Rojo..Verde)&#xa;sintomatologia : TEXT&#xa;fecha_hora_solicitud : TIMESTAMP&#xa;estado_solicitud : VARCHAR(25)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2B6CB0;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1055" y="565" width="270" height="205" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== FILA 4 ==================== -->
+        <mxCell id="ent_factura" value="&lt;b&gt;FACTURA&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_factura : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; servicio_id : UUID UNIQUE&lt;/b&gt;&#xa;numero_factura : VARCHAR(30) UNIQUE&#xa;fecha_emision : TIMESTAMP&#xa;valor_total : DECIMAL(12,2)&#xa;estado_pago : ENUM (Pendiente/Pagada)&#xa;dias_mora : INT&#xa;es_inmutable : BOOLEAN (RN-014)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2F855A;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="335" y="680" width="250" height="175" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ent_novedad" value="&lt;b&gt;NOVEDAD&lt;/b&gt;&lt;hr&gt;&lt;b&gt;&amp;lt;&amp;lt;PK&amp;gt;&amp;gt; id_novedad : UUID&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; servicio_id : UUID (Opcional)&lt;/b&gt;&#xa;&lt;b&gt;&amp;lt;&amp;lt;FK&amp;gt;&amp;gt; ambulancia_id : UUID (Opcional)&lt;/b&gt;&#xa;tipo_novedad : VARCHAR(40)&#xa;prioridad : ENUM (Baja..Crítica)&#xa;descripcion : TEXT&#xa;estado : ENUM (Pendiente..Cerrado)" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=#FFFFFF;strokeColor=#2F855A;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="35" y="835" width="230" height="160" as="geometry" />
         </mxCell>
 
         <!-- Leyenda -->
-        <mxCell id="box_legend" value="&lt;b&gt;CONVENCIONES Y REGLAS DE ARBITRAJE (SEC. 7)&lt;/b&gt;&lt;hr&gt;• &lt;b&gt;Entidad Fuerte / Regular:&lt;/b&gt; Borde azul solido&#xa;• &lt;b&gt;Entidad Asociativa (N:M):&lt;/b&gt; Borde purpura con atributos propios&#xa;• &lt;b&gt;Entidad Débil Estricta:&lt;/b&gt; Borde punteado naranja, PK compuesta&#xa;  formada por (servicio_id + numero_secuencia)&#xa;• &lt;b&gt;Crow's Foot:&lt;/b&gt; (1,1) Lineas dobles | (0,N)/(1,N) Pata de gallo&#xa;• &lt;b&gt;Zero Spaghetti:&lt;/b&gt; Ruteo ortogonal y cardinalidad explicita" style="text;html=1;strokeColor=#CBD5E0;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=0;spacing=8;" vertex="1" parent="1">
-          <mxGeometry x="880" y="710" width="415" height="170" as="geometry" />
+        <mxCell id="box_legend" value="&lt;b&gt;CONVENCIONES CROW'S FOOT Y ARBITRAJE (SEC. 7)&lt;/b&gt;&lt;hr&gt;• &lt;b&gt;Entidades Core / Financieras / Soporte:&lt;/b&gt; 13 tablas reales del SRS&#xa;• &lt;b&gt;Entidad Asociativa (N:M):&lt;/b&gt; PERSONAL_SERVICIO (rol y horas propias)&#xa;• &lt;b&gt;Entidad Débil Estricta:&lt;/b&gt; HISTORIAL_ESTADOS_SERVICIO (PK compuesta&#xa;  formada por servicio_id + numero_secuencia)&#xa;• &lt;b&gt;Planar Zero-Crossing:&lt;/b&gt; Corredores ortogonales sin atravesar entidades" style="text;html=1;strokeColor=#CBD5E0;fillColor=#FFFFFF;align=left;verticalAlign=top;whiteSpace=wrap;rounded=1;fontSize=11;fontStyle=0;spacing=8;" vertex="1" parent="1">
+          <mxGeometry x="990" y="835" width="420" height="165" as="geometry" />
         </mxCell>
 
-        <!-- ==================== RELACIONES CON CROW'S FOOT ==================== -->
+        <!-- ==================== CONECTORES CROW'S FOOT SIN CRUCES ==================== -->
 
-        <!-- 1. ROL (1,1) -> USUARIO (0,N) -->
-        <mxCell id="rel_rol_usuario" value="clasifica" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERmany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;fontColor=#4A5568;" edge="1" parent="1" source="ent_rol" target="ent_usuario">
+        <!-- 1. USUARIO (1,1) -> AUDITORIA (0,N) -->
+        <mxCell id="rel_usr_aud" value="registra" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERzeroToMany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;exitX=0;exitY=0.38;entryX=1;entryY=0.36;" edge="1" parent="1" source="ent_usuario" target="ent_auditoria">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_1_s" value="1,1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_usr_aud"><mxGeometry x="-0.75" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_1_t" value="0,N" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_usr_aud"><mxGeometry x="0.75" relative="1" as="geometry" /></mxCell>
 
-        <!-- 2. USUARIO (1,1) -> PERSONAL_MEDICO (0,1) -->
-        <mxCell id="rel_usr_personal" value="perfila" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERzeroToOne;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;fontColor=#4A5568;" edge="1" parent="1" source="ent_usuario" target="ent_personal">
+        <!-- 2. ROL (1,1) -> USUARIO (0,N) -->
+        <mxCell id="rel_rol_usr" value="clasifica" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERzeroToMany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.45;entryX=0;entryY=0.76;" edge="1" parent="1" source="ent_rol" target="ent_usuario">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="300" y="387" /><mxPoint x="300" y="224" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_2_s" value="1,1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_rol_usr"><mxGeometry x="-0.85" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_2_t" value="0,N" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_rol_usr"><mxGeometry x="0.85" relative="1" as="geometry" /></mxCell>
+
+        <!-- 3. USUARIO (1,1) -> PERSONAL (0,1) -->
+        <mxCell id="rel_usr_per" value="perfila" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERzeroToOne;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;exitX=1;exitY=0.47;entryX=0;entryY=0.5;" edge="1" parent="1" source="ent_usuario" target="ent_personal">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_3_s" value="1,1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_usr_per"><mxGeometry x="-0.75" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_3_t" value="0,1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_usr_per"><mxGeometry x="0.75" relative="1" as="geometry" /></mxCell>
 
-        <!-- 3. PACIENTE (1,1) -> SOLICITUD_EMERGENCIA (0,N) -->
-        <mxCell id="rel_pac_sol" value="origina llamada" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERmany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;fontColor=#4A5568;" edge="1" parent="1" source="ent_paciente" target="ent_solicitud">
+        <!-- 4. PERSONAL (1,1) -> PERSONAL_SERVICIO (0,N) [Asociativa] -->
+        <mxCell id="rel_per_perserv" value="asigna tripulante" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERmany;strokeColor=#805AD5;strokeWidth=1.6;fontSize=10;fontColor=#805AD5;exitX=0.52;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ent_personal" target="ent_personal_servicio">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_4_s" value="1,1" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_per_perserv"><mxGeometry x="-0.7" y="10" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_4_t" value="0,N" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_per_perserv"><mxGeometry x="0.7" y="10" relative="1" as="geometry" /></mxCell>
 
-        <!-- 4. SOLICITUD_EMERGENCIA (1,1) -> SERVICIO_ASISTENCIAL (0,1) -->
-        <mxCell id="rel_sol_serv" value="genera despacho" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERzeroToOne;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;fontColor=#4A5568;" edge="1" parent="1" source="ent_solicitud" target="ent_servicio">
+        <!-- 5. SERVICIO (1,1) -> PERSONAL_SERVICIO (1,N) [Asociativa] -->
+        <mxCell id="rel_serv_perserv" value="conforma tripulación" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERmandMany;strokeColor=#805AD5;strokeWidth=1.6;fontSize=10;fontColor=#805AD5;exitX=0.5;exitY=0;entryX=0.5;entryY=1;" edge="1" parent="1" source="ent_servicio" target="ent_personal_servicio">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_5_s" value="1,1" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_serv_perserv"><mxGeometry x="-0.7" y="10" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_5_t" value="1,N" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_serv_perserv"><mxGeometry x="0.7" y="10" relative="1" as="geometry" /></mxCell>
 
-        <!-- 5. AMBULANCIA (1,1) -> SERVICIO_ASISTENCIAL (0,N) -->
-        <mxCell id="rel_amb_serv" value="asigna unidad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERmany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;fontColor=#4A5568;" edge="1" parent="1" source="ent_ambulancia" target="ent_servicio">
+        <!-- 6. SERVICIO (1,1) -> HISTORIAL_ESTADOS_SERVICIO (1,N) [Débil] -->
+        <mxCell id="rel_serv_hist" value="audita (débil)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERmandMany;strokeColor=#DD6B20;strokeWidth=1.6;fontSize=10;fontColor=#DD6B20;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.14;entryX=1;entryY=0.82;" edge="1" parent="1" source="ent_servicio" target="ent_historial">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="630" y="601" /><mxPoint x="630" y="474" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_6_s" value="1,1" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_serv_hist"><mxGeometry x="-0.85" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_6_t" value="1,N" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_serv_hist"><mxGeometry x="0.85" relative="1" as="geometry" /></mxCell>
+
+        <!-- 7. AMBULANCIA (1,1) -> SERVICIO (0,N) [Corredor libre y=642] -->
+        <mxCell id="rel_amb_serv" value="asigna unidad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERzeroToMany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.39;entryX=0;entryY=0.30;" edge="1" parent="1" source="ent_ambulancia" target="ent_servicio">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_7_s" value="1,1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_amb_serv"><mxGeometry x="-0.85" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_7_t" value="0,N" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_amb_serv"><mxGeometry x="0.85" relative="1" as="geometry" /></mxCell>
 
-        <!-- 6. SERVICIO_ASISTENCIAL (1,1) -> VALORACION_CLINICA (0,1) -->
-        <mxCell id="rel_serv_val" value="consigna evolucion" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERzeroToOne;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;fontColor=#4A5568;" edge="1" parent="1" source="ent_servicio" target="ent_valoracion">
+        <!-- 8. SERVICIO (1,1) -> FACTURA (0,1) -->
+        <mxCell id="rel_serv_fac" value="liquida" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERzeroToOne;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;exitX=0;exitY=0.76;entryX=1;entryY=0.45;" edge="1" parent="1" source="ent_servicio" target="ent_factura">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_8_s" value="1,1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_serv_fac"><mxGeometry x="-0.75" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_8_t" value="0,1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_serv_fac"><mxGeometry x="0.75" relative="1" as="geometry" /></mxCell>
 
-        <!-- 7. PERSONAL_MEDICO (1,1) -> VALORACION_CLINICA (0,N) -->
-        <mxCell id="rel_med_val" value="certifica" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERmany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;fontColor=#4A5568;" edge="1" parent="1" source="ent_personal" target="ent_valoracion">
+        <!-- 9. SOLICITUD_EMERGENCIA (1,1) -> SERVICIO (0,1) -->
+        <mxCell id="rel_sol_serv" value="genera despacho" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERzeroToOne;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;exitX=0;exitY=0.54;entryX=1;entryY=0.43;" edge="1" parent="1" source="ent_solicitud" target="ent_servicio">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_9_s" value="1,1" style="edgeLabel;html=1;align=right;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_sol_serv"><mxGeometry x="-0.75" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_9_t" value="0,1" style="edgeLabel;html=1;align=left;verticalAlign=bottom;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_sol_serv"><mxGeometry x="0.75" relative="1" as="geometry" /></mxCell>
 
-        <!-- 8. SERVICIO_ASISTENCIAL (1,1) -> HISTORIAL_ESTADOS_SERVICIO (1,N) [DEBIL IDENTIFICADORA] -->
-        <mxCell id="rel_serv_hist" value="audita transiciones (debil)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERmandMany;strokeColor=#DD6B20;strokeWidth=1.6;fontSize=10;fontColor=#DD6B20;" edge="1" parent="1" source="ent_servicio" target="ent_historial">
+        <!-- 10. PACIENTE (0,1) -> PQRS (0,N) -->
+        <mxCell id="rel_pac_pqrs" value="radica" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ent_paciente" target="ent_pqrs">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_10_s" value="0,1" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_pac_pqrs"><mxGeometry x="-0.7" y="10" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_10_t" value="0,N" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_pac_pqrs"><mxGeometry x="0.7" y="10" relative="1" as="geometry" /></mxCell>
 
-        <!-- 9. SERVICIO_ASISTENCIAL (1,1) -> PERSONAL_SERVICIO (1,N) [ASOCIATIVA] -->
-        <mxCell id="rel_serv_perserv" value="conforma tripulacion" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERmandMany;strokeColor=#805AD5;strokeWidth=1.6;fontSize=10;fontColor=#805AD5;" edge="1" parent="1" source="ent_servicio" target="ent_personal_servicio">
+        <!-- 11. PACIENTE (1,1) -> SOLICITUD_EMERGENCIA (0,N) [Corredor derecho x=1380] -->
+        <mxCell id="rel_pac_sol" value="origina llamada" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERzeroToMany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=1;entryY=0.49;" edge="1" parent="1" source="ent_paciente" target="ent_solicitud">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1380" y="180" /><mxPoint x="1380" y="665" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_11_s" value="1,1" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_pac_sol"><mxGeometry x="-0.85" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_11_t" value="0,N" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_pac_sol"><mxGeometry x="0.85" relative="1" as="geometry" /></mxCell>
+
+        <!-- 12. AMBULANCIA (0,1) -> NOVEDAD (0,N) -->
+        <mxCell id="rel_amb_nov" value="reporta falla" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ent_ambulancia" target="ent_novedad">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
+        <mxCell id="lbl_12_s" value="0,1" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_amb_nov"><mxGeometry x="-0.7" y="10" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_12_t" value="0,N" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_amb_nov"><mxGeometry x="0.7" y="10" relative="1" as="geometry" /></mxCell>
 
-        <!-- 10. PERSONAL_MEDICO (1,1) -> PERSONAL_SERVICIO (0,N) [ASOCIATIVA] -->
-        <mxCell id="rel_med_perserv" value="asignado en servicio" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERmandOne;endArrow=ERmany;strokeColor=#805AD5;strokeWidth=1.6;fontSize=10;fontColor=#805AD5;" edge="1" parent="1" source="ent_personal" target="ent_personal_servicio">
-          <mxGeometry relative="1" as="geometry" />
+        <!-- 13. SERVICIO (0,1) -> NOVEDAD (0,N) [Debajo de FACTURA y=915] -->
+        <mxCell id="rel_serv_nov" value="registra novedad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToOne;endArrow=ERzeroToMany;strokeColor=#4A5568;strokeWidth=1.6;fontSize=10;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="ent_servicio" target="ent_novedad">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="810" y="915" /></Array></mxGeometry>
         </mxCell>
+        <mxCell id="lbl_13_s" value="0,1" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_serv_nov"><mxGeometry x="-0.85" relative="1" as="geometry" /></mxCell>
+        <mxCell id="lbl_13_t" value="0,N" style="edgeLabel;html=1;fontSize=9.5;fontStyle=1;" connectable="0" vertex="1" parent="rel_serv_nov"><mxGeometry x="0.85" relative="1" as="geometry" /></mxCell>
 
       </root>
     </mxGraphModel>

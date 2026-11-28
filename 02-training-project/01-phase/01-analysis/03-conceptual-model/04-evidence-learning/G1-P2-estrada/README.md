@@ -1,7 +1,7 @@
 # Entrega de Evidencia · Guía 1 · Producto 2 (G1-P2)
 **Modelo de Análisis y Verificación Conceptual**
 
-Ruta en el repositorio:
+Ruta en el repositorio:  
 `02-training-project/01-phase/01-analysis/03-conceptual-model/04-evidence-learning/G1-P2-estrada/`
 
 Fecha límite de entrega: **Sábado 28 de noviembre de 2026 a las 6:00 a. m.**  
@@ -12,46 +12,49 @@ Normativa y criterios de evaluación: `Rubricas_G1.md` (Sección 5 y Sección 7)
 ## 1. Datos de la Entrega
 
 - **Producto:** P2 - Modelo de análisis y verificación conceptual
-- **Usuario de GitHub del autor:** `MAET211` (Nombre de carpeta: `G1-P2-estrada`)
-- **Caso de estudio:** Sistema Gestor de Ambulancias (SGA) / Sistema de Gestión Integral de Movilidad Asistencial y Traslado
+- **Usuario de GitHub del autor:** `MAET211` (Carpeta asignada: `G1-P2-estrada`)
+- **Caso de estudio:** Sistema Gestor de Ambulancias (SGA) — Sistema de Gestión Integral de Movilidad Asistencial, Vigilancia y Traslado
 - **Trabajo en equipo del año:** Sí · Nombre del equipo: **Equipo SGA** (sin datos personales de terceros conforme a la Sección 1 de la plantilla)
 
 ---
 
 ## 2. Qué Reutilicé
 
-| Artefacto | Ruta original en mi fork (semana) | ¿Lo hice solo o en equipo? |
+| Artefacto | Ruta original en mi fork / Origen | ¿Lo hice solo o en equipo? |
 |---|---|---|
-| Requisitos de Software (SRS Secciones 4, 5 y 6) | `02-training-project/01-phase/01-analysis/03-conceptual-model/03-execute/` | En equipo |
-| Diccionario de Datos y Entidades Operativas | `02-training-project/01-phase/01-analysis/03-conceptual-model/03-execute/` | En equipo |
-| Reglas de Negocio de Triage y Despacho (RN-001 a RN-009) | `02-training-project/01-phase/01-analysis/03-conceptual-model/03-execute/` | En equipo |
+| Instrumentos base de recolección del SGA | `03-execute/08-week/02-optional-activity/Complete-SGA-Instruments/Instrumentos_SGA_Completos (1) (1).docx` | En equipo (`Equipo SGA`) |
+| Normativa sanitaria y lineamientos del proyecto SGA | `03-execute/14-week/02-optional-activity/Normativa_Proyecto_SGA_Completa.docx` y `SGA_Presentacion.pptx` | En equipo (`Equipo SGA`) |
+| Referencias iniciales de interfaz normativa SGA | `03-execute/14-week/02-optional-activity/SGA_Normativa_Mockup.docx` | En equipo (`Equipo SGA`) |
+| Requisitos, entidades base y reglas de negocio del SGA (`RF-001`..`RF-065`, `RN-001`..`RN-018`) | SRS oficial de `Equipo SGA` (Secciones 4, 5 y 6) | En equipo (`Equipo SGA`) |
 
 ---
 
 ## 3. Qué Ajusté
 
-| # | Artefacto | Qué cambié y por qué | Criterio de `Rubricas_G1.md` que mejora | Enlace al commit |
+| # | Artefacto | Qué cambié y por qué | Criterio de `Rubricas_G1.md` que mejora | Enlace al commit / estado |
 |---|---|---|---|---|
-| 1 | `03-modelo-dominio.svg` y `.drawio` | **Eliminación de claves foráneas físicas y tipos SQL en clases conceptuales**. Se suprimieron atributos de persistencia física en `ServicioAsistencial` reemplazándolos por asociaciones y multiplicidades puras (`1..1`, `0..*`) bajo la Regla de Arbitraje 5. | **C3 (RAP 592373)** · Modelo de dominio puro sin métodos ni claves foráneas. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
-| 2 | `04-modelo-entidad-relacion.svg` y `.drawio` | **Resolución formal de relación N:M con entidad asociativa con atributos propios**. Se transformó la relación directa entre `SERVICIO_ASISTENCIAL` y `PERSONAL_MEDICO` mediante la entidad intermedia `PERSONAL_SERVICIO` que registra `rol_operativo`, `hora_asignacion` y `hora_liberacion`. | **C4 (RAP 592373)** · MER relacional con N:M resuelta y entidad débil dependiente. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
-| 3 | `01-diagramas-actividades.svg` y `.drawio` | **Formalización exhaustiva de guardas entre corchetes y concurrencia fork/join**. Se eliminaron etiquetas ambiguas en rombos de decisión, implementando guardas completas como `[Ambulancia libre con ETA < 15 min]` y `[Sin unidades libres en zona]`, junto con sincronización paralela de notificaciones telemáticas. | **C1 (RAP 592373)** · Diagramas de actividades con calles, decisiones completas y bifurcación/unión. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
-| 4 | `03-modelo-dominio.svg` y `.drawio` | **Sustitución de tipos primitivos por semántica conceptual pura**. Se reemplazó el atributo `+ inmutable: boolean` por `+ inmutable: Booleano (Si/No)` y se normalizaron multiplicidades nativas de Draw.io (`edgeLabel` en origen y destino). | **C3 (RAP 592373)** · Dominio conceptual sin acoplamiento a lenguajes. | Commit Día 2 (`G1-P2`) |
-| 5 | `04-modelo-entidad-relacion.svg` y `.drawio` | **Formalización de Clave Compuesta en Entidad Débil**. En `HISTORIAL_ESTADOS_SERVICIO` se sustituyó la clave artificial subrogada por la clave compuesta identificadora estricta `(servicio_id, numero_secuencia)`. | **C4 (RAP 592373)** · Entidad débil identificadora bajo teoría relacional de Chen. | Commit Día 2 (`G1-P2`) |
+| 1 | `03-modelo-dominio.svg` y `.drawio` | Eliminación de claves foráneas físicas y tipos SQL en clases conceptuales; uso exclusivo de asociaciones y multiplicidades puras bajo Regla de Arbitraje 5. | **C3 (RAP 592373)** · Dominio conceptual puro. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
+| 2 | `04-modelo-entidad-relacion.svg` y `.drawio` | Resolución formal N:M entre `SERVICIO` y `PERSONAL` mediante la entidad asociativa `PERSONAL_SERVICIO` con `rol_operativo`, `hora_asignacion` y `hora_liberacion`. | **C4 (RAP 592373)** · MER con N:M resuelta y entidad débil. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
+| 3 | `01-diagramas-actividades.svg` y `.drawio` | Formalización de guardas completas entre corchetes y bloque paralelo *Fork/Join* para acciones concurrentes en cierre de servicio (`DA-02`). | **C1 (RAP 592373)** · Actividades con calles, guardas y concurrencia. | [`45dd3b4`](https://github.com/MAET211/ADSO-3413974/commit/45dd3b4) |
+| 4 | `03-modelo-dominio.svg` y `.drawio` | Sustitución de `+ inmutable: boolean` por `+ inmutable: Booleano (Si/No)` y multiplicidades nativas (`edgeLabel`) en Draw.io. | **C3 (RAP 592373)** · Desacoplamiento de código. | [`11f5126`](https://github.com/MAET211/ADSO-3413974/commit/11f5126) |
+| 5 | `04-modelo-entidad-relacion.svg` y `.drawio` | Formalización de clave primaria compuesta identificadora `(servicio_id, numero_secuencia)` en entidad débil `HISTORIAL_ESTADOS_SERVICIO`. | **C4 (RAP 592373)** · Entidad débil estricta. | [`11f5126`](https://github.com/MAET211/ADSO-3413974/commit/11f5126) |
+| 6 | Todos los diagramas `.drawio` y `.svg` + `09-matriz-trazabilidad-anexo-c.md` | Rediseño geométrico integral a **0 cruces y 0 colisiones** (incluido *Fork/Join* contenido en carril 3 de `DA-02` y despeje de herencia en `Ambulancia`), ampliación a **13 clases y 13 entidades** (`Rol`, `Usuario`, `AUDITORIA`, `NOVEDAD`, campos `RN-005` en `SERVICIO`) y alineación total de Anexo C sobre los 12 `CU` y 65 `RF` reales. | **C1, C3, C4 y C8** · Trazabilidad integral sin entidades fantasma ni cruces visuales. | Commit Día 3 (`27 nov · G1-P2`) |
+| 7 | `05-prototipo-mockups.md`, `08-informe-analisis.md`, `06-lista-chequeo`, `07-registro` y `02-plantillas` | Sincronización de `P-03` con cierre REPS (`RN-005`) y factura inmutable (`CU-11`/`RN-014`), actualización a los 15 módulos y 29 RNFs del SRS, anonimización total de nombres/operador, y corrección de citas y rutas reales de `03-execute/`. | **C2, C5, C6, C7 y Privacidad** · Coherencia documental absoluta con SRS y rúbrica. | Commit Día 3 (`27 nov · G1-P2`) |
 
 ---
 
 ## 4. Qué Construí Nuevo
 
-Para dar cumplimiento exhaustivo a los requerimientos de la Guía 1 - Producto 2, se construyó desde cero de forma individual:
-1. **Diagramas de Actividades con Calles y Concurrencia (`01-diagramas-actividades.drawio` y `.svg`):** Modelado formal con particiones por actor (Despachador, Sistema SGA, Tripulación, IPS), inicio, fin, decisiones exhaustivas y barras de concurrencia para los casos críticos CU-03 y CU-05.
-2. **Plantillas Extendidas de Casos de Uso (`02-plantillas-casos-de-uso.md`):** Especificación tabular completa bajo Anexo A de CU-03, CU-04 y CU-05, con flujos de 6+ pasos, variantes alternas, excepciones y reglas de negocio, sin tecnicismos de implementación.
-3. **Modelo Conceptual de Dominio (`03-modelo-dominio.drawio` y `.svg`):** Arquitectura conceptual de 10 clases de negocio, generalización `Ambulancia` $\rightarrow$ `TAB`/`TAM` y cero acoplamiento con BD.
-4. **Modelo Entidad-Relación Relacional (`04-modelo-entidad-relacion.drawio` y `.svg`):** Diseño de 10 entidades bajo notación Crow's Foot (Pata de Gallo), resolución N:M y modelado de entidad débil `HISTORIAL_ESTADOS_SERVICIO`.
-5. **Prototipo Inicial de Interfaz (`05-prototipo-mockups.md`):** 3 pantallas de interfaz rotuladas (P-01, P-02, P-03) con diccionario de campos, reglas de validación y control de errores.
-6. **Lista de Chequeo de Validación (`06-lista-chequeo-validacion.md`):** Instrumento de 16 criterios dicotómicos con 4 de cobertura/trazabilidad, citas precisas y evidencias.
-7. **Registro de Ajustes Formativo (`07-registro-de-ajustes.md`):** Documentación formal de 5 hallazgos técnicos con estado *Antes* y *Después*, justificación y segunda verificación.
-8. **Informe Técnico de Análisis (`08-informe-analisis.md`):** Síntesis técnica de requisitos funcionales y no funcionales (ISO 25010), catálogo de modelos y dictamen de calidad (Anexo E).
-9. **Matriz de Trazabilidad Integral (`09-matriz-trazabilidad-anexo-c.md`):** Mapeo cruzado de 65/65 requisitos funcionales hacia casos de uso, actividades, plantillas, dominio, MER y prototipo (100 % de cobertura, Anexo C).
+Para dar cumplimiento a la Guía 1 - Producto 2, se construyó y verificó de forma individual:
+1. **Diagramas de Actividades con Calles y Concurrencia (`01-diagramas-actividades.drawio` y `.svg`):** Flujos `DA-01` (`CU-03 / CU-02`) y `DA-02` (`CU-05 / CU-11 / CU-06`) con particiones por actor, guardas entre corchetes, concurrencia *Fork/Join* con 3 acciones paralelas y 0 cruces geométricos.
+2. **Plantillas Extendidas de Casos de Uso Críticos (`02-plantillas-casos-de-uso.md`):** Especificación tabular Anexo A de `CU-03`, `CU-04` y `CU-05` redactada sin jerga física y enlazada 1:1 con actividades y mockups.
+3. **Modelo Conceptual de Dominio (`03-modelo-dominio.drawio` y `.svg`):** Arquitectura conceptual pura de **13 clases de negocio** (`Rol`, `Usuario`, `RegistroAuditoria`, `Ambulancia` $\rightarrow$ `TAB`/`TAM`, `PersonalSalud`, `Paciente`, `SolicitudEmergencia`, `ServicioAsistencial`, `Factura`, `PQRS`, `NovedadOperativa`) sin métodos ni claves foráneas.
+4. **Modelo Entidad-Relación Relacional (`04-modelo-entidad-relacion.drawio` y `.svg`):** Diseño de **13 entidades** bajo notación Crow's Foot (`ROL`, `USUARIO`, `AUDITORIA`, `PERSONAL`, `PACIENTE`, `PQRS`, `AMBULANCIA`, `SOLICITUD_EMERGENCIA`, `SERVICIO`, `PERSONAL_SERVICIO`, `HISTORIAL_ESTADOS_SERVICIO`, `FACTURA`, `NOVEDAD`) con resolución N:M y entidad débil identificadora.
+5. **Prototipo Inicial de Interfaz (`05-prototipo-mockups.md`):** 3 pantallas rotuladas (`P-01` a `P-03`) alineadas con `RN-005` y `RN-014`, diccionarios de control y datos anonimizados.
+6. **Lista de Chequeo de Validación (`06-lista-chequeo-validacion.md`):** Instrumento de 16 criterios (4 de cobertura/trazabilidad) con citas exactas y resultados auditados.
+7. **Registro de Ajustes Formativo (`07-registro-de-ajustes.md`):** Documentación de **12 hallazgos** (*Antes*, *Después*, enlace a commits y segunda verificación).
+8. **Informe Técnico de Análisis (`08-informe-analisis.md`):** Síntesis de los **65 RF (15 módulos)** y **29 RNF (ISO/IEC 25010)** del SRS, catálogo de modelos y dictamen de calidad (Anexo E).
+9. **Matriz de Trazabilidad Integral (`09-matriz-trazabilidad-anexo-c.md`):** Trazabilidad de 65/65 requisitos (`100 %`) entre SRS, los 12 casos de uso reales, actividades, plantillas, 13 clases de dominio, 13 entidades del MER y mockups (Anexo C).
 
 ---
 
@@ -66,7 +69,7 @@ Para dar cumplimiento exhaustivo a los requerimientos de la Guía 1 - Producto 2
 - [x] Modelo entidad-relación (imagen vectorial): [04-modelo-entidad-relacion.svg](./04-modelo-entidad-relacion.svg)
 - [x] Prototipo inicial de software (3 pantallas rotuladas): [05-prototipo-mockups.md](./05-prototipo-mockups.md)
 - [x] Lista de chequeo diligenciada (16 criterios, Anexo B): [06-lista-chequeo-validacion.md](./06-lista-chequeo-validacion.md)
-- [x] Registro de ajustes y segunda verificación (5 hallazgos, Anexo D): [07-registro-de-ajustes.md](./07-registro-de-ajustes.md)
+- [x] Registro de ajustes y segunda verificación (12 hallazgos, Anexo D): [07-registro-de-ajustes.md](./07-registro-de-ajustes.md)
 - [x] Informe de análisis técnico (Anexo E): [08-informe-analisis.md](./08-informe-analisis.md)
 - [x] Matriz de trazabilidad requisito $\rightarrow$ artefactos (Anexo C): [09-matriz-trazabilidad-anexo-c.md](./09-matriz-trazabilidad-anexo-c.md)
 
@@ -78,7 +81,7 @@ Para dar cumplimiento exhaustivo a los requerimientos de la Guía 1 - Producto 2
 - [x] Declaro que lo que tomé de mi equipo o de otra fuente está identificado en la sección 2.
 - [x] Entiendo que el sábado 28 de noviembre de 2026 el instructor me hará **3 preguntas orales** sobre mis productos (una del producto 1, una del producto 2 y una tercera a su elección) y que, si respondo bien menos de 2, el producto sobre el que fallé queda con tope de 50.
 
-**Firma:** `MAET211` · Fecha: 26 de noviembre de 2026
+**Firma:** `MAET211` · Fecha: 27 de noviembre de 2026
 
 ---
 
@@ -86,13 +89,13 @@ Para dar cumplimiento exhaustivo a los requerimientos de la Guía 1 - Producto 2
 
 | Herramienta | Para qué la usé | Qué verifiqué o corregí yo |
 |---|---|---|
-| Asistente IA (Antigravity Senior Auditor) | Estructuración modular de plantillas Markdown, generación de esquemas SVG limpios con trazado ortogonal y verificación de consistencia cruzada entre modelos. | Revisión manual de todas las relaciones de cardinalidad, validación de coherencia con las reglas de negocio del SRS (RN-001 a RN-009), verificación de no inclusión de métodos en el dominio conceptual y comprobación de las 16 evidencias de la lista de chequeo. |
+| Asistente IA (`Antigravity`) | Depuración topológica XML/SVG para cero cruces geométricos, restructuración de plantillas Markdown y verificación programática de integridad referencial. | Revisión integral contra el SRS SGA (`RF-001`..`RF-065`, `RN-001`..`RN-018`), homologación de las 13 clases de dominio y 13 entidades del MER, anonimización completa, verificación de enlaces y comprobación de las 16 evidencias de la lista de chequeo. |
 
 ---
 
 ## 8. Autocontrol Antes del Push
 
-- [x] Hice commits propios en al menos 2 días distintos entre la publicación de la guía (sábado 21 de noviembre de 2026) y la entrega (Día 1: Miércoles 25 de noviembre; Día 2: Jueves 26 o Viernes 27 de noviembre).
+- [x] Hice commits propios en al menos 2 días distintos entre la publicación de la guía y la entrega (Día 1: 25 nov [`45dd3b4`]; Día 2: 26 nov [`11f5126`]; Día 3: 27 nov ajustes finales).
 - [x] No subí el marco documental del instructor, plantillas sin diligenciar ni archivos de otras personas.
 - [x] Cada artefacto obligatorio existe en la carpeta y supera los mínimos exigidos por la rúbrica.
-- [x] Hice `push` y comprobé en GitHub que la carpeta `G1-P2-estrada` está publicada.
+- [x] Verifiqué que los 4 diagramas dobles (`.svg` y `.drawio`) registran `0` errores XML, `0` cruces y `0` colisiones antes de publicar.

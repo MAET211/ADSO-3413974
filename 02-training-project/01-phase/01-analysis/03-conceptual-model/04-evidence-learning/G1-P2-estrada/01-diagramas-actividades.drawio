@@ -1,282 +1,203 @@
-<mxfile host="app.diagrams.net" modified="2026-11-25T08:57:00.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
-  <diagram id="diagramas_actividades_sga" name="Diagramas de Actividades SGA">
-    <mxGraphModel dx="1422" dy="850" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1600" background="#ffffff" math="0" shadow="0">
+<mxfile host="app.diagrams.net" modified="2026-11-27T00:12:00.000Z" agent="Antigravity SENA Quality Auditor" version="24.7.5">
+  <diagram id="diagrama_actividades_sga" name="Diagramas de Actividades SGA">
+    <mxGraphModel dx="1422" dy="960" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="1340" background="#ffffff" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
 
         <!-- Title Banner -->
-        <mxCell id="hdr_act" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMAS DE ACTIVIDADES UML&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C1) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada)" style="text;html=1;strokeColor=#2B6CB0;fillColor=#EBF8FF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="120" y="20" width="920" height="40" as="geometry" />
+        <mxCell id="hdr_act" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — DIAGRAMAS DE ACTIVIDADES UML&#xa;Evidencia G1-P2 · RAP 592373 (Criterio C1) · Aprendiz: MAET211 (Carpeta: G1-P2-estrada)" style="text;html=1;strokeColor=#CBD5E0;fillColor=#FFFFFF;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=1;fontSize=13;fontStyle=1;fontColor=#1A365D;" vertex="1" parent="1">
+          <mxGeometry x="25" y="15" width="1250" height="58" as="geometry" />
         </mxCell>
 
         <!-- ========================================================================= -->
-        <!-- DIAGRAMA 1: TRIAGE Y DESPACHO AUTOMÁTICO DE AMBULANCIA (CU-03)           -->
+        <!-- DIAGRAMA 1: TRIAGE Y DESPACHO AUTOMÁTICO DE AMBULANCIA (CU-03 / CU-02)    -->
         <!-- ========================================================================= -->
-
-        <mxCell id="d1_pool" value="1. Triage y Despacho Automatizado de Unidades Asistenciales (CU-03 / CU-02)" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=30;horizontal=1;horizontalStack=1;fillColor=#F8FAFC;strokeColor=#4A5568;fontSize=13;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="80" width="1080" height="520" as="geometry" />
+        <mxCell id="lbl_d1" value="1. Diagrama de Actividades: Triage y Despacho Automático de Ambulancia (CU-03 / CU-02)" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="40" y="85" width="800" height="24" as="geometry" />
         </mxCell>
 
-        <!-- Lane 1: Coordinador Operativo -->
-        <mxCell id="d1_lane_coord" value="Coordinador Operativo (Despacho)" style="swimlane;html=1;startSize=30;fillColor=#FFFFFF;strokeColor=#CBD5E0;fontSize=11;fontStyle=1;" vertex="1" parent="d1_pool">
-          <mxGeometry y="30" width="340" height="490" as="geometry" />
+        <!-- Swimlanes D1 -->
+        <mxCell id="lane1_1" value="Coordinador Operativo (Despacho)" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#A0AEC0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="110" width="370" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_ini" value="" style="ellipse;fillColor=#2D3748;strokeColor=#2D3748;" vertex="1" parent="lane1_1">
+          <mxGeometry x="35" y="55" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_a1" value="Recibir llamada y radicar solicitud" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;fontSize=11;" vertex="1" parent="lane1_1">
+          <mxGeometry x="90" y="45" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_a2" value="Asignar prioridad clínica (Triage)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;fontSize=11;" vertex="1" parent="lane1_1">
+          <mxGeometry x="90" y="115" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_alt" value="Activar protocolo manual / CRUE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;fontStyle=1;fontSize=11;" vertex="1" parent="lane1_1">
+          <mxGeometry x="90" y="365" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_fin_alt" value="" style="ellipse;html=1;shape=endState;fillColor=#E53E3E;strokeColor=#E53E3E;" vertex="1" parent="lane1_1">
+          <mxGeometry x="25" y="370" width="28" height="28" as="geometry" />
         </mxCell>
 
-        <mxCell id="d1_start" value="" style="ellipse;fillColor=#2D3748;strokeColor=#2D3748;" vertex="1" parent="d1_lane_coord">
-          <mxGeometry x="40" y="50" width="25" height="25" as="geometry" />
+        <mxCell id="lane1_2" value="Motor de Despacho SGA (Sistema Automático)" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#A0AEC0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="110" width="510" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_sys1" value="Evaluar complejidad y filtrar flota (RN-002)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;fontSize=11;" vertex="1" parent="lane1_2">
+          <mxGeometry x="120" y="115" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_dec1" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;strokeWidth=1.5;" vertex="1" parent="lane1_2">
+          <mxGeometry x="200" y="185" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_tam" value="Filtrar unidades TAM" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;fontSize=11;" vertex="1" parent="lane1_2">
+          <mxGeometry x="40" y="258" width="170" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_tab" value="Filtrar unidades TAB" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;fontSize=11;" vertex="1" parent="lane1_2">
+          <mxGeometry x="300" y="258" width="170" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_mrg" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#EDF2F7;strokeColor=#718096;" vertex="1" parent="lane1_2">
+          <mxGeometry x="220" y="310" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_dec2" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;strokeWidth=1.5;" vertex="1" parent="lane1_2">
+          <mxGeometry x="200" y="360" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_sys2" value="Asignar unidad y emitir orden despacho" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;fontSize=11;" vertex="1" parent="lane1_2">
+          <mxGeometry x="230" y="455" width="250" height="40" as="geometry" />
         </mxCell>
 
-        <mxCell id="d1_act1" value="Recibir llamada y radicar&#xa;solicitud de emergencia" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;" vertex="1" parent="d1_lane_coord">
-          <mxGeometry x="90" y="40" width="210" height="45" as="geometry" />
+        <mxCell id="lane1_3" value="Tripulación Asistencial (TAB / TAM)" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#A0AEC0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="920" y="110" width="340" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_trip" value="Confirmar salida y pasar a 'En Ruta'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;fontSize=11;" vertex="1" parent="lane1_3">
+          <mxGeometry x="25" y="455" width="245" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d1_fin_ok" value="" style="ellipse;html=1;shape=endState;fillColor=#2D3748;strokeColor=#2D3748;" vertex="1" parent="lane1_3">
+          <mxGeometry x="290" y="461" width="28" height="28" as="geometry" />
         </mxCell>
 
-        <mxCell id="d1_act2" value="Clasificar prioridad clínica&#xa;(Triage: Rojo, Naranja, Amarillo, Verde)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;" vertex="1" parent="d1_lane_coord">
-          <mxGeometry x="90" y="120" width="210" height="45" as="geometry" />
+        <!-- Flujos D1 -->
+        <mxCell id="e1_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d1_ini" target="d1_a1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d1_a1" target="d1_a2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d1_a2" target="d1_sys1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1_4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d1_sys1" target="d1_dec1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <mxCell id="e1_5" value="[Prioridad Rojo / Naranja]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontColor=#C53030;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="d1_dec1" target="d1_tam">
+          <mxGeometry x="-0.2" y="12" relative="1" as="geometry"><Array as="points"><mxPoint x="535" y="320" /></Array></mxGeometry>
         </mxCell>
+        <mxCell id="e1_6" value="[Prioridad Verde / Amarillo]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontColor=#2F855A;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0.5;entryY=0;" edge="1" parent="1" source="d1_dec1" target="d1_tab">
+          <mxGeometry x="-0.2" y="-12" relative="1" as="geometry"><Array as="points"><mxPoint x="795" y="320" /></Array></mxGeometry>
+        </mxCell>
+        
+        <mxCell id="e1_7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="d1_tam" target="d1_mrg">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="535" y="435" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e1_8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=0.5;exitY=1;entryX=1;entryY=0.5;" edge="1" parent="1" source="d1_tab" target="d1_mrg">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="795" y="435" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e1_9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d1_mrg" target="d1_dec2"><mxGeometry relative="1" as="geometry" /></mxCell>
 
-        <mxCell id="d1_act_alt" value="Activar protocolo de contingencia /&#xa;Despacho manual interinstitucional" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;fontStyle=1;" vertex="1" parent="d1_lane_coord">
-          <mxGeometry x="90" y="380" width="210" height="45" as="geometry" />
+        <mxCell id="e1_10" value="[Disponible y REPS al día]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontColor=#2F855A;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0;entryY=0.5;" edge="1" parent="1" source="d1_dec2" target="d1_sys2">
+          <mxGeometry x="-0.3" y="-10" relative="1" as="geometry"><Array as="points"><mxPoint x="660" y="545" /><mxPoint x="620" y="545" /><mxPoint x="620" y="585" /></Array></mxGeometry>
         </mxCell>
-
-        <mxCell id="d1_end_alt" value="" style="ellipse;html=1;shape=endState;fillColor=#FFF5F5;strokeColor=#E53E3E;strokeWidth=2;" vertex="1" parent="d1_lane_coord">
-          <mxGeometry x="30" y="388" width="30" height="30" as="geometry" />
+        <mxCell id="e1_11" value="[Sin unidades o REPS vencido]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#E53E3E;strokeWidth=1.5;fontColor=#C53030;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="d1_dec2" target="d1_alt">
+          <mxGeometry y="12" relative="1" as="geometry" />
         </mxCell>
-
-        <!-- Lane 2: Motor SGA -->
-        <mxCell id="d1_lane_sys" value="Motor de Despacho SGA (Sistema)" style="swimlane;html=1;startSize=30;fillColor=#FFFFFF;strokeColor=#CBD5E0;fontSize=11;fontStyle=1;" vertex="1" parent="d1_pool">
-          <mxGeometry x="340" y="30" width="440" height="490" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_act3" value="Filtrar parque automotor&#xa;por idoneidad clínica (RN-002)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;" vertex="1" parent="d1_lane_sys">
-          <mxGeometry x="110" y="120" width="220" height="45" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_dec1" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;" vertex="1" parent="d1_lane_sys">
-          <mxGeometry x="200" y="190" width="40" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_act_tam" value="Filtrar unidades TAM&#xa;(Medicalizadas)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;" vertex="1" parent="d1_lane_sys">
-          <mxGeometry x="50" y="250" width="140" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_act_tab" value="Filtrar unidades TAB&#xa;(Básicas)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;" vertex="1" parent="d1_lane_sys">
-          <mxGeometry x="250" y="250" width="140" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_merge1" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;" vertex="1" parent="d1_lane_sys">
-          <mxGeometry x="200" y="310" width="40" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_dec2" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;" vertex="1" parent="d1_lane_sys">
-          <mxGeometry x="200" y="380" width="40" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_act4" value="Asignar ambulancia más cercana&#xa;y transicionar a 'En servicio'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;" vertex="1" parent="d1_lane_sys">
-          <mxGeometry x="270" y="430" width="160" height="45" as="geometry" />
-        </mxCell>
-
-        <!-- Lane 3: Tripulación Asistencial -->
-        <mxCell id="d1_lane_crew" value="Tripulación Asistencial (TAB / TAM)" style="swimlane;html=1;startSize=30;fillColor=#FFFFFF;strokeColor=#CBD5E0;fontSize=11;fontStyle=1;" vertex="1" parent="d1_pool">
-          <mxGeometry x="780" y="30" width="300" height="490" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_act5" value="Recibir orden de despacho en tableta&#xa;y transicionar estado a 'En Ruta'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;" vertex="1" parent="d1_lane_crew">
-          <mxGeometry x="40" y="430" width="200" height="45" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d1_end" value="" style="ellipse;html=1;shape=endState;fillColor=#2D3748;strokeColor=#2D3748;strokeWidth=2;" vertex="1" parent="d1_lane_crew">
-          <mxGeometry x="260" y="438" width="30" height="30" as="geometry" />
-        </mxCell>
-
-        <!-- Edges Diagram 1 -->
-        <mxCell id="e1_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_start" target="d1_act1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_act1" target="d1_act2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_act2" target="d1_act3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_act3" target="d1_dec1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_tam" value="[Prioridad Rojo / Naranja]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontColor=#C53030;fontStyle=1;fontSize=10;" edge="1" parent="1" source="d1_dec1" target="d1_act_tam">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="450" y="320" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e1_tab" value="[Prioridad Verde / Amarillo]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontColor=#22543D;fontStyle=1;fontSize=10;" edge="1" parent="1" source="d1_dec1" target="d1_act_tab">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="670" y="320" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e1_m1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_act_tam" target="d1_merge1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_m2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_act_tab" target="d1_merge1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_merge1" target="d1_dec2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_ok" value="[Ambulancia Disponible y REPS al día]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontColor=#22543D;fontStyle=1;fontSize=10;" edge="1" parent="1" source="d1_dec2" target="d1_act4">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="560" y="530" />
-              <mxPoint x="670" y="530" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e1_fail" value="[Sin unidades libres o REPS vencido]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;fontColor=#C53030;fontStyle=1;fontSize=10;" edge="1" parent="1" source="d1_dec2" target="d1_act_alt">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_alt_end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_act_alt" target="d1_end_alt">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_act4" target="d1_act5">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e1_7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d1_act5" target="d1_end">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        <mxCell id="e1_12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d1_alt" target="d1_fin_alt"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1_13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d1_sys2" target="d1_trip"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e1_14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d1_trip" target="d1_fin_ok"><mxGeometry relative="1" as="geometry" /></mxCell>
 
 
         <!-- ========================================================================= -->
-        <!-- DIAGRAMA 2: CIERRE FORMAL Y LIQUIDACIÓN ASISTENCIAL (CU-05)              -->
+        <!-- DIAGRAMA 2: CIERRE FORMAL DE SERVICIO Y CONCURRENCIA (CU-05/CU-11/CU-06)  -->
         <!-- ========================================================================= -->
-
-        <mxCell id="d2_pool" value="2. Cierre Formal de Servicio Asistencial y Liquidación Inmutable (CU-05 / CU-11 / CU-06)" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=30;horizontal=1;horizontalStack=1;fillColor=#F8FAFC;strokeColor=#4A5568;fontSize=13;fontStyle=1;" vertex="1" parent="1">
-          <mxGeometry x="40" y="640" width="1080" height="550" as="geometry" />
+        <mxCell id="lbl_d2" value="2. Diagrama de Actividades: Cierre Formal de Servicio y Concurrencia Operativa (CU-05 / CU-11 / CU-06)" style="text;html=1;align=left;verticalAlign=middle;fontStyle=1;fontSize=14;fontColor=#2D3748;" vertex="1" parent="1">
+          <mxGeometry x="40" y="655" width="900" height="24" as="geometry" />
         </mxCell>
 
-        <!-- Lane 1: Paramédico -->
-        <mxCell id="d2_lane_param" value="Paramédico en Campo (Tripulación)" style="swimlane;html=1;startSize=30;fillColor=#FFFFFF;strokeColor=#CBD5E0;fontSize=11;fontStyle=1;" vertex="1" parent="d2_pool">
-          <mxGeometry y="30" width="340" height="520" as="geometry" />
+        <!-- Swimlanes D2 -->
+        <mxCell id="lane2_1" value="Paramédico en Campo (Tripulación)" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#A0AEC0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="40" y="688" width="370" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_ini" value="" style="ellipse;fillColor=#2D3748;strokeColor=#2D3748;" vertex="1" parent="lane2_1">
+          <mxGeometry x="35" y="57" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_a1" value="Finalizar traslado médico en IPS destino" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;fontSize=11;" vertex="1" parent="lane2_1">
+          <mxGeometry x="90" y="47" width="250" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_a2" value="Diligenciar datos clínicos y cierre (RN-005)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;fontSize=11;" vertex="1" parent="lane2_1">
+          <mxGeometry x="90" y="117" width="250" height="40" as="geometry" />
         </mxCell>
 
-        <mxCell id="d2_start" value="" style="ellipse;fillColor=#2D3748;strokeColor=#2D3748;" vertex="1" parent="d2_lane_param">
-          <mxGeometry x="40" y="45" width="25" height="25" as="geometry" />
+        <mxCell id="lane2_2" value="Sistema Central SGA (Reglas de Negocio)" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#A0AEC0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="410" y="688" width="460" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_sys1" value="Validar completitud y consistencia REPS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;fontSize=11;" vertex="1" parent="lane2_2">
+          <mxGeometry x="70" y="117" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_dec1" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;strokeWidth=1.5;" vertex="1" parent="lane2_2">
+          <mxGeometry x="150" y="192" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_sys2" value="Transicionar estado servicio a 'Finalizado'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;fontSize=11;" vertex="1" parent="lane2_2">
+          <mxGeometry x="70" y="297" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_fork" value="" style="shape=rect;fillColor=#1A202C;strokeColor=#1A202C;" vertex="1" parent="lane2_2">
+          <mxGeometry x="415" y="257" width="12" height="125" as="geometry" />
         </mxCell>
 
-        <mxCell id="d2_act1" value="Finalizar traslado y entrega de&#xa;paciente en centro hospitalario" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;" vertex="1" parent="d2_lane_param">
-          <mxGeometry x="90" y="35" width="210" height="45" as="geometry" />
+        <mxCell id="lane2_3" value="Flota, Facturación Inmutable y Auditoría" style="swimlane;startSize=30;fillColor=#FFFFFF;strokeColor=#A0AEC0;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="870" y="688" width="390" height="620" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_f1" value="Liberar ambulancia a 'Disponible'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;fontSize=11;" vertex="1" parent="lane2_3">
+          <mxGeometry x="30" y="227" width="250" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_f2" value="Generar factura inmutable (CU-11)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;fontSize=11;" vertex="1" parent="lane2_3">
+          <mxGeometry x="30" y="297" width="250" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_f3" value="Registrar evento en auditoría (CU-06)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;fontSize=11;" vertex="1" parent="lane2_3">
+          <mxGeometry x="30" y="367" width="250" height="38" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_join" value="" style="shape=rect;fillColor=#1A202C;strokeColor=#1A202C;" vertex="1" parent="lane2_3">
+          <mxGeometry x="330" y="257" width="12" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_arch" value="Archivar expediente asistencial cerrado" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;fontSize=11;" vertex="1" parent="lane2_3">
+          <mxGeometry x="30" y="477" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="d2_fin" value="" style="ellipse;html=1;shape=endState;fillColor=#2D3748;strokeColor=#2D3748;" vertex="1" parent="lane2_3">
+          <mxGeometry x="146" y="558" width="28" height="28" as="geometry" />
         </mxCell>
 
-        <mxCell id="d2_act2" value="Diligenciar variables clínicas obligatorias:&#xa;resultado, estado paciente y médico receptor" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;" vertex="1" parent="d2_lane_param">
-          <mxGeometry x="90" y="115" width="220" height="50" as="geometry" />
+        <!-- Flujos D2 -->
+        <mxCell id="e2_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d2_ini" target="d2_a1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d2_a1" target="d2_a2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d2_a2" target="d2_sys1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2_4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d2_sys1" target="d2_dec1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        
+        <mxCell id="e2_5" value="[Campos obligatorios diligenciados]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;fontColor=#2F855A;fontStyle=1;labelBackgroundColor=#FFFFFF;" edge="1" parent="1" source="d2_dec1" target="d2_sys2">
+          <mxGeometry x="0.1" y="10" relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_rej" value="[Datos incompletos (Bloqueo RN-005)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;strokeColor=#E53E3E;strokeWidth=1.5;fontColor=#C53030;fontStyle=1;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.5;entryX=0.5;entryY=1;" edge="1" parent="1" source="d2_dec1" target="d2_a2">
+          <mxGeometry x="-0.15" y="-12" relative="1" as="geometry"><Array as="points"><mxPoint x="255" y="905" /></Array></mxGeometry>
         </mxCell>
 
-        <mxCell id="d2_act_lib" value="Retornar ambulancia y personal&#xa;al estado 'Disponible' en tiempo real" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;" vertex="1" parent="d2_lane_param">
-          <mxGeometry x="90" y="270" width="210" height="45" as="geometry" />
+        <mxCell id="e2_to_fork" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d2_sys2" target="d2_fork"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e2_f1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.15;entryX=0;entryY=0.5;" edge="1" parent="1" source="d2_fork" target="d2_f1">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="865" y="964" /><mxPoint x="865" y="934" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e2_f2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="d2_fork" target="d2_f2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2_f3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.85;entryX=0;entryY=0.5;" edge="1" parent="1" source="d2_fork" target="d2_f3">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="865" y="1051" /><mxPoint x="865" y="1074" /></Array></mxGeometry>
         </mxCell>
 
-        <!-- Lane 2: Sistema SGA Core -->
-        <mxCell id="d2_lane_sys" value="Sistema Central SGA (Reglas de Negocio)" style="swimlane;html=1;startSize=30;fillColor=#FFFFFF;strokeColor=#CBD5E0;fontSize=11;fontStyle=1;" vertex="1" parent="d2_pool">
-          <mxGeometry x="340" y="30" width="440" height="520" as="geometry" />
+        <mxCell id="e2_j1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.15;" edge="1" parent="1" source="d2_f1" target="d2_join">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1178" y="934" /><mxPoint x="1178" y="964" /></Array></mxGeometry>
+        </mxCell>
+        <mxCell id="e2_j2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="d2_f2" target="d2_join"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2_j3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=0;entryY=0.85;" edge="1" parent="1" source="d2_f3" target="d2_join">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1178" y="1074" /><mxPoint x="1178" y="1051" /></Array></mxGeometry>
         </mxCell>
 
-        <mxCell id="d2_act3" value="Validar completitud estricta de&#xa;campos clínicos (Resolución 3100)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;" vertex="1" parent="d2_lane_sys">
-          <mxGeometry x="110" y="115" width="220" height="50" as="geometry" />
+        <mxCell id="e2_to_arch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="d2_join" target="d2_arch">
+          <mxGeometry relative="1" as="geometry"><Array as="points"><mxPoint x="1235" y="1007" /><mxPoint x="1235" y="1185" /></Array></mxGeometry>
         </mxCell>
-
-        <mxCell id="d2_dec1" value="" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFF5F5;strokeColor=#E53E3E;" vertex="1" parent="d2_lane_sys">
-          <mxGeometry x="200" y="195" width="40" height="40" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d2_act4" value="Transicionar servicio asistencial&#xa;al estado terminal 'Finalizado'" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FEFCBF;strokeColor=#D69E2E;fontStyle=1;" vertex="1" parent="d2_lane_sys">
-          <mxGeometry x="120" y="270" width="200" height="45" as="geometry" />
-        </mxCell>
-
-        <!-- Fork Bar (Concurrencia) -->
-        <mxCell id="d2_fork" value="" style="shape=rect;fillColor=#2D3748;strokeColor=#2D3748;" vertex="1" parent="d2_lane_sys">
-          <mxGeometry x="380" y="260" width="10" height="70" as="geometry" />
-        </mxCell>
-
-        <!-- Lane 3: Facturación y Auditoría -->
-        <mxCell id="d2_lane_fin" value="Módulo Financiero y Auditoría Inmutable" style="swimlane;html=1;startSize=30;fillColor=#FFFFFF;strokeColor=#CBD5E0;fontSize=11;fontStyle=1;" vertex="1" parent="d2_pool">
-          <mxGeometry x="780" y="30" width="300" height="520" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d2_act_fac" value="Generar factura electrónica inmutable&#xa;con tarifas TAB / TAM (CU-11)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;" vertex="1" parent="d2_lane_fin">
-          <mxGeometry x="40" y="240" width="220" height="45" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d2_act_aud" value="Registrar sello de tiempo y hashes&#xa;en log de auditoría inmutable (CU-06)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FFF4;strokeColor=#38A169;fontStyle=1;" vertex="1" parent="d2_lane_fin">
-          <mxGeometry x="40" y="310" width="220" height="45" as="geometry" />
-        </mxCell>
-
-        <!-- Join Bar -->
-        <mxCell id="d2_join" value="" style="shape=rect;fillColor=#2D3748;strokeColor=#2D3748;" vertex="1" parent="d2_lane_fin">
-          <mxGeometry x="270" y="265" width="10" height="70" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d2_act_arch" value="Archivar expediente clínico asistencial&#xa;con retención legal de 5 años" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EBF8FF;strokeColor=#3182CE;fontStyle=1;" vertex="1" parent="d2_lane_fin">
-          <mxGeometry x="40" y="410" width="220" height="45" as="geometry" />
-        </mxCell>
-
-        <mxCell id="d2_end" value="" style="ellipse;html=1;shape=endState;fillColor=#2D3748;strokeColor=#2D3748;strokeWidth=2;" vertex="1" parent="d2_lane_fin">
-          <mxGeometry x="135" y="475" width="30" height="30" as="geometry" />
-        </mxCell>
-
-        <!-- Edges Diagram 2 -->
-        <mxCell id="e2_1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_start" target="d2_act1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_act1" target="d2_act2">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_act2" target="d2_act3">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_act3" target="d2_dec1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_ok" value="[Campos obligatorios completos]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontColor=#22543D;fontStyle=1;fontSize=10;" edge="1" parent="1" source="d2_dec1" target="d2_act4">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_fail" value="[Datos clínicos incompletos (Bloqueo RN-005)]" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;fontColor=#C53030;fontStyle=1;fontSize=10;" edge="1" parent="1" source="d2_dec1" target="d2_act2">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="490" y="865" />
-              <mxPoint x="490" y="810" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e2_lib" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_act4" target="d2_act_lib">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_to_fork" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_act4" target="d2_fork">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_f1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_fork" target="d2_act_fac">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_f2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_fork" target="d2_act_aud">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_j1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_act_fac" target="d2_join">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_j2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_act_aud" target="d2_join">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="e2_to_arch" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_join" target="d2_act_arch">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="1065" y="990" />
-              <mxPoint x="930" y="990" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="e2_end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="d2_act_arch" target="d2_end">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
+        <mxCell id="e2_end" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#4A5568;strokeWidth=1.5;" edge="1" parent="1" source="d2_arch" target="d2_fin"><mxGeometry relative="1" as="geometry" /></mxCell>
 
       </root>
     </mxGraphModel>

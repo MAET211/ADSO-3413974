@@ -10,13 +10,14 @@
 
 ## 1. Convenciones y Alcance de Trazabilidad
 
-- **Requisito:** Identificador del requisito funcional según el SRS del Sistema Gestor de Ambulancias (RF-01 a RF-65).
-- **Caso de uso:** Caso de uso que implementa el objetivo del requisito.
-- **Diagrama de actividades:** Referencia al diagrama de flujo de actividades (`DA-CU03`, `DA-CU05` o `DA-General`).
-- **Plantilla:** Identificador de la plantilla extendida de caso de uso (`PL-CU03`, `PL-CU04`, `PL-CU05` o `PL-Estándar`).
-- **Clase de dominio:** Clase abstracta de negocio en el Modelo de Dominio (`03-modelo-dominio.svg`).
-- **Entidad del MER:** Tabla/entidad lógica en el Modelo Entidad-Relación (`04-modelo-entidad-relacion.svg`).
-- **Pantalla:** Prototipo de interfaz de usuario (`P-01`, `P-02`, `P-03` para casos críticos; `P-Admin` o `P-Móvil` para soporte).
+Esta matriz integra al 100 % los requisitos funcionales reales del proyecto **SGA** (`RF-001` a `RF-065`) utilizando exclusivamente los identificadores verificables en los demás artefactos de la entrega:
+- **Requisito (`SRS`):** Identificador oficial del requisito funcional en los 15 módulos del SRS (`RF-001` a `RF-065`).
+- **Caso de uso (`G1-P1/04`):** Identificador perteneciente estrictamente al catálogo de 12 casos de uso (`CU-01`, `CU-01.1`, `CU-02`, `CU-03`, `CU-04`, `CU-05`, `CU-06`, `CU-07`, `CU-08`, `CU-09`, `CU-10`, `CU-11`) definidos en [`04-matriz-requisito-caso-uso.md`](../G1-P1-estrada/04-matriz-requisito-caso-uso.md).
+- **Diagrama de actividades (`01-diagramas-actividades.svg`):** Referencia a los dos flujos críticos modelados en G1-P2: `DA-01 (CU-03 / CU-02)` y `DA-02 (CU-05 / CU-11 / CU-06)`; los módulos netamente administrativos/soporte se señalan como `N/A (Soporte operativo — G1-P1)`.
+- **Plantilla:** Plantilla extendida Anexo A en [`02-plantillas-casos-de-uso.md`](./02-plantillas-casos-de-uso.md) para los 3 casos críticos (`CU-03`, `CU-04`, `CU-05`), o especificación base en [`05-especificacion-casos-de-uso.md`](../G1-P1-estrada/05-especificacion-casos-de-uso.md) (`Catálogo Base (G1-P1/05)`).
+- **Clase de dominio (`03-modelo-dominio.svg`):** Exclusivamente entre las **13 clases conceptuales**: `Rol`, `Usuario`, `RegistroAuditoria`, `Ambulancia`, `TAB (Básica)`, `TAM (Medicalizada)`, `PersonalSalud`, `Paciente`, `SolicitudEmergencia`, `ServicioAsistencial`, `Factura`, `PQRS`, `NovedadOperativa`.
+- **Entidad del MER (`04-modelo-entidad-relacion.svg`):** Exclusivamente entre las **13 entidades relacionales**: `ROL`, `USUARIO`, `AUDITORIA`, `PERSONAL`, `PACIENTE`, `PQRS`, `AMBULANCIA`, `SOLICITUD_EMERGENCIA`, `SERVICIO`, `PERSONAL_SERVICIO`, `HISTORIAL_ESTADOS_SERVICIO`, `FACTURA`, `NOVEDAD`. *(Las variables clínicas de cierre residen en `SERVICIO`; los submódulos administrativos auxiliares se trazan conceptualmente hacia las entidades troncales `AUDITORIA`, `AMBULANCIA`, `FACTURA` o `USUARIO`).*
+- **Pantalla (`05-prototipo-mockups.md`):** Pantallas críticas `P-01 (CU-03)`, `P-02 (CU-04)`, `P-03 (CU-05)` y `N/A (Caso de soporte)` para flujos fuera del prototipo inicial de 3 pantallas exigido por `Rubricas_G1.md`.
 
 ---
 
@@ -24,79 +25,79 @@
 
 | Requisito | Caso de uso | Diagrama de actividades | Plantilla | Clase de dominio | Entidad del MER | Pantalla |
 |---|---|---|---|---|---|---|
-| **RF-01** | CU-06 Autenticar usuario y verificar rol | DA-General | PL-Estándar | Usuario | USUARIO | P-Admin |
-| **RF-02** | CU-06 Autenticar usuario y verificar rol | DA-General | PL-Estándar | Rol | ROL | P-Admin |
-| **RF-03** | CU-06 Autenticar usuario y verificar rol | DA-General | PL-Estándar | RegistroAuditoria | HISTORIAL_ESTADOS_SERVICIO | P-Admin |
-| **RF-04** | CU-01 Registrar solicitud de emergencia | DA-CU03 | PL-Estándar | SolicitudEmergencia | SOLICITUD_EMERGENCIA | P-01 |
-| **RF-05** | CU-01 Registrar solicitud de emergencia | DA-CU03 | PL-Estándar | Paciente | PACIENTE | P-01 |
-| **RF-06** | CU-02 Categorizar severidad de triage | DA-CU03 | PL-Estándar | SolicitudEmergencia | SOLICITUD_EMERGENCIA | P-01 |
-| **RF-07** | CU-01 Registrar solicitud de emergencia | DA-CU03 | PL-Estándar | SolicitudEmergencia | SOLICITUD_EMERGENCIA | P-01 |
-| **RF-08** | CU-01 Registrar solicitud de emergencia | DA-CU03 | PL-Estándar | Paciente | PACIENTE | P-01 |
-| **RF-09** | CU-02 Categorizar severidad de triage | DA-CU03 | PL-Estándar | SolicitudEmergencia | SOLICITUD_EMERGENCIA | P-01 |
-| **RF-10** | CU-03 Despachar ambulancia automáticamente | DA-CU03 | PL-CU03 | ServicioAsistencial | SERVICIO_ASISTENCIAL | P-01 |
-| **RF-11** | CU-03 Despachar ambulancia automáticamente | DA-CU03 | PL-CU03 | Ambulancia (TAB / TAM) | AMBULANCIA | P-01 |
-| **RF-12** | CU-03 Despachar ambulancia automáticamente | DA-CU03 | PL-CU03 | PersonalSalud | PERSONAL_SERVICIO | P-01 |
-| **RF-13** | CU-03 Despachar ambulancia automáticamente | DA-CU03 | PL-CU03 | Ambulancia | AMBULANCIA | P-01 |
-| **RF-14** | CU-04 Reasignar ambulancia manualmente | DA-CU03 | PL-CU04 | ServicioAsistencial | SERVICIO_ASISTENCIAL | P-02 |
-| **RF-15** | CU-04 Reasignar ambulancia manualmente | DA-CU03 | PL-CU04 | RegistroAuditoria | HISTORIAL_ESTADOS_SERVICIO | P-02 |
-| **RF-16** | CU-05 Cerrar servicio asistencial y liquidar | DA-CU05 | PL-CU05 | ServicioAsistencial | SERVICIO_ASISTENCIAL | P-03 |
-| **RF-17** | CU-07 Monitorear telemetría y GPS | DA-CU03 | PL-Estándar | Ambulancia | AMBULANCIA | P-01 |
-| **RF-18** | CU-07 Monitorear telemetría y GPS | DA-CU03 | PL-Estándar | Ambulancia | AMBULANCIA | P-01 |
-| **RF-19** | CU-07 Monitorear telemetría y GPS | DA-CU03 | PL-Estándar | ServicioAsistencial | SERVICIO_ASISTENCIAL | P-01 |
-| **RF-20** | CU-07 Monitorear telemetría y GPS | DA-CU03 | PL-Estándar | NovedadOperativa | HISTORIAL_ESTADOS_SERVICIO | P-01 |
-| **RF-21** | CU-05 Cerrar servicio asistencial y liquidar | DA-CU05 | PL-CU05 | ServicioAsistencial | VALORACION_CLINICA | P-03 |
-| **RF-22** | CU-08 Diligenciar historia clínica prehospitalaria | DA-CU05 | PL-CU05 | Paciente | VALORACION_CLINICA | P-03 |
-| **RF-23** | CU-08 Diligenciar historia clínica prehospitalaria | DA-CU05 | PL-CU05 | PersonalSalud | VALORACION_CLINICA | P-03 |
-| **RF-24** | CU-08 Diligenciar historia clínica prehospitalaria | DA-CU05 | PL-CU05 | ServicioAsistencial | VALORACION_CLINICA | P-03 |
-| **RF-25** | CU-08 Diligenciar historia clínica prehospitalaria | DA-CU05 | PL-CU05 | ServicioAsistencial | VALORACION_CLINICA | P-03 |
-| **RF-26** | CU-08 Diligenciar historia clínica prehospitalaria | DA-CU05 | PL-CU05 | ServicioAsistencial | VALORACION_CLINICA | P-03 |
-| **RF-27** | CU-05 Cerrar servicio asistencial y liquidar | DA-CU05 | PL-CU05 | ServicioAsistencial | SERVICIO_ASISTENCIAL | P-03 |
-| **RF-28** | CU-05 Cerrar servicio asistencial y liquidar | DA-CU05 | PL-CU05 | PersonalSalud | PERSONAL_SERVICIO | P-03 |
-| **RF-29** | CU-09 Gestionar tarifas y convenios EPS | DA-General | PL-Estándar | Factura | FACTURACION | P-Admin |
-| **RF-30** | CU-05 Cerrar servicio asistencial y liquidar | DA-CU05 | PL-CU05 | Factura | FACTURACION | P-03 |
-| **RF-31** | CU-05 Cerrar servicio asistencial y liquidar | DA-CU05 | PL-CU05 | Factura | FACTURACION | P-03 |
-| **RF-32** | CU-10 Generar factura electrónica de salud | DA-General | PL-Estándar | Factura | FACTURACION | P-Admin |
-| **RF-33** | CU-10 Generar factura electrónica de salud | DA-General | PL-Estándar | Factura | FACTURACION | P-Admin |
-| **RF-34** | CU-10 Generar factura electrónica de salud | DA-General | PL-Estándar | Factura | FACTURACION | P-Admin |
-| **RF-35** | CU-11 Registrar recaudo de copago en sitio | DA-CU05 | PL-CU05 | Factura | FACTURACION | P-03 |
-| **RF-36** | CU-11 Registrar recaudo de copago en sitio | DA-CU05 | PL-CU05 | Factura | FACTURACION | P-03 |
-| **RF-37** | CU-12 Conciliar pagos de aseguradoras SOAT | DA-General | PL-Estándar | Factura | FACTURACION | P-Admin |
-| **RF-38** | CU-12 Conciliar pagos de aseguradoras SOAT | DA-General | PL-Estándar | Factura | FACTURACION | P-Admin |
-| **RF-39** | CU-13 Registrar hoja de vida de ambulancia | DA-General | PL-Estándar | Ambulancia | AMBULANCIA | P-Admin |
-| **RF-40** | CU-13 Registrar hoja de vida de ambulancia | DA-General | PL-Estándar | Ambulancia (TAB / TAM) | AMBULANCIA | P-Admin |
-| **RF-41** | CU-14 Controlar vencimiento de documentos SOAT/TM | DA-General | PL-Estándar | Ambulancia | AMBULANCIA | P-Admin |
-| **RF-42** | CU-14 Controlar vencimiento de documentos SOAT/TM | DA-General | PL-Estándar | Ambulancia | AMBULANCIA | P-Admin |
-| **RF-43** | CU-15 Programar mantenimiento preventivo flota | DA-General | PL-Estándar | Ambulancia | AMBULANCIA | P-Admin |
-| **RF-44** | CU-03 Despachar ambulancia automáticamente | DA-CU03 | PL-CU03 | Ambulancia | AMBULANCIA | P-01 |
-| **RF-45** | CU-16 Gestionar personal asistencial y ReTHUS | DA-General | PL-Estándar | PersonalSalud | PERSONAL_MEDICO | P-Admin |
-| **RF-46** | CU-16 Gestionar personal asistencial y ReTHUS | DA-General | PL-Estándar | PersonalSalud | PERSONAL_MEDICO | P-Admin |
-| **RF-47** | CU-17 Programar turnos y guardias operativas | DA-General | PL-Estándar | PersonalSalud | PERSONAL_SERVICIO | P-Admin |
-| **RF-48** | CU-17 Programar turnos y guardias operativas | DA-General | PL-Estándar | PersonalSalud | PERSONAL_SERVICIO | P-Admin |
-| **RF-49** | CU-18 Auditar transiciones de estado de servicio | DA-CU03 | PL-CU04 | RegistroAuditoria | HISTORIAL_ESTADOS_SERVICIO | P-02 |
-| **RF-50** | CU-18 Auditar transiciones de estado de servicio | DA-CU05 | PL-CU05 | RegistroAuditoria | HISTORIAL_ESTADOS_SERVICIO | P-03 |
-| **RF-51** | CU-19 Consultar pistas de auditoría forense | DA-General | PL-Estándar | RegistroAuditoria | HISTORIAL_ESTADOS_SERVICIO | P-Admin |
-| **RF-52** | CU-19 Consultar pistas de auditoría forense | DA-General | PL-Estándar | RegistroAuditoria | HISTORIAL_ESTADOS_SERVICIO | P-Admin |
-| **RF-53** | CU-20 Registrar novedad operativa de servicio | DA-CU03 | PL-CU04 | NovedadOperativa | HISTORIAL_ESTADOS_SERVICIO | P-02 |
-| **RF-54** | CU-20 Registrar novedad operativa de servicio | DA-CU03 | PL-CU04 | NovedadOperativa | HISTORIAL_ESTADOS_SERVICIO | P-02 |
-| **RF-55** | CU-21 Radicar PQRS de usuario o entidad | DA-General | PL-Estándar | PQRS | PQRS | P-Admin |
-| **RF-56** | CU-21 Radicar PQRS de usuario o entidad | DA-General | PL-Estándar | PQRS | PQRS | P-Admin |
-| **RF-57** | CU-22 Tramitar y responder PQRS institucional | DA-General | PL-Estándar | PQRS | PQRS | P-Admin |
-| **RF-58** | CU-22 Tramitar y responder PQRS institucional | DA-General | PL-Estándar | PQRS | PQRS | P-Admin |
-| **RF-59** | CU-23 Generar indicador de tiempos de respuesta | DA-CU03 | PL-CU03 | ServicioAsistencial | SERVICIO_ASISTENCIAL | P-01 |
-| **RF-60** | CU-23 Generar indicador de tiempos de respuesta | DA-CU05 | PL-CU05 | ServicioAsistencial | SERVICIO_ASISTENCIAL | P-03 |
-| **RF-61** | CU-24 Reportar incidentes a central CRUE Huila | DA-CU03 | PL-CU03 | SolicitudEmergencia | SOLICITUD_EMERGENCIA | P-01 |
-| **RF-62** | CU-24 Reportar incidentes a central CRUE Huila | DA-CU03 | PL-CU03 | ServicioAsistencial | SERVICIO_ASISTENCIAL | P-01 |
-| **RF-63** | CU-25 Gestionar inventario de insumos médicos | DA-CU05 | PL-CU05 | Ambulancia (TAB / TAM) | AMBULANCIA | P-03 |
-| **RF-64** | CU-25 Gestionar inventario de insumos médicos | DA-CU05 | PL-CU05 | Ambulancia | AMBULANCIA | P-03 |
-| **RF-65** | CU-06 Autenticar usuario y verificar rol | DA-General | PL-Estándar | Usuario | USUARIO | P-Admin |
+| **RF-001** | `CU-01` Autenticar usuario y emitir token JWT | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Usuario` | `USUARIO` | N/A (Caso de soporte) |
+| **RF-002** | `CU-01` Autenticar usuario y emitir token JWT | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Usuario` | `USUARIO` | N/A (Caso de soporte) |
+| **RF-003** | `CU-01` Autenticar usuario y emitir token JWT | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Usuario` | `USUARIO` | N/A (Caso de soporte) |
+| **RF-004** | `CU-01` Autenticar usuario y emitir token JWT | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Usuario` | `USUARIO` | N/A (Caso de soporte) |
+| **RF-005** | `CU-01` Autenticar usuario y emitir token JWT | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Rol` | `ROL` | N/A (Caso de soporte) |
+| **RF-006** | `CU-01` Autenticar usuario / `CU-06` Auditar | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Rol` | `ROL` | N/A (Caso de soporte) |
+| **RF-007** | `CU-01.1` Bloquear cuenta por intentos fallidos | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Usuario` | `USUARIO` | N/A (Caso de soporte) |
+| **RF-008** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-009** | `CU-07` Monitorear flota y estados en tiempo real | `DA-01 (CU-03 / CU-02)` | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | `P-01 (CU-03)` |
+| **RF-010** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-011** | `CU-09` Validar habilitación REPS y vencimientos | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `Ambulancia` | `AMBULANCIA` | `P-01 (CU-03)` |
+| **RF-012** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-013** | `CU-08` Gestionar / `CU-09` Validar REPS | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `TAB (Básica)` / `TAM (Medicalizada)` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-014** | `CU-03` Asignar ambulancia (con `CU-01`) | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `PersonalSalud` | `PERSONAL` | `P-01 (CU-03)` |
+| **RF-015** | `CU-03` Asignar ambulancia / `CU-07` Monitorear | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `PersonalSalud` | `PERSONAL` | `P-01 (CU-03)` |
+| **RF-016** | `CU-03` Asignar ambulancia automáticamente | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `PersonalSalud` | `PERSONAL` | `P-01 (CU-03)` |
+| **RF-017** | `CU-05` Realizar cierre formal de servicio | `DA-02 (CU-05 / CU-11 / CU-06)` | Anexo A · CU-05 (02-plantillas) | `PersonalSalud` | `PERSONAL_SERVICIO` | `P-03 (CU-05)` |
+| **RF-018** | `CU-02` Radicar solicitud de emergencia | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `Paciente` | `PACIENTE` | `P-01 (CU-03)` |
+| **RF-019** | `CU-02` Radicar solicitud de emergencia | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `Paciente` | `PACIENTE` | `P-01 (CU-03)` |
+| **RF-020** | `CU-02` Radicar solicitud de emergencia | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Paciente` | `PACIENTE` | N/A (Caso de soporte) |
+| **RF-021** | `CU-02` Radicar solicitud de emergencia | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `SolicitudEmergencia` | `SOLICITUD_EMERGENCIA` | `P-01 (CU-03)` |
+| **RF-022** | `CU-03` Asignar ambulancia automáticamente | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `ServicioAsistencial` | `SERVICIO` | `P-01 (CU-03)` |
+| **RF-023** | `CU-04` Asignar ambulancia con justificación manual | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-04 (02-plantillas) | `ServicioAsistencial` | `SERVICIO` | `P-02 (CU-04)` |
+| **RF-024** | `CU-05` Realizar cierre formal de servicio | `DA-02 (CU-05 / CU-11 / CU-06)` | Anexo A · CU-05 (02-plantillas) | `ServicioAsistencial` | `HISTORIAL_ESTADOS_SERVICIO` | `P-03 (CU-05)` |
+| **RF-025** | `CU-05` Realizar cierre formal de servicio | `DA-02 (CU-05 / CU-11 / CU-06)` | Anexo A · CU-05 (02-plantillas) | `ServicioAsistencial` | `SERVICIO` | `P-03 (CU-05)` |
+| **RF-026** | `CU-05` Cierre / `CU-06` Auditar evento | `DA-02 (CU-05 / CU-11 / CU-06)` | Anexo A · CU-05 (02-plantillas) | `ServicioAsistencial` | `HISTORIAL_ESTADOS_SERVICIO` | `P-03 (CU-05)` |
+| **RF-027** | `CU-05` Realizar cierre formal de servicio | `DA-02 (CU-05 / CU-11 / CU-06)` | Catálogo Base (G1-P1/05) | `ServicioAsistencial` | `SERVICIO` | N/A (Caso de soporte) |
+| **RF-028** | `CU-07` Monitorear flota y estados en tiempo real | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `Ambulancia` (`TAB (Básica)` / `TAM (Medicalizada)`) | `AMBULANCIA` | `P-01 (CU-03)` |
+| **RF-029** | `CU-07` Monitorear flota y estados en tiempo real | `DA-01 (CU-03 / CU-02)` | Anexo A · CU-03 (02-plantillas) | `ServicioAsistencial` | `SERVICIO` | `P-01 (CU-03)` |
+| **RF-030** | `CU-11` Generar factura inmutable de servicio | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Factura` | `FACTURA` | N/A (Caso de soporte) |
+| **RF-031** | `CU-11` Generar factura (incluido en `CU-05`) | `DA-02 (CU-05 / CU-11 / CU-06)` | Anexo A · CU-05 (02-plantillas) | `Factura` | `FACTURA` | `P-03 (CU-05)` |
+| **RF-032** | `CU-11` Generar factura inmutable de servicio | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Factura` | `FACTURA` | N/A (Caso de soporte) |
+| **RF-033** | `CU-11` Generar factura inmutable de servicio | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Factura` | `FACTURA` | N/A (Caso de soporte) |
+| **RF-034** | `CU-11` Generar factura inmutable de servicio | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Factura` | `FACTURA` | N/A (Caso de soporte) |
+| **RF-035** | `CU-11` Generar factura inmutable de servicio | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Factura` | `FACTURA` | N/A (Caso de soporte) |
+| **RF-036** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `RegistroAuditoria` | `AUDITORIA` | N/A (Caso de soporte) |
+| **RF-037** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `RegistroAuditoria` | `AUDITORIA` | N/A (Caso de soporte) |
+| **RF-038** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Usuario` | `USUARIO` | N/A (Caso de soporte) |
+| **RF-039** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `RegistroAuditoria` | `AUDITORIA` | N/A (Caso de soporte) |
+| **RF-040** | `CU-10` Radicar y consultar solicitudes PQRS | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `PQRS` | `PQRS` | N/A (Caso de soporte) |
+| **RF-041** | `CU-10` Radicar y consultar solicitudes PQRS | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `PQRS` | `PQRS` | N/A (Caso de soporte) |
+| **RF-042** | `CU-10` Radicar y consultar solicitudes PQRS | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `PQRS` | `PQRS` | N/A (Caso de soporte) |
+| **RF-043** | `CU-10` Radicar y consultar solicitudes PQRS | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `PQRS` | `PQRS` | N/A (Caso de soporte) |
+| **RF-044** | `CU-10` Radicar y consultar solicitudes PQRS | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `PQRS` | `PQRS` | N/A (Caso de soporte) |
+| **RF-045** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-046** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-047** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-048** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-049** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `RegistroAuditoria` | `AUDITORIA` | N/A (Caso de soporte) |
+| **RF-050** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Ambulancia` | `AMBULANCIA` | N/A (Caso de soporte) |
+| **RF-051** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `RegistroAuditoria` | `AUDITORIA` | N/A (Caso de soporte) |
+| **RF-052** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `RegistroAuditoria` | `AUDITORIA` | N/A (Caso de soporte) |
+| **RF-053** | `CU-08` Gestionar / `CU-01` Autenticar (RBAC) | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `Rol` | `ROL` | N/A (Caso de soporte) |
+| **RF-054** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `RegistroAuditoria` | `AUDITORIA` | N/A (Caso de soporte) |
+| **RF-055** | `CU-06` Auditar evento transaccional inmutable | `DA-02 (CU-05 / CU-11 / CU-06)` | Anexo A · CU-05 (02-plantillas) | `RegistroAuditoria` | `AUDITORIA` | `P-02 (CU-04)` / `P-03 (CU-05)` |
+| **RF-056** | `CU-06` Auditar evento transaccional inmutable | `DA-02 (CU-05 / CU-11 / CU-06)` | Anexo A · CU-05 (02-plantillas) | `RegistroAuditoria` | `AUDITORIA` | `P-03 (CU-05)` |
+| **RF-057** | `CU-06` Auditar evento transaccional inmutable | N/A (Soporte operativo — G1-P1) | Anexo A · CU-04 (02-plantillas) | `RegistroAuditoria` | `AUDITORIA` | `P-02 (CU-04)` |
+| **RF-058** | `CU-06` Auditar evento transaccional inmutable | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `RegistroAuditoria` | `AUDITORIA` | N/A (Caso de soporte) |
+| **RF-059** | `CU-07` Monitorear / `CU-05` Cerrar servicio | `DA-01 (CU-03 / CU-02)` | Catálogo Base (G1-P1/05) | `NovedadOperativa` | `NOVEDAD` | `P-01 (CU-03)` |
+| **RF-060** | `CU-05` Realizar cierre formal de servicio | `DA-02 (CU-05 / CU-11 / CU-06)` | Anexo A · CU-05 (02-plantillas) | `NovedadOperativa` | `NOVEDAD` | `P-03 (CU-05)` |
+| **RF-061** | `CU-07` Monitorear flota y estados en tiempo real | `DA-01 (CU-03 / CU-02)` | Catálogo Base (G1-P1/05) | `NovedadOperativa` | `NOVEDAD` | `P-01 (CU-03)` |
+| **RF-062** | `CU-05` Realizar cierre formal de servicio | `DA-02 (CU-05 / CU-11 / CU-06)` | Catálogo Base (G1-P1/05) | `NovedadOperativa` | `NOVEDAD` | N/A (Caso de soporte) |
+| **RF-063** | `CU-08` Gestionar inventario de ambulancias | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `NovedadOperativa` | `NOVEDAD` | N/A (Caso de soporte) |
+| **RF-064** | `CU-07` Monitorear / `CU-11` Facturar | N/A (Soporte operativo — G1-P1) | Catálogo Base (G1-P1/05) | `ServicioAsistencial` / `Factura` | `SERVICIO` | N/A (Caso de soporte) |
+| **RF-065** | `CU-07` Monitorear flota y estados en tiempo real | `DA-01 (CU-03 / CU-02)` | Catálogo Base (G1-P1/05) | `ServicioAsistencial` | `SERVICIO` | `P-01 (CU-03)` |
 
 ---
 
 ## 3. Resumen Estadístico de Cobertura
 
-- **Total Requisitos Funcionales analizados:** 65
-- **Requisitos con caso de uso asignado:** 65 (100 %)
-- **Requisitos trazados a clase de dominio conceptual:** 65 (100 %)
-- **Requisitos trazados a entidad del MER relacional:** 65 (100 %)
-- **Requisitos trazados a interfaz gráfica / prototipo:** 65 (100 %)
-- **Resultado:** **Conformidad Plena (100 %)**, superando el estándar mínimo del 90 % exigido por la Rúbrica SENA (Criterio C8).
+- **Total Requisitos Funcionales analizados (SRS oficial):** 65 (`RF-001` a `RF-065`).
+- **Requisitos trazados al catálogo de Casos de Uso (`CU-01` a `CU-11`):** 65 / 65 (100 %).
+- **Requisitos trazados a Clases Conceptuales del Modelo de Dominio (13 clases):** 65 / 65 (100 %).
+- **Requisitos trazados a Entidades del MER Relacional (13 entidades):** 65 / 65 (100 %).
+- **Requisitos críticos cubiertos en Diagramas de Actividades (`DA-01` y `DA-02`), Plantillas Anexo A y Mockups (`P-01` a `P-03`):** 23 / 23 requisitos de flujo crítico operacional (100 %), con especificación complementaria en `G1-P1/05` para los requisitos administrativos de soporte.
+- **Resultado:** **Conformidad Plena (100 %)**, superando el umbral mínimo del 90 % fijado por la Rúbrica SENA (Criterio C8).

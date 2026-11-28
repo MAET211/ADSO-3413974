@@ -9,183 +9,180 @@
 
 ## 1. Introducción y Criterios de Diseño
 
-El presente documento contiene el prototipo inicial de interfaz gráfica de usuario para el **Sistema Gestor de Ambulancias (SGA)**, cubriendo los tres casos de uso operativamente críticos identificados en el análisis conceptual:
-1. **Pantalla P-01 (CU-03):** Tablero de Control de Despacho y Monitoreo Georreferenciado en Tiempo Real.
-2. **Pantalla P-02 (CU-04):** Modal de Reasignación Manual de Ambulancia con Registro de Auditoría (RN-007).
-3. **Pantalla P-03 (CU-05):** Formulario Clínico-Financiero de Cierre de Servicio Asistencial y Liquidación de Copago (RN-005).
+El presente documento presenta el prototipo inicial de interfaz gráfica de usuario para el **Sistema Gestor de Ambulancias (SGA)**, cubriendo los tres casos de uso críticos priorizados en el análisis conceptual y coherentes con el documento SRS (`RF-001` a `RF-065`, `RN-001` a `RN-018`):
+1. **Pantalla P-01 (`CU-03`, incluye `CU-02` y enlace a `CU-07`):** Tablero de Triage, Monitoreo y Despacho Automatizado.
+2. **Pantalla P-02 (`CU-04`, extiende a `CU-03`):** Ventana Modal de Justificación de Despacho Manual (`RN-007`).
+3. **Pantalla P-03 (`CU-05`, incluye `CU-11` y `CU-06`):** Formulario de Cierre Formal de Servicio y Facturación Inmutable (`RN-005`, `RN-014`).
 
-Cada pantalla se encuentra debidamente rotulada con su caso de uso asociado, eliminando cualquier pantalla huérfana y garantizando la trazabilidad hacia los requisitos funcionales (RF-04, RF-05, RF-06, RF-09, RF-10, RF-11, RF-12, RF-14, RF-15, RF-16, RF-21, RF-44).
+Todas las pantallas se encuentran explícitamente rotuladas con su caso de uso asociado, libres de pantallas huérfanas, y utilizan identificadores de rol anonimizados en cumplimiento de la política de privacidad de repositorios públicos.
 
 ---
 
-## 2. Pantalla P-01: Tablero de Despacho y Monitoreo Georreferenciado
-- **Caso de uso asociado:** `CU-03 · Despachar ambulancia automáticamente`
-- **Actor:** Despachador / Operador de Centro Regulador (CRUE / Central SGA)
-- **Requisitos cubiertos:** RF-04, RF-05, RF-06, RF-10, RF-11, RF-12, RF-14
-- **Objetivo:** Visualizar en tiempo real los incidentes entrantes clasificados por triage, el mapa con ubicación de móviles disponibles y la asignación algorítmica de la unidad óptima por cercanía y tipo de soporte vital.
+## 2. Pantalla P-01: Tablero de Triage, Monitoreo y Despacho Automatizado (CU-03)
+- **Caso de uso asociado:** `CU-03 · Asignar ambulancia automáticamente (TAB / TAM)` (incluye `CU-02 · Radicar solicitud de emergencia` y se articula con `CU-07 · Monitorear flota`)
+- **Actor:** Coordinador Operativo (Central SGA)
+- **Requisitos cubiertos:** `RF-009`, `RF-011`, `RF-014`, `RF-015`, `RF-016`, `RF-018`, `RF-021`, `RF-022`, `RF-028`, `RF-029`, `RNF-009` ($\le 2\text{ s}$), `RNF-016` ($\le 4\text{ pasos}$)
+- **Reglas de negocio:** `RN-001` (Disponibilidad), `RN-002` (Correspondencia Triage vs TAB/TAM), `RN-003` (Vigencia REPS/SOAT/Tecnomecánica), `RN-004` (Habilitación de personal)
+- **Objetivo:** Recibir la llamada de emergencia, clasificar la prioridad clínica (Rojo, Naranja, Amarillo, Verde) y confirmar la unidad TAB o TAM óptima asignada algorítmicamente en $\le 2\text{ segundos}$.
 
 ### 2.1 Representación Visual de la Interfaz
 
-```
+```text
 +--------------------------------------------------------------------------------------------------------------------------+
-| [SGA] SISTEMA GESTOR DE AMBULANCIAS | CENTRAL REGULADORA NEIVA                 | Operador: estrada | [Turno Activo] [10:42] |
+| [SGA] SISTEMA GESTOR DE AMBULANCIAS | CENTRAL OPERATIVA SGA               | Operador: Operador Central SGA | [24/7] [10:42]|
 +--------------------------------------------------------------------------------------------------------------------------+
-| BANDEJA DE INCIDENTES PENDIENTES (TRIAGE)      | MAPA GEORREFERENCIADO DE FLOTA Y COBERTURA (NEIVA SUR / CENTRO)         |
-|------------------------------------------------|-------------------------------------------------------------------------|
-| [!] INC-2026-0892 | Triage I (Rojo)            |   [+] Zoom | [-] Reset | Capas: [X] TAB  [X] TAM  [X] Zonas Congestión |
-|   Ubicacion: Calle 8 con Cra 5 (Centro)        |   -------------------------------------------------------------------   |
-|   Motivo: Politraumatismo colision vehicular   |   (Mapa Interactivo GIS - Visualizacion GPS)                            |
-|   Tiempo espera: 01m 24s                       |                                                                         |
-|   Tipo unidad requerida: TAM (Medicalizada)    |       [ M-104 (TAM) ]  *Libre - Cra 7 # 12-40                           |
-|   [ Despachar Auto ] [ Ver Detalle ]           |              \  (Ruta calculada: 1.8 km - ETA: 4.2 min)                  |
-|------------------------------------------------|               v                                                         |
-| [!] INC-2026-0893 | Triage II (Amarillo)       |             [ INC-0892 ] Centro (Calle 8 # 5-20)                       |
-|   Ubicacion: Cra 15 # 22-10 (Las Granjas)      |                                                                         |
-|   Motivo: Dificultad respiratoria aguda        |       [ M-101 (TAB) ]  *Ocupada - En traslado a Hosp. Universitario     |
-|   Tiempo espera: 03m 10s                       |       [ M-102 (TAB) ]  *Libre - Base Norte                              |
-|   Tipo unidad requerida: TAB (Basica)          |       [ M-105 (TAM) ]  *Mantenimiento preventivo                        |
-|   [ Despachar Auto ] [ Ver Detalle ]           |                                                                         |
-|------------------------------------------------+-------------------------------------------------------------------------|
-| PANEL DE DECISIÓN ALGORÍTMICA DE DESPACHO (CU-03)                                                                        |
+| BANDEJA DE SOLICITUDES ACTIVAS (CU-02 · TRIAGE) | MONITOREO GEORREFERENCIADO DE FLOTA EN TIEMPO REAL (CU-07)             |
+|-------------------------------------------------|------------------------------------------------------------------------|
+| [!] SOL-2026-0892 | Triage: ROJO (Critico)      |  Filtros: [X] Disponible  [X] TAM (Rojo/Naranja)  [X] TAB (Amar/Verde) |
+|   Direccion: Calle 8 # 5-20 (Zona Centro)       |  Alertas: [0] REPS vencidos en zona | Motor RNF-009: OK (< 2.0 s)     |
+|   Sintomatologia: Politraumatismo severo        |  --------------------------------------------------------------------  |
+|   Paciente: [Paciente Anonimizado #892]         |                                                                        |
+|   Unidad requerida (RN-002): TAM (Medicalizada) |      [ MOVIL-104 (TAM) ] *Disponible | REPS Vigente | SOAT OK          |
+|   [ Ver Detalle ]   [ Evaluar Despacho ]        |             \  Distancia: 1.8 km | ETA estimado: 4.2 min             |
+|-------------------------------------------------|              v                                                         |
+| [!] SOL-2026-0893 | Triage: AMARILLO (Moderado) |            [ SOL-2026-0892 ] Calle 8 # 5-20 (Triage Rojo)            |
+|   Direccion: Cra 15 # 22-10 (Zona Norte)        |                                                                        |
+|   Sintomatologia: Dolor toracico estable        |      [ MOVIL-101 (TAB) ] *En Servicio | Traslado hacia IPS Destino      |
+|   Unidad requerida (RN-002): TAB (Basica)       |      [ MOVIL-102 (TAB) ] *Disponible  | Base Norte | REPS Vigente      |
+|   [ Ver Detalle ]   [ Evaluar Despacho ]        |      [ MOVIL-105 (TAM) ] *Bloqueada (RN-003: SOAT Vencido)             |
+|-------------------------------------------------+------------------------------------------------------------------------+
+| PANEL DE DECISIÓN DEL MOTOR DE DESPACHO AUTOMÁTICO (CU-03)                                                               |
 |--------------------------------------------------------------------------------------------------------------------------|
-| Incidente Seleccionado: INC-2026-0892 | Paciente: NN Masculino ~35 anos | Triage: I (CRITICO)                              |
-| Algoritmo de Asignacion: Unidad sugerida -> MOVIL M-104 (TAM)                                                             |
-| Criterios evaluados:                                                                                                     |
-|  - Tipo de ambulancia: Medicalizada (Cumple requerimiento de soporte avanzado)                                          |
-|  - Distancia euclidiana / ruta vial: 1.8 Kilometros | Tiempo estimado de arribo (ETA): 4 minutos 12 segundos                 |
-|  - Tripulacion activa: Dr. C. Mendoza (Medico ReTHUS) + Param. R. Silva + Cond. E. Perdomo                              |
+| Solicitud Activa: SOL-2026-0892 | Triage: ROJO -> Exige Unidad TAM | Tiempo de calculo algoritmo: 0.64 s (Cumple RNF-009)|
+| Unidad sugerida por el sistema: MOVIL-104 (TAM) | Placa: SGA-104 | Habilitacion REPS: #REPS-3100-04 (Vigente)            |
+| Validaciones superadas:                                                                                                  |
+|  [OK] RN-001: Estado de unidad = Disponible              [OK] RN-003: SOAT, Tecnomecanica y REPS al dia                  |
+|  [OK] RN-002: Complejidad TAM acorde con Triage Rojo     [OK] RN-004: Tripulacion habilitada (Turno < limite continuo)   |
+|  Tripulacion asignada: [Medico Turno ReTHUS] + [Paramedico Lider] + [Conductor Asignado]                                 |
 |                                                                                                                          |
-|  [ ACCIÓN: CONFIRMAR DESPACHO AUTOMÁTICO ]        [ ACCIÓN: FORZAR REASIGNACIÓN MANUAL (CU-04) ]                         |
+|  [ CONFIRMAR DESPACHO AUTOMÁTICO (CU-03) ]        [ ASIGNACIÓN MANUAL CON JUSTIFICACIÓN (CU-04 -> Abre Modal P-02) ]     |
 +--------------------------------------------------------------------------------------------------------------------------+
 ```
 
 ### 2.2 Diccionario de Datos y Controles de Pantalla P-01
-| Control / Campo | Tipo | Origen de Datos | Regla de Validación / Comportamiento |
+| Control / Campo | Tipo | Origen / Entidad MER | Regla de Validación / Comportamiento |
 |---|---|---|---|
-| Lista de Incidentes | Tabla de selección | `SOLICITUD_EMERGENCIA` | Ordenada descendentemente por severidad de Triage (I > II > III) y tiempo de espera |
-| Indicador Triage | Badge de color | `SOLICITUD_EMERGENCIA.nivel_triage` | Rojo (#E53E3E) para Triage I, Amarillo (#DD6B20) para II, Verde (#38A169) para III |
-| Mapa GIS | Canvas interactivo | API Mapas + GPS Móviles | Proyecta las coordenadas `(lat, lng)` de incidentes y móviles en tiempo real |
-| Botón «Confirmar Despacho Automático» | Botón de acción principal | CU-03 Paso 6 | Ejecuta el cambio de estado a `DESPACHADO`, bloquea el móvil y notifica a la tripulación |
-| Botón «Forzar Reasignación Manual» | Botón de acción secundaria | CU-04 Disparador | Abre el modal flotante P-02 exigiendo justificación escrita bajo RN-007 |
+| Bandeja de Solicitudes (`SOLICITUD_EMERGENCIA`) | Lista priorizada | `SOLICITUD_EMERGENCIA` | Orden descendente por severidad de `prioridad_triage` (`Rojo` > `Naranja` > `Amarillo` > `Verde`) y `fecha_hora_solicitud` |
+| Tipo de Unidad Requerida (`RN-002`) | Badge automático | `AMBULANCIA.tipo` | `Rojo`/`Naranja` $\rightarrow$ `TAM`; `Amarillo`/`Verde` $\rightarrow$ `TAB` |
+| Bloqueo Documental (`RN-003`) | Estado visual en mapa | `AMBULANCIA.vigencia_soat_tecno` | Las unidades con SOAT, tecnomecánica o habilitación REPS vencidos aparecen bloqueadas y quedan excluidas del algoritmo (`M-105`) |
+| Filtro de Tripulación (`RN-004`) | Indicador de aptitud | `PERSONAL` y `PERSONAL_SERVICIO` | Verifica `estado_disponibilidad = Disponible`, `vigencia_certificacion` vigente y límite de `horas_turno_continuas` |
+| Botón «Confirmar Despacho Automático» | Acción primaria (`CU-03`) | `SERVICIO` y `HISTORIAL_ESTADOS_SERVICIO` | Crea/actualiza el registro en `SERVICIO` a estado `Asignado`, bloquea el móvil, notifica a la tripulación y registra el primer hito en `HISTORIAL_ESTADOS_SERVICIO` |
+| Botón «Asignación Manual» | Disparador (`CU-04`) | Flujo extensión `CU-04` | Abre la ventana modal **P-02** exigiendo justificación escrita obligatoria (`RN-007`) |
 
 ---
 
-## 3. Pantalla P-02: Modal de Reasignación Manual con Justificación de Auditoría
-- **Caso de uso asociado:** `CU-04 · Reasignar ambulancia manualmente con justificación`
-- **Actor:** Despachador / Coordinador de Operaciones
-- **Requisitos cubiertos:** RF-06, RF-09, RF-10, RF-12, RF-14, RF-15, RN-007
-- **Objetivo:** Permitir la anulación del despacho algorítmico cuando existen factores operativos extraordinarios (falla mecánica, bloqueo de vía, orden médica superior), registrando obligatoriamente una justificación de mínimo 20 caracteres para trazabilidad en auditoría.
+## 3. Pantalla P-02: Ventana Modal de Justificación de Despacho Manual (CU-04)
+- **Caso de uso asociado:** `CU-04 · Asignar ambulancia con justificación manual` (extiende a `CU-03`)
+- **Actor:** Coordinador Operativo
+- **Requisitos cubiertos:** `RF-023`, `RF-024`, `RF-055`, `RF-056`, `RF-057`, `RNF-007`, `RNF-028`
+- **Reglas de negocio:** `RN-001`, `RN-002` (advertencia si el tipo no corresponde al triage), `RN-003`, `RN-007` (justificación obligatoria), `RN-010` (auditoría inmutable)
+- **Objetivo:** Permitir anular la sugerencia automática ante contingencias operativas (vía cerrada, falla mecánica, saturación de zona), exigiendo justificación formal y registrando el cambio de forma inmutable en auditoría.
 
 ### 3.1 Representación Visual de la Interfaz
 
-```
+```text
 +---------------------------------------------------------------------------------------------------+
-|  MODAL: REASIGNACIÓN MANUAL DE UNIDAD MÓVIL (CU-04)                                           [X] |
+|  MODAL: ASIGNACIÓN MANUAL CON JUSTIFICACIÓN OBLIGATORIA (CU-04 · Extiende a CU-03)            [X] |
 +---------------------------------------------------------------------------------------------------+
-|  ADVERTENCIA DE AUDITORÍA:                                                                        |
-|  La reasignacion manual anula el despacho algoritmico optimizado. Esta accion quedara registrada  |
-|  en el HISTORIAL_ESTADOS_SERVICIO con fecha, hora, usuario responsable e IP bajo norma RN-007.     |
+|  AVISO NORMATIVO DE AUDITORÍA (RN-007 / RN-010):                                                  |
+|  Toda anulacion del despacho automatico queda registrada en HISTORIAL_ESTADOS_SERVICIO y en       |
+|  AUDITORIA (retencion minima 5 anos) con usuario responsable, hora exacta y motivo tecnico.       |
 |---------------------------------------------------------------------------------------------------|
-|  Incidente en curso: INC-2026-0892 | Triage I (Rojo) | Cra 5 # 8-20 Centro                        |
-|  Unidad actualmente asignada: MOVIL M-104 (TAM) -> Estado: EN_RUTA (Distancia: 1.8 km)             |
+|  Solicitud activa: SOL-2026-0892 | Triage: ROJO (Critico) | Calle 8 # 5-20                        |
+|  Unidad sugerida por algoritmo: MOVIL-104 (TAM) - Distancia: 1.8 km                               |
 |                                                                                                   |
-|  SELECCIÓN DE NUEVA UNIDAD DE REEMPLAZO:                                                          |
-|  Ambulancia disponible: [ MOVIL M-106 (TAM) - Ubicada en Base Sur (3.1 km - ETA: 6.5 min)    |v] |
-|  Tripulacion de reemplazo: Dra. L. Gomez (Medico) + TPH J. Cruz + Cond. M. Lopez                  |
+|  SELECCIÓN MANUAL DE UNIDAD RECEPTORA (Filtro RN-001 / RN-003 activos):                           |
+|  Ambulancia habilitada: [ MOVIL-106 (TAM) - Disponible | REPS Vigente | Base Sur (ETA: 6.5 m) |v] |
+|  Tripulacion disponible: [Medico Reemplazo ReTHUS] + [TPH Tripulante] + [Conductor Reemplazo]     |
+|  [!] Validacion RN-002: Tipo TAM coincide con Triage Rojo (Si eligiera TAB, mostrara alerta).     |
 |                                                                                                   |
-|  MOTIVO OPERATIVO NORMALIZADO:                                                                    |
-|  Causal: [ Falla mecanica sobrevenida en vehiculo asignado                                    |v] |
-|          - Opciones: Falla mecanica / Congestion vial no sorteable / Prioridad vital externa /   |
-|                      Novedad de salud en tripulacion / Cambio de condicion del paciente           |
-|                                                                                                   |
-|  JUSTIFICACIÓN TÉCNICA Y OPERATIVA DETALLADA (Obligatorio - Minimo 20 caracteres):                |
+|  MOTIVO DE ASIGNACIÓN MANUAL (Obligatorio - RN-007):                                              |
+|  Causal operativa: [ Bloqueo o cierre vial en ruta de unidad sugerida                        |v]  |
+|  Justificacion tecnica detallada (sin excepcion):                                                 |
 |  +---------------------------------------------------------------------------------------------+  |
-|  | Conductor reporta pinchadura de neumatico delantero derecho en Cra 6 con Calle 10. Unidad   |  |
-|  | queda temporalmente inmovilizada. Se requiere despacho urgente de M-106 por Triage I.      |  |
+|  | Se reporta cierre preventivo por accidente sobre la Carrera 7 en ruta de MOVIL-104. Se      |  |
+|  | reasigna manualmente a MOVIL-106 por corredor sur despejado para garantizar atencion vital.  |  |
 |  +---------------------------------------------------------------------------------------------+  |
-|  Contador: 142 caracteres ingresados (Valido: >= 20 caracteres)                                   |
+|  Estado de validacion: [OK] Campo diligenciado (163 caracteres). Boton de guardado habilitado.    |
 |                                                                                                   |
-|  CONFIRMACIÓN DE RESPONSABILIDAD:                                                                 |
-|  [X] Certifico que la reasignacion se efectua por fuerza mayor salvaguardando la vida del paciente|
-|                                                                                                   |
-|  [ CANCELAR OPERACIÓN ]                   [ CONFIRMAR REASIGNACIÓN Y NOTIFICAR AUDITORÍA ]         |
+|  [ CANCELAR Y VOLVER A CU-03 ]              [ CONFIRMAR DESPACHO MANUAL Y AUDITAR (CU-04/CU-06) ] |
 +---------------------------------------------------------------------------------------------------+
 ```
 
 ### 3.2 Diccionario de Datos y Validaciones de Pantalla P-02
-| Control / Campo | Tipo | Origen de Datos | Regla de Validación (RN-007) |
+| Control / Campo | Tipo | Origen / Entidad MER | Regla de Validación (`RN-002`, `RN-007`) |
 |---|---|---|---|
-| Selector de Nueva Unidad | Desplegable (Select) | `AMBULANCIA` (filtradas) | Solo muestra ambulancias operativas con el tipo de soporte requerido (TAB o TAM) |
-| Causal Estandarizada | Desplegable (Enum) | Catálogo de Causales | Selección obligatoria de una categoría predefinida para analítica operativa |
-| Justificación Detallada | Área de texto (Textarea) | `HISTORIAL_ESTADOS_SERVICIO.motivo_justificacion` | **Obligatorio: Longitud $\ge$ 20 caracteres**. Si tiene menos de 20 caracteres, el botón de confirmación permanece deshabilitado |
-| Checkbox Certificación | Checkbox booleano | Interfaz de control | Obligatorio estar marcado para habilitar el guardado |
-| Botón «Confirmar Reasignación» | Botón primario de guardado | CU-04 Paso 5 | Actualiza la asignación, libera la unidad anterior a estado `DISPONIBLE_FALLA` y registra la fila de auditoría |
+| Selector de Ambulancia Habilitada | Lista desplegable (`Select`) | `AMBULANCIA` | Solo lista unidades en `estado_operativo = Disponible` con SOAT, tecnomecánica y REPS vigentes (`RN-001`, `RN-003`). |
+| Alerta Clínica de Complejidad | Banner dinámico | Validación `RN-002` | Si el coordinador escoge una unidad `TAB` para un paciente en `Rojo` o `Naranja`, muestra advertencia clínica exigiendo confirmación expresa (`RF-023`, `RN-002`). |
+| Justificación Obligatoria | Área de texto (`Textarea`) | `SERVICIO.motivo_asignacion_manual` y `HISTORIAL_ESTADOS_SERVICIO.motivo_justificacion` | **Obligatorio (`RN-007`)**: Si el campo está vacío o en blanco, el botón de confirmación permanece bloqueado y se muestra alerta visual en rojo (`RNF-018`). |
+| Confirmar Despacho Manual | Botón primario | `CU-04` + `CU-06` | Marca `asignacion_manual = TRUE` en `SERVICIO`, actualiza estado e inserta registro inmutable en `AUDITORIA` (`RN-010`). |
 
 ---
 
-## 4. Pantalla P-03: Cierre de Servicio Asistencial y Liquidación de Copago
-- **Caso de uso asociado:** `CU-05 · Cerrar servicio asistencial y liquidar copago`
-- **Actor:** Médico Asistencial / Facturador de Despacho
-- **Requisitos cubiertos:** RF-16, RF-21, RF-44, RN-005, RN-008
-- **Objetivo:** Registrar la entrega formal del paciente en la institución prestadora de salud (IPS receptora), documentar el resumen de atención clínica de traslado y liquidar automáticamente el copago o cuota moderadora según el régimen de afiliación en salud.
+## 4. Pantalla P-03: Formulario de Cierre Formal de Servicio y Facturación Inmutable (CU-05)
+- **Caso de uso asociado:** `CU-05 · Realizar cierre formal de servicio` (incluye `CU-11 · Generar factura inmutable` y `CU-06 · Auditar evento transaccional`)
+- **Actor:** Paramédico / Médico Tripulante (en unidad en campo) y Sistema SGA (validador/liquidador)
+- **Requisitos cubiertos:** `RF-017`, `RF-019`, `RF-024`, `RF-025`, `RF-031`, `RF-055`, `RF-056`, `RNF-007`, `RNF-028`
+- **Reglas de negocio:** `RN-005` (campos obligatorios de cierre Res. 3100/2019), `RN-006` (no cancelación en etapa de traslado/atención), `RN-010` (auditoría 5 años), `RN-014` (factura inmutable)
+- **Objetivo:** Formalizar el cierre asistencial exigiendo todas las variables clínicas y hospitalarias obligatorias (`RN-005`), disparando de forma concurrente la liberación de la unidad, la emisión de la factura inmutable (`CU-11`) y el registro en auditoría (`CU-06`).
 
 ### 4.1 Representación Visual de la Interfaz
 
-```
+```text
 +---------------------------------------------------------------------------------------------------+
-| [SGA] CIERRE CLÍNICO-ASISTENCIAL Y LIQUIDACIÓN FINANCIERA (CU-05)            | Servicio: SRV-0492 |
+| [SGA] CIERRE FORMAL DE SERVICIO Y FACTURACIÓN INMUTABLE (CU-05 / CU-11 / CU-06) | ID: SRV-0492    |
 +---------------------------------------------------------------------------------------------------+
-| 1. DATOS GENERALES DEL SERVICIO Y ENTREGA HOSPITALARIA                                            |
+| 1. INFORMACIÓN OPERATIVA Y CRONOLOGÍA DEL SERVICIO (SERVICIO)                                     |
 |---------------------------------------------------------------------------------------------------|
-| Solicitud: INC-2026-0892 | Ambulancia: M-106 (TAM) | Medico: Dra. Laura Gomez (RM-98421 Huila)    |
-| Paciente: [Paciente Simulado / Anonimizado] | CC: 00.000.000 | EPS: Sanitas | Regimen: [ Contributivo |v] |
-| IPS Receptora: [ Hospital Universitario Hernando Moncaleano Perdomo                           |v] |
-| Medico Receptor IPS: Dr. Fernando Ruiz (Urgencias Adultos) | Hora Entrega IPS: [ 11:15 ]          |
+| Solicitud: SOL-2026-0892 | Ambulancia: MOVIL-106 (TAM) | Estado actual: Traslado -> [Finalizado]  |
+| Paciente: [Paciente Anonimizado #892] | Documento: CC 00.000.000 | Antecedentes: Ninguno reportado |
+| Tiempos: Asignacion [10:43] -> Llegada Sitio [10:50] -> Entrega IPS / Cierre [11:15] (Validado)  |
+| Nota RN-006: Opcion "Cancelar Servicio" deshabilitada en estado Traslado (use Modulo Novedades). |
 |                                                                                                   |
-| 2. RESUMEN CLÍNICO DEL TRASLADO ASISTENCIAL (VALORACION_CLINICA)                                  |
+| 2. VARIABLES OBLIGATORIAS DE CIERRE CLÍNICO — RESOLUCIÓN 3100 / RN-005                            |
 |---------------------------------------------------------------------------------------------------|
-| Signos Vitales al Arribo:                                                                         |
-|  - PA: [ 120/80 ] mmHg  | FC: [ 84 ] lpm  | FR: [ 18 ] rpm  | SpO2: [ 98 ] %  | Glasgow: [ 15/15 ] |
-| Diagnostico Principal CIE-10: [ S06.0 - Conmocion Cerebral                                    |v] |
-| Procedimientos Realizados:                                                                        |
-|  [X] Inmovilizacion cervical  [X] Oxigenoterapia por canula  [X] Canalizacion via venosa perif.  |
-| Observaciones Medicas: Paciente estable durante traslado, sin signos de deterioro neurologico.    |
+| Resultado de la atencion (*Obligatorio):     [ Traslado efectivo a institucion de salud       |v] |
+| Estado final del paciente (*Obligatorio):    [ Estable                                        |v] |
+|   (Opciones: Estable / Critico / Fallecido)                                                       |
+| Destino de traslado / IPS Receptora (*):     [ IPS Receptora Habilitada - Nivel III           |v] |
+| Responsable de cierre en servicio (*):       [ [Paramedico Lider] — TP ReTHUS Verificada      |v] |
+| Profesional receptor en urgencias IPS:       [ [Medico Urgencias IPS Receptora]               ]   |
+| Observaciones clinicas de entrega:           [ Paciente estabilizado e ingresado a urgencias. ]   |
 |                                                                                                   |
-| 3. LIQUIDACIÓN DE COPAGO / CUOTA MODERADORA (RN-005)                                              |
+| 3. LIQUIDACIÓN AUTOMÁTICA Y EMISIÓN DE FACTURA INMUTABLE (CU-11 · RF-031 · RN-014)                |
 |---------------------------------------------------------------------------------------------------|
-| Categoria Salarial Afiliado: [ Rango B (Entre 2 y 5 SMMLV)                                    |v] |
-| Tarifa Base Transporte Asistencial Medicalizado:        $ 285.000 COP                             |
-| Cobertura Obligatoria EPS (85%):                       - $ 242.250 COP                            |
-| Valor Copago Liquidado a Paciente / Acompanante:         $  42.750 COP                            |
+| Tarifa base parametrizada (Tipo TAM): $ 320.000 COP | Recargo alta complejidad: $ 0 COP           |
+| Valor total a facturar: $ 320.000 COP | Estado inicial factura: Pendiente de pago                 |
+| [i] Regla RN-014: Al confirmar el cierre se emitira factura Nro FAC-2026-0492 con caracter        |
+|     INMUTABLE (es_inmutable = TRUE). Correcciones futuras solo mediante Nota Credito o Debito.    |
 |                                                                                                   |
-| Metodo de Recaudo: [ En Sitio / Transferencia Digital PSE                                      |v] |
-| Estado del Pago:   ( ) Pendiente de Facturacion Centralizada   (*) Pagado en Sitio (Recibo #8921) |
-|                                                                                                   |
-| 4. FINALIZACIÓN Y FIRMA DIGITAL                                                                   |
+| 4. EJECUCIÓN CONCURRENTE AL CONFIRMAR (Fork / Join DA-02)                                         |
 |---------------------------------------------------------------------------------------------------|
-| Firma Digital Medico ReTHUS: [ HASH VERIFICADO: 4a8f9b2c1e7d... ]  Certificado Digital Activo     |
-| [X] Confirmo que la informacion medica y financiera es veridica y el paciente quedo ingresado    |
+| [X] 1. Liberar unidad MOVIL-106 y tripulacion a estado 'Disponible' (AMBULANCIA / PERSONAL)       |
+| [X] 2. Generar factura inmutable FAC-2026-0492 vinculada al servicio (CU-11 -> FACTURA)           |
+| [X] 3. Sellar evento transaccional en bitacora (CU-06 -> AUDITORIA e HISTORIAL_ESTADOS_SERVICIO)  |
 |                                                                                                   |
-|  [ GUARDAR BORRADOR ]                              [ PROCEDER AL CIERRE DEFINITIVO DEL SERVICIO ] |
+|  [ GUARDAR BORRADOR ]                           [ CONFIRMAR CIERRE FORMAL DE SERVICIO (RN-005) ]  |
 +---------------------------------------------------------------------------------------------------+
 ```
 
 ### 4.2 Diccionario de Datos y Comportamiento de Pantalla P-03
-| Control / Campo | Tipo | Origen de Datos | Regla de Validación / Comportamiento |
+| Control / Campo | Tipo | Origen / Entidad MER | Regla de Validación (`RN-005`, `RN-014`) |
 |---|---|---|---|
-| IPS Receptora | Desplegable (Select) | Catálogo IPS Habilitadas | Obligatorio; debe corresponder a un centro hospitalario con urgencias habilitadas |
-| Hora de Entrega | Timepicker | Interfaz | Debe ser posterior a la hora de despacho y traslado |
-| Diagnóstico CIE-10 | Autocompletar / Buscador | Maestro CIE-10 | Código de 4 caracteres alfanuméricos estandarizado por el Ministerio de Salud |
-| Régimen y Categoría | Selector enlazado | `PACIENTE.tipo_afiliacion` | Aplica la fórmula legal: Exento para Triage I en SOAT/Régimen Subsidiado; tarifa porcentual según categoría en Contributivo |
-| Valor Copago Liquidado | Campo calculado (Readonly) | RN-005 | Se calcula de forma inmediata al cambiar la categoría salarial o el régimen |
-| Botón «Cierre Definitivo» | Botón principal de culminación | CU-05 Paso 7 | Transiciona el servicio a `CERRADO_ASISTIDO`, libera la ambulancia a `DISPONIBLE` y genera la factura inmutable |
+| Resultado de la Atención | Lista desplegable (`Enum`) | `SERVICIO.resultado_atencion` | **Obligatorio (`RN-005`)**: Traslado efectivo a IPS, Atención resuelta en sitio o Desistimiento voluntario. |
+| Estado Final del Paciente | Lista desplegable (`Enum`) | `SERVICIO.estado_paciente_final` | **Obligatorio (`RN-005`)**: `Estable`, `Crítico` o `Fallecido`. |
+| Destino de Traslado (IPS) | Selector / Texto | `SERVICIO.destino_traslado` | **Obligatorio (`RN-005`)** cuando hay traslado; si se atiende en sitio (Flujo alterno `4a`), se deshabilita exigiendo constancia en observaciones. |
+| Responsable de Cierre | Selector automático ReTHUS | `SERVICIO.responsable_cierre_id` (`PERSONAL`) | **Obligatorio (`RN-005`)**: Vincula al paramédico o médico tripulante autenticado. |
+| Cronología del Servicio | Campos hora validados | `SERVICIO.hora_asignacion / llegada / fin` | Valida coherencia cronológica (`hora_fin > llegada >= asignacion`); de lo contrario bloquea el cierre (`RNF-018`). |
+| Bloque Factura Inmutable | Resumen calculado | `FACTURA` (`es_inmutable`, `valor_total`) | Genera automáticamente el comprobante con tarifas parametrizadas `TAB/TAM` al cerrar (`RF-031`, `RN-014`). |
+| Botón «Confirmar Cierre Formal» | Acción crítica (`RNF-007`) | `CU-05` + `CU-11` + `CU-06` | Bloquea el envío si falta algún campo obligatorio de `RN-005`; al aprobar, ejecuta en paralelo la liberación del móvil (`AMBULANCIA`), emisión de `FACTURA` y registro en `AUDITORIA`. |
 
 ---
 
-## 5. Trazabilidad con Casos de Uso del Análisis Conceptual
+## 5. Trazabilidad con Casos de Uso y Entidades del MER
 
-| Pantalla | Caso de Uso | Actores Participantes | Entidades del MER Afectadas |
+| Pantalla | Caso de Uso Principal y Relaciones | Actores Participantes | Entidades Exactas del MER Relacional (`04-modelo-entidad-relacion.svg`) |
 |---|---|---|---|
-| **P-01** | `CU-03 · Despachar ambulancia automáticamente` | Despachador de Central, Sistema SGA | `SOLICITUD_EMERGENCIA`, `AMBULANCIA`, `SERVICIO_ASISTENCIAL`, `PERSONAL_SERVICIO` |
-| **P-02** | `CU-04 · Reasignar ambulancia manualmente con justificación` | Despachador, Coordinador Operativo | `SERVICIO_ASISTENCIAL`, `AMBULANCIA`, `HISTORIAL_ESTADOS_SERVICIO` (Débil) |
-| **P-03** | `CU-05 · Cerrar servicio asistencial y liquidar copago` | Médico Tripulante, Facturador | `SERVICIO_ASISTENCIAL`, `VALORACION_CLINICA`, `PACIENTE`, `AMBULANCIA` |
+| **P-01** | `CU-03 · Asignar ambulancia automáticamente` (incluye `CU-02`; conecta a `CU-07`) | Coordinador Operativo, Sistema Automático SGA | `SOLICITUD_EMERGENCIA`, `PACIENTE`, `AMBULANCIA`, `SERVICIO`, `PERSONAL`, `PERSONAL_SERVICIO` |
+| **P-02** | `CU-04 · Asignar ambulancia con justificación manual` (extiende a `CU-03`; incluye `CU-06`) | Coordinador Operativo, Sistema Automático SGA | `SERVICIO`, `AMBULANCIA`, `HISTORIAL_ESTADOS_SERVICIO` (Débil), `AUDITORIA` |
+| **P-03** | `CU-05 · Realizar cierre formal de servicio` (incluye `CU-11` y `CU-06`) | Paramédico / Tripulante, Sistema Automático SGA | `SERVICIO`, `PACIENTE`, `PERSONAL`, `AMBULANCIA`, `FACTURA`, `HISTORIAL_ESTADOS_SERVICIO`, `AUDITORIA` |
