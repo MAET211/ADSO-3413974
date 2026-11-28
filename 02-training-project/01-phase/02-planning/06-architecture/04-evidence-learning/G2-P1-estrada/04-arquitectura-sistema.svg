@@ -1,0 +1,75 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" width="1200" height="820">
+  <defs>
+    <marker id="openArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#334155" stroke-width="1.6"/>
+    </marker>
+    <marker id="hollowTriangle" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="11" markerHeight="11" orient="auto">
+      <polygon points="1,1 12,7 1,13" fill="#ffffff" stroke="#1e40af" stroke-width="1.6"/>
+    </marker>
+    <marker id="filledDiamond" viewBox="0 0 14 14" refX="2" refY="7" markerWidth="10" markerHeight="10" orient="auto">
+      <polygon points="1,7 7,2 13,7 7,12" fill="#1e40af" stroke="#1e40af" stroke-width="1"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="820" fill="#f8fafc"/>
+  <rect x="30" y="16" width="1140" height="48" rx="8" fill="#0f172a"/>
+  <text x="600" y="37" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff">SISTEMA GESTOR DE AMBULANCIAS (SGA) — A4 ARQUITECTURA EN 4 CAPAS ESTRICTAS</text>
+  <text x="600" y="55" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#cbd5e1">Evidencia G2-P1 · RAP 593103 (Criterio 4) · Aprendiz: MAET211 (Carpeta: G2-P1-estrada)</text>
+  <rect x="80" y="95" width="820" height="115" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <rect x="80" y="95" width="820" height="28" rx="6" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="490" y="113" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">CAPA 1 · PRESENTACIÓN (Cliente SPA Web / Tabletas en Campo)</text>
+  <text x="90" y="141" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Componentes UI: Tablero Triage &amp; Flota en Tiempo Real (React / Vue), Modal Despacho Manual (RN-007), Cierre REPS</text>
+  <text x="90" y="156" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Regla de Aislamiento: Cero acceso directo a base de datos. Consume exclusivamente HTTPS REST + WebSockets.</text>
+  <rect x="80" y="275" width="820" height="115" rx="6" fill="#f0fdf4" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="80" y="275" width="820" height="28" rx="6" fill="#bbf7d0" stroke="#15803d" stroke-width="1.8"/>
+  <text x="490" y="293" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">CAPA 2 · APLICACIÓN Y COMUNICACIÓN (API Gateway Express + Socket.IO + Seguridad RBAC)</text>
+  <text x="90" y="321" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Responsabilidad: Validación JWT (RNF-002), Middleware RBAC por 5 perfiles (RF-005), sanitización OWASP (RNF-006).</text>
+  <text x="90" y="336" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Delega peticiones únicamente hacia Capa 3 mediante DTOs tipados; emite actualizaciones en tiempo real por WebSockets.</text>
+  <rect x="80" y="455" width="820" height="125" rx="6" fill="#faf5ff" stroke="#7e22ce" stroke-width="1.8"/>
+  <rect x="80" y="455" width="820" height="28" rx="6" fill="#e9d5ff" stroke="#7e22ce" stroke-width="1.8"/>
+  <text x="490" y="473" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">CAPA 3 · DOMINIO Y SERVICIOS (Lógica de Negocio OOP + Patrones GoF)</text>
+  <text x="90" y="501" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Núcleo: FachadaEmergenciaSGA (Facade), IEstrategiaAsignacion (Strategy &lt;= 2 s), ServicioAsistencial, Factura (RN-014).</text>
+  <text x="90" y="516" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Cumplimiento: Reglas RN-001 a RN-018 desacopladas de SQL y de presentación; invoca Capa 4 vía interfaces IRepositorio*.</text>
+  <rect x="80" y="650" width="390" height="120" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.8"/>
+  <rect x="80" y="650" width="390" height="28" rx="6" fill="#fed7aa" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="275" y="668" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">CAPA 4a · PERSISTENCIA RELACIONAL (PostgreSQL 18)</text>
+  <text x="90" y="696" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Repositorios ACID con Pool SSL (TCP 5432).</text>
+  <text x="90" y="711" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">16 tablas normalizadas en 3FN + auditoría JSONB 5 años.</text>
+  <rect x="510" y="650" width="390" height="120" rx="6" fill="#fefce8" stroke="#a16207" stroke-width="1.8"/>
+  <rect x="510" y="650" width="390" height="28" rx="6" fill="#fef08a" stroke="#a16207" stroke-width="1.8"/>
+  <text x="705" y="668" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">CAPA 4b · WORKER CRON Y MENSAJERÍA (SMTP TLS)</text>
+  <text x="520" y="696" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Jobs programados: alertas REPS/SOAT (RN-003), mora día 1/30.</text>
+  <text x="520" y="711" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">Notificaciones asíncronas SMTP STARTTLS (puerto 587).</text>
+  <rect x="940" y="95" width="220" height="675" rx="6" fill="#f1f5f9" stroke="#475569" stroke-width="1.8"/>
+  <rect x="940" y="95" width="220" height="28" rx="6" fill="#cbd5e1" stroke="#475569" stroke-width="1.8"/>
+  <text x="1050" y="113" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">POLÍTICA DE CAPAS Y RNF</text>
+  <line x1="940" y1="133" x2="1160" y2="133" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="950" y="147" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">1. Flujo estricto top-down:</text>
+  <text x="950" y="162" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">   Cero capas saltadas.</text>
+  <line x1="940" y1="169" x2="1160" y2="169" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="950" y="183" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">2. RNF-009 (&lt;= 2 s):</text>
+  <text x="950" y="198" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">   Strategy + índices DB.</text>
+  <line x1="940" y1="205" x2="1160" y2="205" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="950" y="219" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">3. RNF-001 / RNF-002:</text>
+  <text x="950" y="234" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">   TLS 1.3 + bcrypt/Argon2</text>
+  <text x="950" y="249" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">   + RBAC en Capa 2.</text>
+  <line x1="940" y1="256" x2="1160" y2="256" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="950" y="270" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">4. RNF-013 (97 % 24/7):</text>
+  <text x="950" y="285" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">   Contenedores Docker +</text>
+  <text x="950" y="300" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">   Grafana/Prometheus.</text>
+  <line x1="940" y1="307" x2="1160" y2="307" stroke="#475569" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="950" y="321" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">5. RNF-028 / RNF-029:</text>
+  <text x="950" y="336" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">   Auditoría append-only</text>
+  <text x="950" y="351" font-family="Consolas, Segoe UI, sans-serif" font-size="10.5" fill="#1e293b">   + backup 30 días.</text>
+  <polyline points="490,210 490,275" fill="none" stroke="#1d4ed8" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="404" y="225.5" width="172" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="490" y="235.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">HTTPS / WSS (TCP 443 · JSON)</text>
+  <polyline points="490,390 490,455" fill="none" stroke="#15803d" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="386.5" y="405.5" width="207" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="490" y="415.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">Llamadas en memoria (Contratos TS)</text>
+  <polyline points="275,580 275,650" fill="none" stroke="#c2410c" stroke-width="1.7" stroke-dasharray="6,4" marker-end="url(#openArrow)"/>
+  <rect x="131" y="598" width="288" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="275" y="608" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">IRepositorioDatos · SQL Parametrizado (TCP 5432)</text>
+  <polyline points="705,580 705,650" fill="none" stroke="#a16207" stroke-width="1.7" stroke-dasharray="6,4" marker-end="url(#openArrow)"/>
+  <rect x="590" y="598" width="230" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="705" y="608" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">INotificador / CronJobs (SMTP TLS 587)</text>
+</svg>

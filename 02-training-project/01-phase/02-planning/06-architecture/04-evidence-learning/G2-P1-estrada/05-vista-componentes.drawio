@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-11-27T22:20:00Z" agent="Antigravity" version="24.7.17">
+  <diagram id="d_05-vista-componentes" name="05-vista-componentes">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="980" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="hdr" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — A5 VISTA DE COMPONENTES E INTERFACES
+Evidencia G2-P1 · RAP 593103 (Criterio 5) · Aprendiz: MAET211 (Carpeta: G2-P1-estrada)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;fontColor=#ffffff;strokeColor=#0f172a;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="30" y="16" width="1380" height="48" as="geometry"/></mxCell>
+        <mxCell id="cmp_ui" value="&lt;b&gt;&lt;&lt;component&gt;&gt; Comp_InterfazWebMovil (Cliente SPA React / Vue)&lt;/b&gt;
+Provee: IVistaOperativaSGA | Requiere: IAutenticacion, IGestionPQRS, IFacturacionServicio, IGestionEmergencias, IGestionFlota
+Regla arquitectónica: Consume solo interfaces de negocio vía HTTPS/WSS; cero acceso directo a base de datos." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#eff6ff;strokeColor=#1d4ed8;fontSize=11;" vertex="1" parent="1"><mxGeometry x="120" y="90" width="1200" height="105" as="geometry"/></mxCell>
+        <mxCell id="cmp_sec" value="&lt;b&gt;&lt;&lt;component&gt;&gt; Comp_SeguridadAcceso&lt;/b&gt;
+Provee: + IAutenticacion,
+  + IAutorizacionRBAC
+Requiere: - IRepositorioDatos,
+  - IAuditoriaEventos
+Clases: Rol, Usuario
+(RF-001..007, RNF-001..007)" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#f0fdf4;strokeColor=#15803d;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="315" width="240" height="165" as="geometry"/></mxCell>
+        <mxCell id="cmp_pqrs" value="&lt;b&gt;&lt;&lt;component&gt;&gt; Comp_PQRSeInformes&lt;/b&gt;
+Provee: + IGestionPQRS
+Requiere: - IRepositorioDatos,
+  - IAuditoriaEventos
+Clases: PQRS
+(RF-040..044, RF-064..065)" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#e0f2fe;strokeColor=#0369a1;fontSize=11;" vertex="1" parent="1"><mxGeometry x="310" y="315" width="240" height="165" as="geometry"/></mxCell>
+        <mxCell id="cmp_fac" value="&lt;b&gt;&lt;&lt;component&gt;&gt; Comp_FacturacionCartera&lt;/b&gt;
+Provee: + IFacturacionServicio
+Requiere: - IRepositorioDatos,
+  - IAuditoriaEventos
+Clases: Factura
+(RF-030..035, RN-014, RN-015)" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#fefce8;strokeColor=#a16207;fontSize=11;" vertex="1" parent="1"><mxGeometry x="580" y="315" width="240" height="165" as="geometry"/></mxCell>
+        <mxCell id="cmp_emer" value="&lt;b&gt;&lt;&lt;component&gt;&gt; Comp_NucleoEmergencias&lt;/b&gt;
+Provee: + IGestionEmergencias
+Requiere: - IEstrategiaAsignacion,
+ - IGestionFlota, - IFacturacionServicio,
+ - IAuditoriaEventos, - INotificacionWS
+Clases: Fachada, Paciente, Solicitud,
+ Servicio, Historial (RF-018..027)" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#faf5ff;strokeColor=#7e22ce;fontSize=11;" vertex="1" parent="1"><mxGeometry x="850" y="315" width="260" height="165" as="geometry"/></mxCell>
+        <mxCell id="cmp_flota" value="&lt;b&gt;&lt;&lt;component&gt;&gt; Comp_FlotaPersonal&lt;/b&gt;
+Provee: + IGestionFlota
+Requiere: - IRepositorioDatos,
+ - IAuditoriaEventos, - INotificacionWS
+Clases: Ambulancia (TAB/TAM),
+ PersonalSalud, NovedadOperativa
+(RF-008..017, 028..029, 045..054)" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#fff7ed;strokeColor=#c2410c;fontSize=11;" vertex="1" parent="1"><mxGeometry x="1140" y="315" width="260" height="165" as="geometry"/></mxCell>
+        <mxCell id="cmp_db" value="&lt;b&gt;&lt;&lt;component&gt;&gt; Comp_PersistenciaAuditoria&lt;/b&gt;
+Provee: + IRepositorioDatos, + IAuditoriaEventos | Requiere: - IMotorPostgreSQL
+Clases: RegistroAuditoria (RF-055..058, RNF-028) y Repositorios ACID sobre las 16 tablas 3FN." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#fef2f2;strokeColor=#b91c1c;fontSize=11;" vertex="1" parent="1"><mxGeometry x="60" y="600" width="880" height="145" as="geometry"/></mxCell>
+        <mxCell id="cmp_gw" value="&lt;b&gt;&lt;&lt;infrastructure&gt;&gt; Gateway_WebSockets_SMTP&lt;/b&gt;
+Provee: + INotificacionTiempoReal (WSS Socket.IO + SMTP)
+Atiende monitoreo en vivo (RF-009, RF-028) y alertas REPS/mora." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#f1f5f9;strokeColor=#475569;fontSize=11;" vertex="1" parent="1"><mxGeometry x="1010" y="560" width="325" height="110" as="geometry"/></mxCell>
+        <mxCell id="cmp_pg" value="&lt;b&gt;&lt;&lt;database&gt;&gt; Servidor_PostgreSQL_18&lt;/b&gt;
+Provee: + IMotorPostgreSQL (Puerto TCP 5432 SSL VPC)
+Aloja esquema SGA 3FN (16 tablas, integridad CHECK/FK)." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#eef2ff;strokeColor=#3730a3;fontSize=11;" vertex="1" parent="1"><mxGeometry x="290" y="830" width="420" height="110" as="geometry"/></mxCell>
+        <mxCell id="ec_ui_sec" value="IAutenticacion" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.0333;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#1d4ed8;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_ui" target="cmp_sec"><mxGeometry relative="1" as="geometry"><mxPoint x="160" y="195" as="sourcePoint"/><mxPoint x="160" y="315" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_ui_pqrs" value="IGestionPQRS" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.2583;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#1d4ed8;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_ui" target="cmp_pqrs"><mxGeometry relative="1" as="geometry"><mxPoint x="430" y="195" as="sourcePoint"/><mxPoint x="430" y="315" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_ui_fac" value="IFacturacionServicio" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.4833;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#1d4ed8;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_ui" target="cmp_fac"><mxGeometry relative="1" as="geometry"><mxPoint x="700" y="195" as="sourcePoint"/><mxPoint x="700" y="315" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_ui_emer" value="IGestionEmergencias" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.7167;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#1d4ed8;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_ui" target="cmp_emer"><mxGeometry relative="1" as="geometry"><mxPoint x="980" y="195" as="sourcePoint"/><mxPoint x="980" y="315" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_ui_flo" value="IGestionFlota" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.9583;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#1d4ed8;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_ui" target="cmp_flota"><mxGeometry relative="1" as="geometry"><mxPoint x="1270" y="195" as="sourcePoint"/><mxPoint x="1270" y="315" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_em_fac" value="IFacturacion" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0;exitY=0.4848;exitDx=0;exitDy=0;entryX=1;entryY=0.4848;entryDx=0;entryDy=0;strokeColor=#7e22ce;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_emer" target="cmp_fac"><mxGeometry relative="1" as="geometry"><mxPoint x="850" y="395" as="sourcePoint"/><mxPoint x="820" y="395" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_em_flo" value="IGestionFlota" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=1;exitY=0.4848;exitDx=0;exitDy=0;entryX=0;entryY=0.4848;entryDx=0;entryDy=0;strokeColor=#7e22ce;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_emer" target="cmp_flota"><mxGeometry relative="1" as="geometry"><mxPoint x="1110" y="395" as="sourcePoint"/><mxPoint x="1140" y="395" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_sec_db" value="IRepositorioDatos" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.1136;entryY=0;entryDx=0;entryDy=0;strokeColor=#b91c1c;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_sec" target="cmp_db"><mxGeometry relative="1" as="geometry"><mxPoint x="160" y="480" as="sourcePoint"/><mxPoint x="160" y="600" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_pqrs_db" value="IRepositorioDatos" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.4205;entryY=0;entryDx=0;entryDy=0;strokeColor=#b91c1c;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_pqrs" target="cmp_db"><mxGeometry relative="1" as="geometry"><mxPoint x="430" y="480" as="sourcePoint"/><mxPoint x="430" y="600" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_fac_db" value="IRepositorioDatos" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.7273;entryY=0;entryDx=0;entryDy=0;strokeColor=#b91c1c;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_fac" target="cmp_db"><mxGeometry relative="1" as="geometry"><mxPoint x="700" y="480" as="sourcePoint"/><mxPoint x="700" y="600" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_em_db" value="IAuditoriaEventos" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.1538;exitY=1;exitDx=0;exitDy=0;entryX=0.9432;entryY=0;entryDx=0;entryDy=0;strokeColor=#b91c1c;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_emer" target="cmp_db"><mxGeometry relative="1" as="geometry"><mxPoint x="890" y="480" as="sourcePoint"/><mxPoint x="890" y="600" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_flo_db" value="IRepositorioDatos" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.8846;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.7931;entryDx=0;entryDy=0;strokeColor=#b91c1c;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_flota" target="cmp_db"><mxGeometry relative="1" as="geometry"><mxPoint x="1370" y="480" as="sourcePoint"/><mxPoint x="940" y="715" as="targetPoint"/><Array as="points"><mxPoint x="1370" y="715"/></Array></mxGeometry></mxCell>
+        <mxCell id="ec_em_gw" value="INotificacionWS" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.7885;exitY=1;exitDx=0;exitDy=0;entryX=0.1385;entryY=0;entryDx=0;entryDy=0;strokeColor=#475569;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_emer" target="cmp_gw"><mxGeometry relative="1" as="geometry"><mxPoint x="1055" y="480" as="sourcePoint"/><mxPoint x="1055" y="560" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_flo_gw" value="INotificacionWS" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.3462;exitY=1;exitDx=0;exitDy=0;entryX=0.6769;entryY=0;entryDx=0;entryDy=0;strokeColor=#475569;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_flota" target="cmp_gw"><mxGeometry relative="1" as="geometry"><mxPoint x="1230" y="480" as="sourcePoint"/><mxPoint x="1230" y="560" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ec_db_pg" value="IMotorPostgreSQL (SSL)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#3730a3;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="cmp_db" target="cmp_pg"><mxGeometry relative="1" as="geometry"><mxPoint x="500" y="745" as="sourcePoint"/><mxPoint x="500" y="830" as="targetPoint"/></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-11-27T22:20:00Z" agent="Antigravity" version="24.7.17">
+  <diagram id="d_06-vista-despliegue" name="06-vista-despliegue">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1420" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="hdr" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — A6 VISTA DE DESPLIEGUE Y PROTOCOLOS
+Evidencia G2-P1 · RAP 593103 (Criterio 6) · Aprendiz: MAET211 (Carpeta: G2-P1-estrada)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;fontColor=#ffffff;strokeColor=#0f172a;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="30" y="16" width="1360" height="48" as="geometry"/></mxCell>
+        <mxCell id="n_cli" value="&lt;b&gt;&lt;&lt;device&gt;&gt; Nodo_Cliente_WebMovil&lt;/b&gt;
+Artefactos:
+ - Navegador Web Desktop / Tableta
+ - Bundle SPA estático (React/Vue)
+---
+RNF-017: Responsivo multiplataforma
+RNF-002: Cero tráfico HTTP plano" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#eff6ff;strokeColor=#1d4ed8;fontSize=11;" vertex="1" parent="1"><mxGeometry x="40" y="205" width="240" height="200" as="geometry"/></mxCell>
+        <mxCell id="n_prx" value="&lt;b&gt;&lt;&lt;server&gt;&gt; Nodo_Proxy_Reverso&lt;/b&gt;
+SO: Ubuntu 22.04 LTS (DMZ)
+Artefactos:
+ - Nginx Reverse Proxy
+ - Certificado Let's Encrypt TLS 1.3
+ - Firewall UFW + Fail2Ban
+---
+RNF-002 / RNF-006: Terminación SSL" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#f0fdf4;strokeColor=#15803d;fontSize=11;" vertex="1" parent="1"><mxGeometry x="375" y="205" width="250" height="200" as="geometry"/></mxCell>
+        <mxCell id="n_app" value="&lt;b&gt;&lt;&lt;vps docker&gt;&gt; Nodo_Aplicacion_Docker&lt;/b&gt;
+Hostinger VPS (Ubuntu 22.04 · 4-8 vCPU)
+Contenedores Docker:
+ - API REST + Socket.IO (Node 20/TS)
+ - Worker CronJobs (REPS / Mora)
+ - Monitoreo Grafana + Prometheus
+---
+RNF-009: Despacho &lt;= 2 s (&lt;20 usr)
+RNF-013: Disponibilidad 24/7 &gt;= 97 %" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#faf5ff;strokeColor=#7e22ce;fontSize=11;" vertex="1" parent="1"><mxGeometry x="725" y="180" width="300" height="245" as="geometry"/></mxCell>
+        <mxCell id="n_db" value="&lt;b&gt;&lt;&lt;data node&gt;&gt; Nodo_Datos_Respaldo&lt;/b&gt;
+Subred Privada VPC (Sin IP pública)
+Artefactos:
+ - Motor PostgreSQL 18.x (ACID)
+ - Volumen SSD cifrado (AES-256)
+---
+RNF-004: Cifrado en reposo Ley 1581
+RNF-021: Retención mínima 5 años" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#fff7ed;strokeColor=#c2410c;fontSize=11;" vertex="1" parent="1"><mxGeometry x="1120" y="190" width="260" height="225" as="geometry"/></mxCell>
+        <mxCell id="n_smtp" value="&lt;b&gt;&lt;&lt;external&gt;&gt; Servidor_Correo_SMTP&lt;/b&gt;
+Alertas automáticas REPS/SOAT,
+recuperación de contraseña (30 min)
+y cobranza cartera (RNF-002 / RF-004)." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#fefce8;strokeColor=#a16207;fontSize=11;" vertex="1" parent="1"><mxGeometry x="725" y="530" width="300" height="115" as="geometry"/></mxCell>
+        <mxCell id="n_bak" value="&lt;b&gt;&lt;&lt;storage&gt;&gt; Boveda_Respaldos_30d&lt;/b&gt;
+Backups diarios automáticos pg_dump,
+retención &gt;= 30 copias cifradas.
+RNF-029: RTO &lt;= 4 h / RPO &lt;= 24 h" style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#fef2f2;strokeColor=#b91c1c;fontSize=11;" vertex="1" parent="1"><mxGeometry x="1120" y="530" width="260" height="115" as="geometry"/></mxCell>
+        <mxCell id="ad_1" value="HTTPS / WSS (TCP 443)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#1d4ed8;strokeWidth=1.6;endArrow=open;endFill=0;dashed=0;startArrow=none;startFill=0;" edge="1" parent="1" source="n_cli" target="n_prx"><mxGeometry relative="1" as="geometry"><mxPoint x="280" y="305" as="sourcePoint"/><mxPoint x="375" y="305" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ad_2" value="HTTP / WS Interno (TCP 3000)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5102;entryDx=0;entryDy=0;strokeColor=#15803d;strokeWidth=1.6;endArrow=open;endFill=0;dashed=0;startArrow=none;startFill=0;" edge="1" parent="1" source="n_prx" target="n_app"><mxGeometry relative="1" as="geometry"><mxPoint x="625" y="305" as="sourcePoint"/><mxPoint x="725" y="305" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ad_3" value="PostgreSQL SSL (TCP 5432)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=1;exitY=0.5102;exitDx=0;exitDy=0;entryX=0;entryY=0.5111;entryDx=0;entryDy=0;strokeColor=#c2410c;strokeWidth=1.6;endArrow=open;endFill=0;dashed=0;startArrow=none;startFill=0;" edge="1" parent="1" source="n_app" target="n_db"><mxGeometry relative="1" as="geometry"><mxPoint x="1025" y="305" as="sourcePoint"/><mxPoint x="1120" y="305" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ad_4" value="SMTP STARTTLS (TCP 587)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#a16207;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="n_app" target="n_smtp"><mxGeometry relative="1" as="geometry"><mxPoint x="875" y="425" as="sourcePoint"/><mxPoint x="875" y="530" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="ad_5" value="SFTP / TLS Cifrado (TCP 22/443)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#b91c1c;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="n_db" target="n_bak"><mxGeometry relative="1" as="geometry"><mxPoint x="1250" y="415" as="sourcePoint"/><mxPoint x="1250" y="530" as="targetPoint"/></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

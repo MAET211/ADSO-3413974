@@ -1,0 +1,330 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2140 1450" width="2140" height="1450">
+  <defs>
+    <marker id="openArrow" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M2,2 L10,6 L2,10" fill="none" stroke="#334155" stroke-width="1.6"/>
+    </marker>
+    <marker id="hollowTriangle" viewBox="0 0 14 14" refX="12" refY="7" markerWidth="11" markerHeight="11" orient="auto">
+      <polygon points="1,1 12,7 1,13" fill="#ffffff" stroke="#1e40af" stroke-width="1.6"/>
+    </marker>
+    <marker id="filledDiamond" viewBox="0 0 14 14" refX="2" refY="7" markerWidth="10" markerHeight="10" orient="auto">
+      <polygon points="1,7 7,2 13,7 7,12" fill="#1e40af" stroke="#1e40af" stroke-width="1"/>
+    </marker>
+  </defs>
+  <rect width="2140" height="1450" fill="#f8fafc"/>
+  <rect x="30" y="16" width="2080" height="48" rx="8" fill="#0f172a"/>
+  <text x="1070" y="37" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="bold" fill="#ffffff">SISTEMA GESTOR DE AMBULANCIAS (SGA) — A2 DIAGRAMA DE CLASES OOP Y PATRONES GoF</text>
+  <text x="1070" y="55" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11" fill="#cbd5e1">Evidencia G2-P1 · RAP 593103 (Criterio 2 y 3) · Aprendiz: MAET211 (Carpeta: G2-P1-estrada)</text>
+  <rect x="60" y="95" width="330" height="175" fill="#ffffff" stroke="#0369a1" stroke-width="1.8"/>
+  <rect x="60" y="95" width="330" height="26" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.8"/>
+  <text x="225" y="113" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">PQRS</text>
+  <text x="68" y="136" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idPqrs: UUID</text>
+  <text x="68" y="149.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- codigoRadicado: string</text>
+  <text x="68" y="163" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- tipoPqrs: TipoPQRS</text>
+  <text x="68" y="176.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- fechaVencimientoLegal: Date</text>
+  <text x="68" y="190" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estadoTramite: EstadoPQRS</text>
+  <line x1="60" y1="197.5" x2="390" y2="197.5" stroke="#0369a1" stroke-width="1.2"/>
+  <text x="68" y="212.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ asignarResponsable(idU: UUID): void</text>
+  <text x="68" y="226" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ registrarRespuesta(soporte: string): void</text>
+  <text x="68" y="239.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ estaVencida(fecha: Date): boolean</text>
+  <rect x="450" y="95" width="270" height="155" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <rect x="450" y="95" width="270" height="26" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="585" y="113" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Rol</text>
+  <text x="458" y="136" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idRol: UUID</text>
+  <text x="458" y="149.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- nombreRol: string</text>
+  <text x="458" y="163" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- permisos: string[]</text>
+  <text x="458" y="176.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- activo: boolean</text>
+  <line x1="450" y1="184" x2="720" y2="184" stroke="#1d4ed8" stroke-width="1.2"/>
+  <text x="458" y="199" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ tienePermiso(accion: string): boolean</text>
+  <text x="458" y="212.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ asignarPermiso(perm: string): void</text>
+  <rect x="790" y="95" width="330" height="185" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <rect x="790" y="95" width="330" height="26" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="955" y="113" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Usuario</text>
+  <text x="798" y="136" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idUsuario: UUID</text>
+  <text x="798" y="149.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- correo: string</text>
+  <text x="798" y="163" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- passwordHash: string</text>
+  <text x="798" y="176.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- intentosFallidos: number</text>
+  <text x="798" y="190" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- bloqueadoHasta: Date | null</text>
+  <line x1="790" y1="197.5" x2="1120" y2="197.5" stroke="#1d4ed8" stroke-width="1.2"/>
+  <text x="798" y="212.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ autenticar(clave: string): boolean</text>
+  <text x="798" y="226" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ registrarIntentoFallido(): void</text>
+  <text x="798" y="239.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ estaBloqueado(ahora: Date): boolean</text>
+  <rect x="1190" y="95" width="330" height="185" fill="#ffffff" stroke="#b45309" stroke-width="1.8"/>
+  <rect x="1190" y="95" width="330" height="26" fill="#fef3c7" stroke="#b45309" stroke-width="1.8"/>
+  <text x="1355" y="113" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">RegistroAuditoria</text>
+  <text x="1198" y="136" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idAuditoria: UUID</text>
+  <text x="1198" y="149.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- modulo: string</text>
+  <text x="1198" y="163" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- accion: string</text>
+  <text x="1198" y="176.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- valoresAnteriores: object</text>
+  <text x="1198" y="190" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- valoresNuevos: object</text>
+  <text x="1198" y="203.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- fechaHora: Date</text>
+  <line x1="1190" y1="211" x2="1520" y2="211" stroke="#b45309" stroke-width="1.2"/>
+  <text x="1198" y="226" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ registrarEvento(mod: string, acc: string): void</text>
+  <text x="1198" y="239.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ exportarPistaAudit(filtro: object): object[]</text>
+  <rect x="1610" y="95" width="450" height="185" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.8"/>
+  <rect x="1610" y="95" width="450" height="38" fill="#ddd6fe" stroke="#6d28d9" stroke-width="1.8"/>
+  <text x="1835" y="109" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#334155">&lt;&lt;GoF Facade&gt;&gt;</text>
+  <text x="1835" y="125" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">FachadaEmergenciaSGA</text>
+  <text x="1618" y="148" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estrategia: IEstrategiaAsignacion</text>
+  <text x="1618" y="161.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- repoDatos: IRepositorioDatos</text>
+  <text x="1618" y="175" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- facturador: Factura</text>
+  <text x="1618" y="188.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- auditor: RegistroAuditoria</text>
+  <line x1="1610" y1="196" x2="2060" y2="196" stroke="#6d28d9" stroke-width="1.2"/>
+  <text x="1618" y="211" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ fijarEstrategia(est: IEstrategiaAsignacion): void</text>
+  <text x="1618" y="224.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ atenderEmergencia(sol: SolicitudEmergencia): ServicioAsistencial</text>
+  <text x="1618" y="238" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ finalizarYCerrarServicio(id: UUID, cierre: object): Factura</text>
+  <rect x="60" y="390" width="330" height="185" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="60" y="390" width="330" height="26" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="225" y="408" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Paciente</text>
+  <text x="68" y="431" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idPaciente: UUID</text>
+  <text x="68" y="444.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- tipoDocumento: string</text>
+  <text x="68" y="458" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- numeroDocumento: string</text>
+  <text x="68" y="471.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- nombreCompleto: string</text>
+  <text x="68" y="485" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- fechaNacimiento: Date</text>
+  <line x1="60" y1="492.5" x2="390" y2="492.5" stroke="#15803d" stroke-width="1.2"/>
+  <text x="68" y="507.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ registrarAntecedente(det: string): void</text>
+  <text x="68" y="521" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ obtenerEdad(hoy: Date): number</text>
+  <text x="68" y="534.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ agregarTelefono(num: string): void</text>
+  <rect x="790" y="390" width="340" height="190" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="790" y="390" width="340" height="26" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="960" y="408" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">PersonalSalud</text>
+  <text x="798" y="431" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idPersonal: UUID</text>
+  <text x="798" y="444.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- tarjetaProfesional: string</text>
+  <text x="798" y="458" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- tipoPersonal: TipoPersonal</text>
+  <text x="798" y="471.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estadoDisponibilidad: EstadoPersonal</text>
+  <text x="798" y="485" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- vigenciaCertificacion: Date</text>
+  <text x="798" y="498.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- horasTurnoContinuas: number</text>
+  <line x1="790" y1="506" x2="1130" y2="506" stroke="#15803d" stroke-width="1.2"/>
+  <text x="798" y="521" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ estaHabilitado(hoy: Date, max: number): boolean</text>
+  <text x="798" y="534.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ asignarATurno(horas: number): void</text>
+  <rect x="1455" y="365" width="470" height="125" fill="#fdf4ff" stroke="#a21caf" stroke-width="1.8"/>
+  <rect x="1455" y="365" width="470" height="38" fill="#f5d0fe" stroke="#a21caf" stroke-width="1.8"/>
+  <text x="1690" y="379" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#334155">&lt;&lt;interface (GoF Strategy)&gt;&gt;</text>
+  <text x="1690" y="395" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">IEstrategiaAsignacion</text>
+  <text x="1463" y="418" font-family="Consolas, monospace" font-size="10" fill="#1e293b">/* Contrato polimorfico de despacho */</text>
+  <line x1="1455" y1="425.5" x2="1925" y2="425.5" stroke="#a21caf" stroke-width="1.2"/>
+  <text x="1463" y="440.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ seleccionarAmbulancia(sol: Solicitud, flota: Ambulancia[]): Ambulancia</text>
+  <rect x="1225" y="560" width="435" height="135" fill="#fdf4ff" stroke="#a21caf" stroke-width="1.8"/>
+  <rect x="1225" y="560" width="435" height="38" fill="#fae8ff" stroke="#a21caf" stroke-width="1.8"/>
+  <text x="1442.5" y="574" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#334155">&lt;&lt;Strategy Concrete&gt;&gt;</text>
+  <text x="1442.5" y="590" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">AsignacionAutomaticaProximidad</text>
+  <text x="1233" y="613" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- maxDistanciaKm: number</text>
+  <text x="1233" y="626.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- prioridadTriage: NivelTriage</text>
+  <line x1="1225" y1="634" x2="1660" y2="634" stroke="#a21caf" stroke-width="1.2"/>
+  <text x="1233" y="649" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ seleccionarAmbulancia(sol: Solicitud, flota: Ambulancia[]): Ambulancia</text>
+  <rect x="1675" y="560" width="420" height="135" fill="#fdf4ff" stroke="#a21caf" stroke-width="1.8"/>
+  <rect x="1675" y="560" width="420" height="38" fill="#fae8ff" stroke="#a21caf" stroke-width="1.8"/>
+  <text x="1885" y="574" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#334155">&lt;&lt;Strategy Concrete&gt;&gt;</text>
+  <text x="1885" y="590" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">AsignacionManualContingencia</text>
+  <text x="1683" y="613" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idCoordinador: UUID</text>
+  <text x="1683" y="626.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- motivoJustificado: string</text>
+  <line x1="1675" y1="634" x2="2095" y2="634" stroke="#a21caf" stroke-width="1.2"/>
+  <text x="1683" y="649" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ seleccionarAmbulancia(sol: Solicitud, flota: Ambulancia[]): Ambulancia</text>
+  <rect x="60" y="670" width="350" height="190" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+  <rect x="60" y="670" width="350" height="26" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.8"/>
+  <text x="235" y="688" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">SolicitudEmergencia</text>
+  <text x="68" y="711" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idSolicitud: UUID</text>
+  <text x="68" y="724.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- codigoRadicado: string</text>
+  <text x="68" y="738" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- direccionEvento: string</text>
+  <text x="68" y="751.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- coordenadasGPS: string</text>
+  <text x="68" y="765" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- prioridadTriage: NivelTriage</text>
+  <text x="68" y="778.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- fechaHoraSolicitud: Date</text>
+  <line x1="60" y1="786" x2="410" y2="786" stroke="#b91c1c" stroke-width="1.2"/>
+  <text x="68" y="801" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ clasificarTriage(nivel: NivelTriage): void</text>
+  <text x="68" y="814.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ requiereMedicalizada(): boolean</text>
+  <rect x="520" y="660" width="410" height="215" fill="#ffffff" stroke="#b91c1c" stroke-width="1.8"/>
+  <rect x="520" y="660" width="410" height="26" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.8"/>
+  <text x="725" y="678" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">ServicioAsistencial</text>
+  <text x="528" y="701" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idServicio: UUID</text>
+  <text x="528" y="714.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estado: EstadoServicio</text>
+  <text x="528" y="728" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- asignacionManual: boolean</text>
+  <text x="528" y="741.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- motivoAsignacionManual: string</text>
+  <text x="528" y="755" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- resultadoAtencion: string</text>
+  <text x="528" y="768.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estadoPacienteFinal: EstadoFinal</text>
+  <text x="528" y="782" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- destinoTraslado: string</text>
+  <line x1="520" y1="789.5" x2="930" y2="789.5" stroke="#b91c1c" stroke-width="1.2"/>
+  <text x="528" y="804.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ iniciarDespacho(u: Ambulancia, man: boolean): void</text>
+  <text x="528" y="818" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ cerrarFormalmente(datos: object): void</text>
+  <text x="528" y="831.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ registrarTransicion(est: EstadoServicio, mot: string): void</text>
+  <rect x="60" y="980" width="350" height="175" fill="#ffffff" stroke="#a16207" stroke-width="1.8"/>
+  <rect x="60" y="980" width="350" height="26" fill="#fef9c3" stroke="#a16207" stroke-width="1.8"/>
+  <text x="235" y="998" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">HistorialEstado</text>
+  <text x="68" y="1021" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- numeroSecuencia: number</text>
+  <text x="68" y="1034.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estadoAnterior: EstadoServicio</text>
+  <text x="68" y="1048" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estadoNuevo: EstadoServicio</text>
+  <text x="68" y="1061.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- fechaHoraCambio: Date</text>
+  <text x="68" y="1075" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- motivoJustificacion: string</text>
+  <line x1="60" y1="1082.5" x2="410" y2="1082.5" stroke="#a16207" stroke-width="1.2"/>
+  <text x="68" y="1097.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ validarCronologia(previa: Date): boolean</text>
+  <text x="68" y="1111" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ generarResumenPaso(): string</text>
+  <rect x="530" y="970" width="390" height="195" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <rect x="530" y="970" width="390" height="38" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="725" y="984" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="10" fill="#334155">&lt;&lt;abstract&gt;&gt;</text>
+  <text x="725" y="1000" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Ambulancia</text>
+  <text x="538" y="1023" font-family="Consolas, monospace" font-size="10" fill="#1e293b"># idAmbulancia: UUID</text>
+  <text x="538" y="1036.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b"># numeroUnidad: string</text>
+  <text x="538" y="1050" font-family="Consolas, monospace" font-size="10" fill="#1e293b"># placa: string</text>
+  <text x="538" y="1063.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b"># habilitacionREPS: string</text>
+  <text x="538" y="1077" font-family="Consolas, monospace" font-size="10" fill="#1e293b"># estadoOperativo: EstadoAmbulancia</text>
+  <text x="538" y="1090.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b"># vigenciaSoatTecno: Date</text>
+  <line x1="530" y1="1098" x2="920" y2="1098" stroke="#1d4ed8" stroke-width="1.2"/>
+  <text x="538" y="1113" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ estaAptaParaDespacho(hoy: Date): boolean</text>
+  <text x="538" y="1126.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ {abstract} calcularTarifaBase(): number</text>
+  <text x="538" y="1140" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ {abstract} validarDotacionMinima(): boolean</text>
+  <rect x="1480" y="980" width="360" height="185" fill="#ffffff" stroke="#15803d" stroke-width="1.8"/>
+  <rect x="1480" y="980" width="360" height="26" fill="#dcfce7" stroke="#15803d" stroke-width="1.8"/>
+  <text x="1660" y="998" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">Factura</text>
+  <text x="1488" y="1021" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idFactura: UUID</text>
+  <text x="1488" y="1034.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- numeroFactura: string</text>
+  <text x="1488" y="1048" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- valorTotal: number</text>
+  <text x="1488" y="1061.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estadoPago: EstadoPago</text>
+  <text x="1488" y="1075" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- diasMora: number</text>
+  <text x="1488" y="1088.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- esInmutable: boolean</text>
+  <line x1="1480" y1="1096" x2="1840" y2="1096" stroke="#15803d" stroke-width="1.2"/>
+  <text x="1488" y="1111" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ calcularMoraDiaria(corte: Date): number</text>
+  <text x="1488" y="1124.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ emitirNotaAjuste(tipo: string, mot: string): void</text>
+  <rect x="1020" y="980" width="360" height="175" fill="#ffffff" stroke="#c2410c" stroke-width="1.8"/>
+  <rect x="1020" y="980" width="360" height="26" fill="#ffedd5" stroke="#c2410c" stroke-width="1.8"/>
+  <text x="1200" y="998" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">NovedadOperativa</text>
+  <text x="1028" y="1021" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- idNovedad: UUID</text>
+  <text x="1028" y="1034.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- tipoNovedad: string</text>
+  <text x="1028" y="1048" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- prioridad: PrioridadNovedad</text>
+  <text x="1028" y="1061.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- estado: EstadoNovedad</text>
+  <text x="1028" y="1075" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- fechaReporte: Date</text>
+  <line x1="1020" y1="1082.5" x2="1380" y2="1082.5" stroke="#c2410c" stroke-width="1.2"/>
+  <text x="1028" y="1097.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ escalarPrioridad(p: PrioridadNovedad): void</text>
+  <text x="1028" y="1111" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ cerrarConResolucion(res: string): void</text>
+  <rect x="340" y="1255" width="340" height="145" fill="#ffffff" stroke="#0369a1" stroke-width="1.8"/>
+  <rect x="340" y="1255" width="340" height="26" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.8"/>
+  <text x="510" y="1273" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">AmbulanciaTAB</text>
+  <text x="348" y="1296" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- tieneKitInmovilizacion: boolean</text>
+  <text x="348" y="1309.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- presionOxigenoBar: number</text>
+  <line x1="340" y1="1317" x2="680" y2="1317" stroke="#0369a1" stroke-width="1.2"/>
+  <text x="348" y="1332" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ calcularTarifaBase(): number</text>
+  <text x="348" y="1345.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ validarDotacionMinima(): boolean</text>
+  <rect x="760" y="1255" width="360" height="155" fill="#ffffff" stroke="#0369a1" stroke-width="1.8"/>
+  <rect x="760" y="1255" width="360" height="26" fill="#e0f2fe" stroke="#0369a1" stroke-width="1.8"/>
+  <text x="940" y="1273" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a">AmbulanciaTAM</text>
+  <text x="768" y="1296" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- tieneDesfibriladorBifasico: boolean</text>
+  <text x="768" y="1309.5" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- tieneVentiladorMecanico: boolean</text>
+  <text x="768" y="1323" font-family="Consolas, monospace" font-size="10" fill="#1e293b">- requiereMedicoReTHUS: boolean</text>
+  <line x1="760" y1="1330.5" x2="1120" y2="1330.5" stroke="#0369a1" stroke-width="1.2"/>
+  <text x="768" y="1345.5" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ calcularTarifaBase(): number</text>
+  <text x="768" y="1359" font-family="Consolas, monospace" font-size="10" fill="#0f766e">+ validarDotacionMinima(): boolean</text>
+  <polyline points="225,390 225,270" fill="none" stroke="#0369a1" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="199" y="313" width="52" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="225" y="323" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">radica</text>
+  <rect x="223" y="366" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="237" y="375" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..1</text>
+  <rect x="223" y="277" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="237" y="286" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="720,175 790,175" fill="none" stroke="#1d4ed8" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="729" y="158" width="52" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="755" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">asigna</text>
+  <rect x="722" y="159" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="736" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="758" y="159" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="772" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="1120,175 1190,175" fill="none" stroke="#b45309" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="1127" y="158" width="56" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1155" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">registra</text>
+  <rect x="1122" y="159" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1136" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1158" y="159" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1172" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="1610,175 1520,175" fill="none" stroke="#6d28d9" stroke-width="1.7" stroke-dasharray="6,4" marker-end="url(#openArrow)"/>
+  <rect x="1528" y="158" width="74" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1565" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">usa auditor</text>
+  <rect x="1580" y="159" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1594" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1524" y="159" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1538" y="168" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1..*</text>
+  <polyline points="955,280 955,390" fill="none" stroke="#15803d" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="929" y="318" width="52" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="955" y="328" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">vincula</text>
+  <rect x="953" y="286" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="967" y="295" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="953" y="365" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="967" y="374" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..1</text>
+  <polyline points="235,575 235,670" fill="none" stroke="#b91c1c" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="209" y="605.5" width="52" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="235" y="615.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">origina</text>
+  <rect x="233" y="581" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="247" y="590" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="233" y="645" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="247" y="654" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="410,765 520,765" fill="none" stroke="#b91c1c" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="439" y="748" width="52" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="465" y="758" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">genera</text>
+  <rect x="412" y="749" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="426" y="758" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="488" y="749" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="502" y="758" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..1</text>
+  <polyline points="860,580 860,660" fill="none" stroke="#15803d" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="817.5" y="603" width="85" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="860" y="613" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">tripula (N:M)</text>
+  <rect x="858" y="586" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="872" y="595" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1..*</text>
+  <rect x="858" y="635" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="872" y="644" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="1730,280 1730,365" fill="none" stroke="#6d28d9" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="1675.5" y="305.5" width="109" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1730" y="315.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">delega estrategia</text>
+  <rect x="1728" y="286" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1742" y="295" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1728" y="340" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1742" y="349" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <polyline points="1442,560 1442,525 1620,525 1620,490" fill="none" stroke="#a21caf" stroke-width="1.7" stroke-dasharray="6,4" marker-end="url(#hollowTriangle)"/>
+  <rect x="1497" y="508" width="68" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1531" y="518" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">implements</text>
+  <polyline points="1885,560 1885,525 1790,525 1790,490" fill="none" stroke="#a21caf" stroke-width="1.7" stroke-dasharray="6,4" marker-end="url(#hollowTriangle)"/>
+  <rect x="1803.5" y="508" width="68" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1837.5" y="518" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">implements</text>
+  <polyline points="1610,255 1555,255 1555,325 1185,325 1185,765 930,765" fill="none" stroke="#6d28d9" stroke-width="1.7" stroke-dasharray="6,4" marker-end="url(#openArrow)"/>
+  <rect x="1295.5" y="308" width="149" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1370" y="318" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">orquesta cierre/despacho</text>
+  <rect x="1580" y="239" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1594" y="248" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="934" y="749" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="948" y="758" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="2060,185 2105,185 2105,1070 1840,1070" fill="none" stroke="#6d28d9" stroke-width="1.7" stroke-dasharray="6,4" marker-end="url(#openArrow)"/>
+  <rect x="2062.5" y="610.5" width="85" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="2105" y="620.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">emite factura</text>
+  <rect x="2062" y="169" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="2076" y="178" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1844" y="1054" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1858" y="1063" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="580,875 580,925 235,925 235,980" fill="none" stroke="#a16207" stroke-width="1.7" marker-start="url(#filledDiamond)" marker-end="url(#openArrow)"/>
+  <rect x="381.5" y="908" width="52" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="407.5" y="918" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">compone</text>
+  <rect x="578" y="881" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="592" y="890" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="233" y="955" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="247" y="964" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1..*</text>
+  <polyline points="725,970 725,875" fill="none" stroke="#1d4ed8" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="688" y="905.5" width="74" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="725" y="915.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">atiende con</text>
+  <rect x="723" y="946" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="737" y="955" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="723" y="882" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="737" y="891" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="870,875 870,925 1120,925 1120,980" fill="none" stroke="#c2410c" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="946.5" y="908" width="97" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="995" y="918" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">reporta novedad</text>
+  <rect x="868" y="881" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="882" y="890" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..1</text>
+  <rect x="1118" y="955" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1132" y="964" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..*</text>
+  <polyline points="930,835 1660,835 1660,980" fill="none" stroke="#15803d" stroke-width="1.7" marker-end="url(#openArrow)"/>
+  <rect x="1626" y="890.5" width="68" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="1660" y="900.5" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">liquida en</text>
+  <rect x="932" y="819" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="946" y="828" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">1</text>
+  <rect x="1658" y="955" width="28" height="13" fill="#ffffff" fill-opacity="0.9"/>
+  <text x="1672" y="964" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" font-weight="bold" fill="#0f172a">0..1</text>
+  <polyline points="510,1255 510,1215 680,1215 680,1165" fill="none" stroke="#1d4ed8" stroke-width="1.7" marker-end="url(#hollowTriangle)"/>
+  <rect x="558" y="1198" width="74" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="595" y="1208" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">es un (TAB)</text>
+  <polyline points="940,1255 940,1215 770,1215 770,1165" fill="none" stroke="#1d4ed8" stroke-width="1.7" marker-end="url(#hollowTriangle)"/>
+  <rect x="818" y="1198" width="74" height="15" rx="3" fill="#ffffff" fill-opacity="0.92"/>
+  <text x="855" y="1208" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#1e293b">es un (TAM)</text>
+</svg>

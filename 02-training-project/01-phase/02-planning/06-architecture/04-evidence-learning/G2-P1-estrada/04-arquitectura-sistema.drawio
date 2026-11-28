@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2026-11-27T22:20:00Z" agent="Antigravity" version="24.7.17">
+  <diagram id="d_04-arquitectura-sistema" name="04-arquitectura-sistema">
+    <mxGraphModel dx="1600" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="820" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <mxCell id="hdr" value="SISTEMA GESTOR DE AMBULANCIAS (SGA) — A4 ARQUITECTURA EN 4 CAPAS ESTRICTAS
+Evidencia G2-P1 · RAP 593103 (Criterio 4) · Aprendiz: MAET211 (Carpeta: G2-P1-estrada)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#0f172a;fontColor=#ffffff;strokeColor=#0f172a;fontStyle=1;fontSize=14;" vertex="1" parent="1"><mxGeometry x="30" y="16" width="1140" height="48" as="geometry"/></mxCell>
+        <mxCell id="l1" value="&lt;b&gt;CAPA 1 · PRESENTACIÓN (Cliente SPA Web / Tabletas en Campo)&lt;/b&gt;
+Componentes UI: Tablero Triage &amp; Flota en Tiempo Real (React / Vue), Modal Despacho Manual (RN-007), Cierre REPS
+Regla de Aislamiento: Cero acceso directo a base de datos. Consume exclusivamente HTTPS REST + WebSockets." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#eff6ff;strokeColor=#1d4ed8;fontSize=11;" vertex="1" parent="1"><mxGeometry x="80" y="95" width="820" height="115" as="geometry"/></mxCell>
+        <mxCell id="l2" value="&lt;b&gt;CAPA 2 · APLICACIÓN Y COMUNICACIÓN (API Gateway Express + Socket.IO + Seguridad RBAC)&lt;/b&gt;
+Responsabilidad: Validación JWT (RNF-002), Middleware RBAC por 5 perfiles (RF-005), sanitización OWASP (RNF-006).
+Delega peticiones únicamente hacia Capa 3 mediante DTOs tipados; emite actualizaciones en tiempo real por WebSockets." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#f0fdf4;strokeColor=#15803d;fontSize=11;" vertex="1" parent="1"><mxGeometry x="80" y="275" width="820" height="115" as="geometry"/></mxCell>
+        <mxCell id="l3" value="&lt;b&gt;CAPA 3 · DOMINIO Y SERVICIOS (Lógica de Negocio OOP + Patrones GoF)&lt;/b&gt;
+Núcleo: FachadaEmergenciaSGA (Facade), IEstrategiaAsignacion (Strategy &lt;= 2 s), ServicioAsistencial, Factura (RN-014).
+Cumplimiento: Reglas RN-001 a RN-018 desacopladas de SQL y de presentación; invoca Capa 4 vía interfaces IRepositorio*." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#faf5ff;strokeColor=#7e22ce;fontSize=11;" vertex="1" parent="1"><mxGeometry x="80" y="455" width="820" height="125" as="geometry"/></mxCell>
+        <mxCell id="l4a" value="&lt;b&gt;CAPA 4a · PERSISTENCIA RELACIONAL (PostgreSQL 18)&lt;/b&gt;
+Repositorios ACID con Pool SSL (TCP 5432).
+16 tablas normalizadas en 3FN + auditoría JSONB 5 años." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#fff7ed;strokeColor=#c2410c;fontSize=11;" vertex="1" parent="1"><mxGeometry x="80" y="650" width="390" height="120" as="geometry"/></mxCell>
+        <mxCell id="l4b" value="&lt;b&gt;CAPA 4b · WORKER CRON Y MENSAJERÍA (SMTP TLS)&lt;/b&gt;
+Jobs programados: alertas REPS/SOAT (RN-003), mora día 1/30.
+Notificaciones asíncronas SMTP STARTTLS (puerto 587)." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#fefce8;strokeColor=#a16207;fontSize=11;" vertex="1" parent="1"><mxGeometry x="510" y="650" width="390" height="120" as="geometry"/></mxCell>
+        <mxCell id="note_arq" value="&lt;b&gt;POLÍTICA DE CAPAS Y RNF&lt;/b&gt;
+---
+1. Flujo estricto top-down:
+   Cero capas saltadas.
+---
+2. RNF-009 (&lt;= 2 s):
+   Strategy + índices DB.
+---
+3. RNF-001 / RNF-002:
+   TLS 1.3 + bcrypt/Argon2
+   + RBAC en Capa 2.
+---
+4. RNF-013 (97 % 24/7):
+   Contenedores Docker +
+   Grafana/Prometheus.
+---
+5. RNF-028 / RNF-029:
+   Auditoría append-only
+   + backup 30 días." style="rounded=1;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingLeft=8;spacingRight=8;spacingTop=6;fillColor=#f1f5f9;strokeColor=#475569;fontSize=11;" vertex="1" parent="1"><mxGeometry x="940" y="95" width="220" height="675" as="geometry"/></mxCell>
+        <mxCell id="a_1_2" value="HTTPS / WSS (TCP 443 · JSON)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#1d4ed8;strokeWidth=1.6;endArrow=open;endFill=0;dashed=0;startArrow=none;startFill=0;" edge="1" parent="1" source="l1" target="l2"><mxGeometry relative="1" as="geometry"><mxPoint x="490" y="210" as="sourcePoint"/><mxPoint x="490" y="275" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="a_2_3" value="Llamadas en memoria (Contratos TS)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#15803d;strokeWidth=1.6;endArrow=open;endFill=0;dashed=0;startArrow=none;startFill=0;" edge="1" parent="1" source="l2" target="l3"><mxGeometry relative="1" as="geometry"><mxPoint x="490" y="390" as="sourcePoint"/><mxPoint x="490" y="455" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="a_3_4a" value="IRepositorioDatos · SQL Parametrizado (TCP 5432)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.2378;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#c2410c;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="l3" target="l4a"><mxGeometry relative="1" as="geometry"><mxPoint x="275" y="580" as="sourcePoint"/><mxPoint x="275" y="650" as="targetPoint"/></mxGeometry></mxCell>
+        <mxCell id="a_3_4b" value="INotificador / CronJobs (SMTP TLS 587)" style="edgeStyle=orthogonalEdgeStyle;html=1;rounded=0;exitX=0.7622;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#a16207;strokeWidth=1.6;endArrow=open;endFill=0;dashed=1;startArrow=none;startFill=0;" edge="1" parent="1" source="l3" target="l4b"><mxGeometry relative="1" as="geometry"><mxPoint x="705" y="580" as="sourcePoint"/><mxPoint x="705" y="650" as="targetPoint"/></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
